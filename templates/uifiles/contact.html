@@ -1,0 +1,165 @@
+{% extends 'uifiles/base.html' %}
+{% load static %}
+{% block content %}
+
+<div id="scrollsmoother-container">
+    <div class="cs_height_150 cs_height_lg_120"></div>
+
+    <section>
+        <div class="container">
+            <div class="cs_contact_ms">
+                <div class="cs_contact">
+                    <div class="cs_contact_text">
+                        <h5 class="cs_contact_subtitle anim_text_upanddowns">
+                            Fuel your next big idea with a cup (or two) of chai or coffee at Magsmen!
+                        </h5>
+                        <!-- <h1 class="cs_contact_title anim_text_writting">
+                            Get in Touch
+                        </h1> -->
+                    </div>
+                    <!-- <div class="cs_height_80 cs_height_lg_20"></div> -->
+                    <div class="cs_from anim_div_ShowDowns">
+                        <form action="#" method="POST" id="contactform">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="cs_field_group col">
+                                    <input class="cs_input_field" type="text" id="name" placeholder="Name"
+                                        name="name" />
+                                    <label for="test1" class="cs_input_label">Name</label>
+                                </div>
+                                <div class="cs_field_group col">
+                                    <input class="cs_input_field" type="email" id="email" placeholder="Name"
+                                        name="email" />
+                                    <label for="test2" class="cs_input_label">Email</label>
+                                </div>
+                            </div>
+                            <div class="cs_height_10 cs_height_lg_20"></div>
+                            <div class="row">
+                                <div class="cs_field_group col">
+                                    <input class="cs_input_field" type="text" id="phone" placeholder="Phone"
+                                        name="phone" />
+                                    <label for="test3" class="cs_input_label">Phone</label>
+                                </div>
+                                <div class="cs_field_group col">
+                                    <input class="cs_input_field" type="text" id="subject" placeholder="Subject"
+                                        name="subject" />
+                                    <label for="test4" class="cs_input_label">Subject</label>
+                                </div>
+                            </div>
+                            <div class="cs_height_100 cs_height_lg_60"></div>
+                            <div class="cs_field_group">
+                                <input class="cs_input_field" type="text" id="message" placeholder="Message"
+                                    name="message" />
+                                <label for="test5" class="cs_input_label">Message</label>
+                            </div>
+                            <div class="cs_height_60 cs_height_lg_60"></div>
+                            <button type="button" id="sendbtn" class="cs_btn cs_style_1 cs_type_btn">
+                                <span>Send Now</span>
+                                <svg width="19" height="13" viewBox="0 0 19 13" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18.5303 7.03033C18.8232 6.73744 18.8232 6.26256 18.5303 5.96967L13.7574 1.1967C13.4645 0.903806 12.9896 0.903806 12.6967 1.1967C12.4038 1.48959 12.4038 1.96447 12.6967 2.25736L16.9393 6.5L12.6967 10.7426C12.4038 11.0355 12.4038 11.5104 12.6967 11.8033C12.9896 12.0962 13.4645 12.0962 13.7574 11.8033L18.5303 7.03033ZM0 7.25H18V5.75H0V7.25Z"
+                                        fill="currentColor"></path>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="cs_contact_section_2 anim_div_ShowRightSide">
+                    <div class="cs_google_map cs_bg" data-src="assets/img/map_img.png">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96652.27317354927!2d-74.33557928194516!3d40.79756494697628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3a82f1352d0dd%3A0x81d4f72c4435aab5!2sTroy+Meadows+Wetlands!5e0!3m2!1sen!2sbd!4v1563075599994!5m2!1sen!2sbd"
+                            allowfullscreen=""></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-----start address ---->
+<div class="cs_height_50 cs_height_lg_50"></div>
+<section class="contact-sec pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="contact-details contact-wrapper">
+                <div class="col-md-4">
+                    <div class="cs_icon">
+                        <a href="https://www.google.com/maps" class="cs_icon_style">
+                            <i>
+                                <svg width="14" height="19" viewBox="0 0 14 19" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 0.0195312C3.14027 0.0195312 0 3.01027 0 6.68621C0 7.78973 0.289693 8.88387 0.840408 9.85434L6.6172 17.8047C6.69411 17.9373 6.84065 18.0195 7 18.0195C7.15935 18.0195 7.30589 17.9373 7.3828 17.8047L13.1617
+                          9.85105C13.7103 8.88387 14 7.78969 14 6.68617C14 3.01027 10.8597 0.0195312 7 0.0195312ZM7 10.0195C5.07014 10.0195 3.50002 8.52418 3.50002 6.68621C3.50002 4.84824 5.07014 3.35289 7 3.35289C8.92986 3.35289 10.5 4.84824 10.5 6.68621C10.5
+                          8.52418 8.92986 10.0195 7 10.0195Z" fill="white"></path>
+                                </svg>
+                            </i>
+                        </a>
+                        <div class="cs_icon_text">
+                            <h6 class="cs_icon_title">Head Office</h6>
+                            <p class="cs_icon_subtitle contact-locations">208,212 Ap Cotton Association Building,
+                                Opp Avantra Jewels, Lakshmipuram Main Road,
+                                Guntur, Andhra Pradesh, 522007.
+                            </p>
+                            <a href="tel:+91 90449 10449" style="border-bottom: 1px solid black;">+91 90449 10449</a><br>
+                            <a href="mailto:connect@magsmen.in" style="text-transform:lowercase;border-bottom: 1px solid black;">CONNECT@MAGSMEN.IN</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="cs_icon">
+                        <a href="https://www.google.com/maps" class="cs_icon_style">
+                            <i>
+                                <svg width="14" height="19" viewBox="0 0 14 19" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 0.0195312C3.14027 0.0195312 0 3.01027 0 6.68621C0 7.78973 0.289693 8.88387 0.840408 9.85434L6.6172 17.8047C6.69411 17.9373 6.84065 18.0195 7 18.0195C7.15935 18.0195 7.30589 17.9373 7.3828 17.8047L13.1617
+                          9.85105C13.7103 8.88387 14 7.78969 14 6.68617C14 3.01027 10.8597 0.0195312 7 0.0195312ZM7 10.0195C5.07014 10.0195 3.50002 8.52418 3.50002 6.68621C3.50002 4.84824 5.07014 3.35289 7 3.35289C8.92986 3.35289 10.5 4.84824 10.5 6.68621C10.5
+                          8.52418 8.92986 10.0195 7 10.0195Z" fill="white"></path>
+                                </svg>
+                            </i>
+                        </a>
+                        <div class="cs_icon_text">
+                            <h6 class="cs_icon_title">Corporate Office</h6>
+                            <p class="cs_icon_subtitle contact-locations">4th Floor 402, Ayyappa Society,
+                                Plot No:1303, Madhapur,
+                                Hyderabad, Telangana 500081.
+                            </p>
+                            <a href="tel:+91 90449 10449" style="border-bottom: 1px solid black;">+91 90449 10449</a><br>
+                            <a href="mailto:hydops@magsmen.in" style="text-transform:lowercase;border-bottom: 1px solid black;">hydops@magsmen.in</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="cs_icon">
+                        <a href="https://www.google.com/maps" class="cs_icon_style">
+                            <i>
+                                <svg width="14" height="19" viewBox="0 0 14 19" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 0.0195312C3.14027 0.0195312 0 3.01027 0 6.68621C0 7.78973 0.289693 8.88387 0.840408 9.85434L6.6172 17.8047C6.69411 17.9373 6.84065 18.0195 7 18.0195C7.15935 18.0195 7.30589 17.9373 7.3828 17.8047L13.1617
+                          9.85105C13.7103 8.88387 14 7.78969 14 6.68617C14 3.01027 10.8597 0.0195312 7 0.0195312ZM7 10.0195C5.07014 10.0195 3.50002 8.52418 3.50002 6.68621C3.50002 4.84824 5.07014 3.35289 7 3.35289C8.92986 3.35289 10.5 4.84824 10.5 6.68621C10.5
+                          8.52418 8.92986 10.0195 7 10.0195Z" fill="white"></path>
+                                </svg>
+                            </i>
+                        </a>
+                        <div class="cs_icon_text">
+                            <h6 class="cs_icon_title">Australia Office</h6>
+                            <p class="cs_icon_subtitle contact-locations">1/9, Fifth Avenue, Rowville, VIC, 3178.
+                            </p>
+                            <a href="tel:+10422554889" style="border-bottom: 1px solid black;">+10422554889</a><br>
+                            <a href="mailto:hconnect@magsmen.com.au" style="text-transform:lowercase;border-bottom: 1px solid black;">connect@magsmen.com.au</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!---End Address---->
+
+    <div class="cs_height_150 cs_height_lg_60"></div>
+
+
+{% endblock %}

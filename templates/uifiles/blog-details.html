@@ -1,0 +1,83 @@
+{% extends 'uifiles/base.html' %}
+{% load static %}
+{% block content %}
+
+
+{% if blogpost %}
+<div id="scrollsmoother-container">
+    <div class="cs_height_65 cs_height_lg_120"></div>
+    <!-- Start Bolg Section Title -->
+    <div class="container">
+        <div class="cs_section_heading cs_style_1">
+            <div class="cs_section_heading_text mt-5">
+                <h2 class="cs_section_title anim_word_writting">
+                   {{ blogpost.Title}}
+                </h2>
+            </div>
+        </div>
+    </div>
+    <!-- ENd Bolg Section Title -->
+    <!-- <div class="cs_height_65 cs_height_lg_40"></div> -->
+
+    <!-- Start show service  client  date -->
+    <section>
+        <div class="container">
+            <div class="anim_div_ShowZoom">
+                <div class="cs_portfolio_details pt-2">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="cs_text_style_1">
+                                    <p class="cs_headed_text">Category Name</p>
+                                    <h6 class="cs_title_text">{{blogpost.Category}}</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="cs_text_style_1">
+                                    <p class="cs_headed_text">Posted By</p>
+                                    <h6 class="cs_title_text">{{blogpost.CreatedName}}</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="cs_text_style_1">
+                                    <p class="cs_headed_text">Published Date</p>
+                                    <h6 class="cs_title_text">{{blogpost.Create_at}}</h6>
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-4">
+                                <div class="cs_text_style_1">
+                                    <p class="cs_headed_text">Viewes</p>
+                                    <h6 class="cs_title_text">2 Min Read</h6>
+                                </div>
+                            </div> -->
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End show service  client  date -->
+    <!-- <div class="cs_height_65 cs_height_lg_60"></div> -->
+
+    <!-- Start portfolio-details img show -->
+    <section>
+        <div class="container">
+            <div class="cs_portfolio_details">
+                <div class="reveal">
+                    <img src="{{blogpost.Image1.url}}" alt="blog_detals_banner" />
+                </div>
+                <!-- <div class="cs_height_100 cs_height_lg_60"></div> -->
+                <div class="cs_img_show_text cs_text_style_1 anim_div_ShowDowns">
+                    <!-- <h4 class="cs_heading_text anim_heading_title">
+                        How a Creative Agency Can Help?
+                    </h4> -->
+                    <p class="cs_text_style_body">
+                        {{blogpost.Body | safe }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    <!-- End portfolio-details img show -->
+
+
+{% endblock %}
