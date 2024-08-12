@@ -1795,8 +1795,8 @@ label {
 }
 
 .cs_section_heading.cs_style_1 .cs_section_title {
-    font-size: 30px;
-    font-weight: 900;
+    font-size: 25px;
+    font-weight: 700;
     margin-bottom: 0;
 }
 
@@ -2157,7 +2157,7 @@ label {
     display: block;
     border: none;
     width: 100%;
-    filter: grayscale(100%) invert(90%) contrast(120%);
+    /* filter: grayscale(100%) invert(90%) contrast(120%); */
 }
 
 .cs_google_map.cs_type1 {
@@ -2404,8 +2404,8 @@ label {
 }
 
 .cs_field_group .cs_input_field:focus {
-    -o-border-image: linear-gradient(to right, #b42f2f, #141414);
-    border-image: linear-gradient(to right, #b42f2f, #141414);
+    -o-border-image: linear-gradient(to right, #141414, #141414);
+    border-image: linear-gradient(to right, #141414, #141414);
     border-image-slice: 1;
 }
 
@@ -2414,7 +2414,7 @@ label {
     position: absolute;
     top: 0;
     font-size: 18px;
-    color: #ff6b00;
+    color: #141414;
 }
 
 .cs_field_group .cs_input_label {
@@ -2972,7 +2972,7 @@ label {
 }
 
 .cs_swiper_navigation_wrap>*:hover {
-    color: #ff6b00;
+    color: #000;
 }
 
 @media screen and (max-width: 991px) {
@@ -4096,18 +4096,18 @@ label {
 .cs_footer_social {
     display: grid;
     grid-gap: 15px 30px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
     color: #fff;
 }
 
 .cs_footer_social a {
     border: 1px solid #454545;
-    padding: 10px 15px;
-    min-height: 70px;
+    padding: 5px 50px;
+    min-height: 40px;
 }
 
 .cs_footer_social a:hover {
-    border-color: #ff6b00;
+    border-color: #DBBD7D ;
 }
 
 .cs_footer_contact_list {
@@ -4122,7 +4122,7 @@ label {
     padding-left: 30px;
     position: relative;
     margin: 10px 20px;
-    max-width: 200px;
+    /* max-width: 200px; */
 }
 
 .cs_footer_contact_list li i {
@@ -5084,7 +5084,7 @@ label {
         padding-left: 0%;
     }
     .cs_hero.cs_style1 .cs_hero_bg {
-        opacity: 0.2;
+        /* opacity: 0.2; */
         width: 100%;
     }
     .cs_hero.cs_style2 {
@@ -5837,7 +5837,7 @@ label {
 .cs_team_section .cs_team_img .cs_portfolio_overlay {
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg, rgba(10, 10, 10, 0.774), rgba(0, 0, 0, 0));
+    background: linear-gradient(0deg, rgba(10, 10, 10, 0.774), rgb(0 0 0 / 46%));
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -6970,7 +6970,7 @@ label {
 }
 
 .cs_newsletter.cs_style_1 .cs_newsletter_btn:hover {
-    color: var(--accent-color);
+    color: var(--common-color-white);
 }
 
 
@@ -7621,12 +7621,13 @@ label {
     transition-delay: 0.7s;
     color: #fff;
 }
-.surya-video-sec video{
+.video-main-sec video{
     width: 100%;
     height: 100%;
     margin: auto !important;
     overflow: hidden !important;
 }
+
 
 .about-img-parallax video{
     width: 100%;
@@ -7699,6 +7700,121 @@ label {
 .serv-list li a{
     font-size: 25px !important;
 }
+.privacy-policy-sec{
+    margin-top: 130px !important;
+    margin-bottom: 50px !important;
+}
+.faqs-sec{
+    margin-top: 130px !important;
+    margin-bottom: 50px !important;
+}
+.cs-service-faqs-sec{
+    flex-basis: 100% !important;
+}
+.faq-sec{
+    padding: 20px 0px !important;
+}
+.second-faq-sec{
+    margin-top: 0px !important;
+    margin-bottom: 40px !important;
+}
+.footer-nav-list a:hover{
+    color: #fff !important;
+}
+.media-blog{
+    margin-bottom: 45px !important;
+}
+.cs_newsletter_input:focus{
+    border-color: #fff !important;
+}
+.cs_scrollup:hover{
+    color: #fff !important;
+    background-color: #000 !important;
+}
+.cs_creative_protfolio.cs_card_style_change .cs_card.cs_style_1.cs_color_1:hover>.cs_card_link_wrap .cs-link-card{
+    color: #000 !important;
+}
+
+.card-wrapper{
+   display: flex !important;
+   justify-content: space-around !important;
+   align-items: center !important;
+}
+
+.card-header{
+    overflow:hidden !important;
+}
+.service-view-more::before{
+    content: "";
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #DBBD7D !important;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 100px;
+    transition: all 0.6s ease-in-out;
+    z-index: -11 !important;
+}
+.cs_card_1_list .cs_card.cs_style_1:not(:last-child) .cs_card_right {
+    border-bottom: 1px solid #c1c1c1;
+    margin-left: 50px;
+}
+
+.brand-creation-item{
+    margin-left: 50px !important;
+}
+.austalia-title{
+    width: 100%;
+}
+.card{
+    border: 0px solid !important;
+}
+.career-card{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    margin: auto !important;
+    text-align: justify;
+    box-shadow: 0px 0px 10px #aaa;
+    border-radius: 10px !important;
+}
+
+.location{
+    margin-right: 25px !important;
+}
+.location i{
+    margin-right: 10px !important;
+}
+
+.post-date i{
+    margin-right: 10px !important;
+}
+
+.career-title{
+    font-size: 40px !important;
+}
+.about-text{
+    text-align: justify !important;
+}
+.blog-details-info-title{
+    font-size:35px !important;
+    margin-bottom: 25px !important;
+    margin-top: 50px !important;
+}
+.blog-title h2{
+    font-size: 50px !important;
+}
+.career-card{
+    margin-bottom: 35px !important;
+}
+
+.field-group{
+    flex: 0 0 auto;
+    width: 90%;
+}
 
 
 @media(min-width:300px) and (max-width:480px){
@@ -7716,8 +7832,8 @@ label {
         font-size: 40px !important;
     }
     .cs_section_heading.cs_style_1 .cs_section_title{
-        font-size: 20px !important;
-        text-align: justify !important;
+        /* font-size: 25px !important; */
+        /* text-align: justify !important; */
         margin-top: 20px !important;
     }
     .services-content p {
@@ -7769,5 +7885,166 @@ label {
     .footer-content{
         padding-bottom: 30px !important;
     }
+    .slide-img-height{
+        height: 35vh !important;
+    }
+    .cs_hero.cs_style1{
+        min-height: auto !important;
+        padding: 0px 0px !important;
+    }
+    .cs_slider{
+        margin-top: 50px !important;
+    }
+    .about-slide-sec{
+        display: block !important;
+    }
+    .media-blog{
+        margin-bottom: 45px !important;
+    }
+    .blog-sec{
+        margin-top: 40px !important;
+    }
+    .funfact_cs{
+        margin-bottom: 30px !important;
+    }
+    .cs_newsletter_input:focus{
+        border-color: #fff !important;
+    }
+    .cs_scrollup:hover{
+        color: #fff !important;
+        background-color: #000 !important;
+    }
+    .social-media-link{
+        display: block !important;
+
+        
+    }
+
+    .social-media-link a{
+        border-radius: 10px !important;
+        width: 200px !important;
+        margin: auto !important;
+        margin-bottom: 35px !important;
+    }
+    .career-card {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex-wrap: wrap !important;
+        margin: auto !important;
+        text-align: justify;
+        border-radius: 10px !important;
+        width: 90%;
+        
+    }
+    .location-date-info{
+        display: block !important;
+    }
+    .swiper-slide{
+        display: block !important;
+    }
+
+    .cs_card_1_list .cs_card.cs_style_1:not(:last-child) .cs_card_right {
+        border-bottom: 1px solid #c1c1c1;
+        margin-left: 0px !important;
+    }
+    .cs_card.cs_style_1 .cs_card_left{
+        flex: none;
+        width: 100%;
+        padding-right: 25px;
+        margin: auto !important;
+        margin-top: 35px !important;
+    }
+
+    .brand-creation-item{
+        margin-left: 0px !important;
+
+    }
+    .head-office{
+        margin-left: 20px !important;
+        margin-top: 15px !important;
+    }
+    .corporate-office{
+        margin-left: 20px !important;
+        margin-top: 15px !important;
+    }
+    .austalia-title{
+        margin-left: 20px !important;
+        margin-top: 15px !important;
+    }
+    .cs_footer_nav>li {
+        margin: 5px 10px !important;
+    }
+    .detail_service{
+        display: block !important;
+        margin-bottom: 50px !important;
+        text-align: justify !important;
+    }
+    .hero__about-video video{
+        width: 100% !important;
+    }
+    .service-second{
+        display: block !important;
+    }
+    .py-4 {
+        padding-top: 0rem !important;
+        padding-bottom: 0rem !important;
+    }
+    .about-text{
+        margin-top: 20px !important;
+        text-align: justify !important;
+    }
+    .about-text li{
+        margin-bottom: 20px !important;
+        font-size: 17px !important;
+    }
+    .corporate-text-points{
+        margin-top: 15px !important;
+    }
+    .cs_btn.cs_style_1{
+        padding-left: 0px;
+    }
+    .works-img{
+        margin-bottom: 20px !important;
+    }
+    .works-main-title{
+        font-size: 40px !important;
+    }
+    .blog-details-info-title{
+        font-size: 25px !important;
+        margin-top: -10px !important;
+    }
+    .cs_portfolio_details .cs_img_show_text.cs_text_style_1{
+        text-align: justify !important;
+    }
+    .career-card{
+        margin-bottom: 35px !important;
+    }
+    .career-btn{
+        margin-bottom: 15px !important;
+    }
+    .media_blog-img img{
+        width: 100%;
+        height: auto !important;
+    }
+    .footer-about-sec{
+        display: grid;
+        grid-gap: 15px 30px;
+        grid-template-columns: repeat(2, 1fr);
+        color: #fff;
+        /* display: flex !important; */
+        /* justify-content: center !important; */
+        /* align-items: center !important; */
+        text-align: center;
+        display: block !important;
+        
+
+    }
+    .footer-about-sec a{
+        width: 80% !important;
+        margin: auto !important;
+        margin-bottom: 25px !important;
+    }
+
 }
 

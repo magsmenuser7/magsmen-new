@@ -11,223 +11,61 @@
             <!-- start heading -->
             <div class="cs_section_heading cs_style_1">
                 <div class="cs_section_heading_text">
-                    <h2 class="cs_section_title anim_heading_title">
+                    <h2 class="cs_section_title anim_heading_title career-title">
                        We're Hiring
                     </h2>
                 </div>
             </div>
             <!-- end heading -->
             <div class="cs_height_100 cs_height_lg_50"></div>
-            <div class="row cs_cr_pr cs_row_gap_150">
-                <div class="col-md-6 mb-4">
-                    <div class="h-100">
-                        <img src="{% static 'assets/img/cp_services.png' %}" class="w-100 h-100 anim_div_ShowLeftSide"
-                            alt="cp_services" />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="anim_div_ShowRightSide">
-                        {% for item in career_job %}
-                        <div class="cs_creative_protfolio cs_card_style_change">
-                            <div class="cs_card cs_style_1 cs_color_1">
-                                <div class="cs_card_right">
-                                    <div class="cs_card_right_in">
-                                        <h2 class="cs_card_title">
-                                            <a href="/applyform/" class="">
-                                                <span>{{item.ExpertiseId}} /</span> {{item.ExpertiseName}}</a>
-                                        </h2>
-                                    </div>
-                                </div>
-                                <div class="cs_card_link_wrap">
-                                    <a href="/applyform/" class="cs_card_link">
-                                        <span>
-                                            <svg width="20" height="20" viewBox="0 0 30 30" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M0.340728 29.2063C0.722095 29.5875 1.34043 29.5875 1.72188 29.2063L29.0656 1.8625C29.4469 1.48106 29.4469 0.862698 29.0656 0.481253C28.6842 0.100002 28.0658 0.100002 27.6844 0.481253L0.340728 27.825C-0.0406592 28.2064 -0.0406592 28.8248 0.340728 29.2063Z"
-                                                    fill="currentColor" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M28.375 26.5625C28.9143 26.5625 29.3516 26.1252 29.3516 25.5859V1.17188C29.3516 0.632618 28.9143 0.195312 28.375 0.195312H3.96094C3.42168 0.195312 2.98438 0.632618 2.98438 1.17188C2.98438 1.71113 3.42168 2.14844 3.96094 2.14844H27.3984V25.5859C27.3984 26.1252 27.8357 26.5625 28.375 26.5625Z"
-                                                    fill="currentColor" />
-                                            </svg>
-                                        </span>
-                                        <span>
-                                            <svg width="20" height="20" viewBox="0 0 30 30" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M0.340728 29.2063C0.722095 29.5875 1.34043 29.5875 1.72188 29.2063L29.0656 1.8625C29.4469 1.48106 29.4469 0.862698 29.0656 0.481253C28.6842 0.100002 28.0658 0.100002 27.6844 0.481253L0.340728 27.825C-0.0406592 28.2064 -0.0406592 28.8248 0.340728 29.2063Z"
-                                                    fill="currentColor" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M28.375 26.5625C28.9143 26.5625 29.3516 26.1252 29.3516 25.5859V1.17188C29.3516 0.632618 28.9143 0.195312 28.375 0.195312H3.96094C3.42168 0.195312 2.98438 0.632618 2.98438 1.17188C2.98438 1.71113 3.42168 2.14844 3.96094 2.14844H27.3984V25.5859C27.3984 26.1252 27.8357 26.5625 28.375 26.5625Z"
-                                                    fill="currentColor" />
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="cs_hr_design"></div>
-                        </div>
-                        {% endfor %}
-                        <!-- <div class="cs_creative_protfolio cs_card_style_change">
-                            <div class="cs_card cs_style_1 cs_color_1">
-                                <div class="cs_card_right">
-                                    <div class="cs_card_right_in">
-                                        <h2 class="cs_card_title">
-                                            <a href="" class=""><span>02 /</span> Branding Design</a>
-                                        </h2>
-                                    </div>
-                                </div>
-                                <div class="cs_card_link_wrap">
-                                    <a href="#" class="cs_card_link">
-                                        <span>
-                                            <svg width="20" height="20" viewBox="0 0 30 30" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M0.340728 29.2063C0.722095 29.5875 1.34043 29.5875 1.72188 29.2063L29.0656 1.8625C29.4469 1.48106 29.4469 0.862698 29.0656 0.481253C28.6842 0.100002 28.0658 0.100002 27.6844 0.481253L0.340728 27.825C-0.0406592 28.2064 -0.0406592 28.8248 0.340728 29.2063Z"
-                                                    fill="currentColor" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M28.375 26.5625C28.9143 26.5625 29.3516 26.1252 29.3516 25.5859V1.17188C29.3516 0.632618 28.9143 0.195312 28.375 0.195312H3.96094C3.42168 0.195312 2.98438 0.632618 2.98438 1.17188C2.98438 1.71113 3.42168 2.14844 3.96094 2.14844H27.3984V25.5859C27.3984 26.1252 27.8357 26.5625 28.375 26.5625Z"
-                                                    fill="currentColor" />
-                                            </svg>
-                                        </span>
-                                        <span>
-                                            <svg width="20" height="20" viewBox="0 0 30 30" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M0.340728 29.2063C0.722095 29.5875 1.34043 29.5875 1.72188 29.2063L29.0656 1.8625C29.4469 1.48106 29.4469 0.862698 29.0656 0.481253C28.6842 0.100002 28.0658 0.100002 27.6844 0.481253L0.340728 27.825C-0.0406592 28.2064 -0.0406592 28.8248 0.340728 29.2063Z"
-                                                    fill="currentColor" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M28.375 26.5625C28.9143 26.5625 29.3516 26.1252 29.3516 25.5859V1.17188C29.3516 0.632618 28.9143 0.195312 28.375 0.195312H3.96094C3.42168 0.195312 2.98438 0.632618 2.98438 1.17188C2.98438 1.71113 3.42168 2.14844 3.96094 2.14844H27.3984V25.5859C27.3984 26.1252 27.8357 26.5625 28.375 26.5625Z"
-                                                    fill="currentColor" />
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="cs_hr_design"></div>
-                        </div>
-                        <div class="cs_creative_protfolio cs_card_style_change">
-                            <div class="cs_card cs_style_1 cs_color_1">
-                                <div class="cs_card_right">
-                                    <div class="cs_card_right_in">
-                                        <h2 class="cs_card_title">
-                                            <a href="" class=""><span>03 /</span> Marketing Asset</a>
-                                        </h2>
-                                    </div>
-                                </div>
-                                <div class="cs_card_link_wrap">
-                                    <a href="#" class="cs_card_link">
-                                        <span>
-                                            <svg width="20" height="20" viewBox="0 0 30 30" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M0.340728 29.2063C0.722095 29.5875 1.34043 29.5875 1.72188 29.2063L29.0656 1.8625C29.4469 1.48106 29.4469 0.862698 29.0656 0.481253C28.6842 0.100002 28.0658 0.100002 27.6844 0.481253L0.340728 27.825C-0.0406592 28.2064 -0.0406592 28.8248 0.340728 29.2063Z"
-                                                    fill="currentColor" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M28.375 26.5625C28.9143 26.5625 29.3516 26.1252 29.3516 25.5859V1.17188C29.3516 0.632618 28.9143 0.195312 28.375 0.195312H3.96094C3.42168 0.195312 2.98438 0.632618 2.98438 1.17188C2.98438 1.71113 3.42168 2.14844 3.96094 2.14844H27.3984V25.5859C27.3984 26.1252 27.8357 26.5625 28.375 26.5625Z"
-                                                    fill="currentColor" />
-                                            </svg>
-                                        </span>
-                                        <span>
-                                            <svg width="20" height="20" viewBox="0 0 30 30" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M0.340728 29.2063C0.722095 29.5875 1.34043 29.5875 1.72188 29.2063L29.0656 1.8625C29.4469 1.48106 29.4469 0.862698 29.0656 0.481253C28.6842 0.100002 28.0658 0.100002 27.6844 0.481253L0.340728 27.825C-0.0406592 28.2064 -0.0406592 28.8248 0.340728 29.2063Z"
-                                                    fill="currentColor" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M28.375 26.5625C28.9143 26.5625 29.3516 26.1252 29.3516 25.5859V1.17188C29.3516 0.632618 28.9143 0.195312 28.375 0.195312H3.96094C3.42168 0.195312 2.98438 0.632618 2.98438 1.17188C2.98438 1.71113 3.42168 2.14844 3.96094 2.14844H27.3984V25.5859C27.3984 26.1252 27.8357 26.5625 28.375 26.5625Z"
-                                                    fill="currentColor" />
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="cs_hr_design"></div>
-                        </div>
-                        <div class="cs_creative_protfolio cs_card_style_change">
-                            <div class="cs_card cs_style_1 cs_color_1">
-                                <div class="cs_card_right">
-                                    <div class="cs_card_right_in">
-                                        <h2 class="cs_card_title">
-                                            <a href="" class=""><span>04 /</span> Development</a>
-                                        </h2>
-                                    </div>
-                                </div>
-                                <div class="cs_card_link_wrap">
-                                    <a href="#" class="cs_card_link">
-                                        <span>
-                                            <svg width="20" height="20" viewBox="0 0 30 30" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M0.340728 29.2063C0.722095 29.5875 1.34043 29.5875 1.72188 29.2063L29.0656 1.8625C29.4469 1.48106 29.4469 0.862698 29.0656 0.481253C28.6842 0.100002 28.0658 0.100002 27.6844 0.481253L0.340728 27.825C-0.0406592 28.2064 -0.0406592 28.8248 0.340728 29.2063Z"
-                                                    fill="currentColor" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M28.375 26.5625C28.9143 26.5625 29.3516 26.1252 29.3516 25.5859V1.17188C29.3516 0.632618 28.9143 0.195312 28.375 0.195312H3.96094C3.42168 0.195312 2.98438 0.632618 2.98438 1.17188C2.98438 1.71113 3.42168 2.14844 3.96094 2.14844H27.3984V25.5859C27.3984 26.1252 27.8357 26.5625 28.375 26.5625Z"
-                                                    fill="currentColor" />
-                                            </svg>
-                                        </span>
-                                        <span>
-                                            <svg width="20" height="20" viewBox="0 0 30 30" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M0.340728 29.2063C0.722095 29.5875 1.34043 29.5875 1.72188 29.2063L29.0656 1.8625C29.4469 1.48106 29.4469 0.862698 29.0656 0.481253C28.6842 0.100002 28.0658 0.100002 27.6844 0.481253L0.340728 27.825C-0.0406592 28.2064 -0.0406592 28.8248 0.340728 29.2063Z"
-                                                    fill="currentColor" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M28.375 26.5625C28.9143 26.5625 29.3516 26.1252 29.3516 25.5859V1.17188C29.3516 0.632618 28.9143 0.195312 28.375 0.195312H3.96094C3.42168 0.195312 2.98438 0.632618 2.98438 1.17188C2.98438 1.71113 3.42168 2.14844 3.96094 2.14844H27.3984V25.5859C27.3984 26.1252 27.8357 26.5625 28.375 26.5625Z"
-                                                    fill="currentColor" />
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="cs_hr_design"></div>
-                        </div>
-                        <div class="cs_creative_protfolio cs_card_style_change">
-                            <div class="cs_card cs_style_1 cs_color_1">
-                                <div class="cs_card_right">
-                                    <div class="cs_card_right_in">
-                                        <h2 class="cs_card_title">
-                                            <a href="" class=""><span>05 /</span> Creative Art</a>
-                                        </h2>
-                                    </div>
-                                </div>
-                                <div class="cs_card_link_wrap">
-                                    <a href="#" class="cs_card_link">
-                                        <span>
-                                            <svg width="20" height="20" viewBox="0 0 30 30" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M0.340728 29.2063C0.722095 29.5875 1.34043 29.5875 1.72188 29.2063L29.0656 1.8625C29.4469 1.48106 29.4469 0.862698 29.0656 0.481253C28.6842 0.100002 28.0658 0.100002 27.6844 0.481253L0.340728 27.825C-0.0406592 28.2064 -0.0406592 28.8248 0.340728 29.2063Z"
-                                                    fill="currentColor" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M28.375 26.5625C28.9143 26.5625 29.3516 26.1252 29.3516 25.5859V1.17188C29.3516 0.632618 28.9143 0.195312 28.375 0.195312H3.96094C3.42168 0.195312 2.98438 0.632618 2.98438 1.17188C2.98438 1.71113 3.42168 2.14844 3.96094 2.14844H27.3984V25.5859C27.3984 26.1252 27.8357 26.5625 28.375 26.5625Z"
-                                                    fill="currentColor" />
-                                            </svg>
-                                        </span>
-                                        <span>
-                                            <svg width="20" height="20" viewBox="0 0 30 30" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M0.340728 29.2063C0.722095 29.5875 1.34043 29.5875 1.72188 29.2063L29.0656 1.8625C29.4469 1.48106 29.4469 0.862698 29.0656 0.481253C28.6842 0.100002 28.0658 0.100002 27.6844 0.481253L0.340728 27.825C-0.0406592 28.2064 -0.0406592 28.8248 0.340728 29.2063Z"
-                                                    fill="currentColor" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M28.375 26.5625C28.9143 26.5625 29.3516 26.1252 29.3516 25.5859V1.17188C29.3516 0.632618 28.9143 0.195312 28.375 0.195312H3.96094C3.42168 0.195312 2.98438 0.632618 2.98438 1.17188C2.98438 1.71113 3.42168 2.14844 3.96094 2.14844H27.3984V25.5859C27.3984 26.1252 27.8357 26.5625 28.375 26.5625Z"
-                                                    fill="currentColor" />
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="cs_hr_design"></div>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
     <!-- End our services -->
-    <!-- <div class="cs_height_145 cs_height_lg_60"></div> -->
 
+    <section class="career-notification">
+        <div class="container">
+            <div class="row">
+                {% for item in career_job %}
+                <div class="col-lg-10 career-card">
+                    <div class="card">
+                        <div class="card-body pb-1">
+                            <h5 class="card-body-title">{{item.ExpertiseName}}</h5>
+                            <p class="description"><b>Description :</b> {{item.Description}}</p>
+                            <div class="d-flex justify-content-between align-items-baseline location-date-info">
+                                <div class="d-flex location-date">
+                                    <p class="location"><i class="fas fa-map-marker-alt"></i>{{item.Location}}</p>
+                                    <p class="post-date"><i class="fas fa-calendar-alt"></i>{{item.CreatedAt}}</p>
+                                </div>
+                                <div class="cs_section_heading_right cs_btn_anim">
+                                    <a href="/applyform/" class="cs_btn cs_style_1 career-btn">
+                                        <span>Apply Now</span>
+                                        <svg width="19" height="13" viewBox="0 0 19 13" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M18.5303 7.03033C18.8232 6.73744 18.8232 6.26256 18.5303 5.96967L13.7574 1.1967C13.4645 0.903806 12.9896 0.903806 12.6967 1.1967C12.4038 1.48959 12.4038 1.96447 12.6967 2.25736L16.9393 6.5L12.6967 10.7426C12.4038
+                            11.0355 12.4038 11.5104 12.6967 11.8033C12.9896 12.0962 13.4645 12.0962 13.7574 11.8033L18.5303 7.03033ZM0 7.25H18V5.75H0V7.25Z"
+                                                fill="currentColor" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        
+                        </div>
+                        
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    
+
+    </section>
+
+
+
+
+
+    <!-- <div class="cs_height_145 cs_height_lg_60"></div> -->
     <!-- Start serction about your project header-->
     <section>
         <div class="container">
@@ -235,11 +73,11 @@
                 <div class="cs_section_heading cs_style_1">
                     <div class="cs_section_heading_text">
                         <h3 class="cs_section_title_3 anim_heading_title">
-                            We'd be interested in learning more about your project.
+                            We Would Love To Hear More About Your Project!.
                         </h3>
                     </div>
                     <div class="cs_section_heading_right cs_btn_anim">
-                        <a href="contact.html" class="cs_btn cs_style_1">
+                        <a href="/contact/" class="cs_btn cs_style_1">
                             <span>Contact Us</span>
                             <svg width="19" height="13" viewBox="0 0 19 13" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">

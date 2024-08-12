@@ -1,11 +1,11 @@
 import json
 import os
 from urllib import request
-from django.http import FileResponse, JsonResponse
-from django.shortcuts import render
+from django.http import FileResponse, HttpResponseRedirect, JsonResponse
+from django.shortcuts import redirect, render
 
 from magsmen import settings
-from .models import BlogPost,Media,ContactData,CareerInfo,ApplyForm,StepformData
+from .models import BlogPost,Media,ContactData,CareerInfo,ApplyForm,StepformData,Subscribe
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.core.mail import send_mail,EmailMessage
 from django.contrib import messages
@@ -14,6 +14,27 @@ from django.contrib import messages
 
 def home(request):
     blog_list = BlogPost.objects.filter().order_by('-Id')[:3]    #filter(status=1).order_by('Create_at')
+
+    if request.method == "POST":
+        email = request.POST.get('email')
+
+        if email:  # Check if the email field is not empty
+            if Subscribe.objects.filter(Email=email).exists():
+                # Return an error response if email already exists
+                return HttpResponseRedirect('/?error=You are already subscribed')
+            
+            try:
+                # Save to the database
+                Subscribe.objects.create(Email=email)
+                # Return a success response
+                return HttpResponseRedirect('/?success=Subscription successful!')
+            
+            except Exception as e:
+                # Handle unexpected errors
+                return HttpResponseRedirect('/?error=An error occurred. Please try again.')
+        else:
+            # Return an error response if email is empty
+            return HttpResponseRedirect('/?error=Email field cannot be empty.')
 
     return render(request, 'uifiles/home.html',{'blog_list':blog_list})
 
@@ -141,12 +162,15 @@ def Contact(request):
         oContactinfo.save()
         
         message ='''
+        Name:{}
+        Email:{}
+        Phone:{}
         Subject:{}
         Message:{}
         From:{}
-        '''.format(subject,message,email)
+        '''.format(name,email,phone,subject,message,email)
         try:
-            send_mail(subject, message,'noreplaybadugudinesh94@gmail.com',recipient_list=['connect@magsmen.in']) 
+            send_mail(subject, message,'connectmagsmen@gmail.com',recipient_list=['kajasuresh522@gmail.com','connectmagsmen@gmail.com']) 
             messages.success(request,'Message has been sucesfully send')
         except:
             messages.error(request,'Your message has been failed, Please Try Agian')
@@ -175,15 +199,15 @@ def Questionsform(request):
         achieve = request.POST.get('achieve')
         brandexpectation = request.POST.get('brandexpectation')
 
-        oQuestion_data = StepformData(Name=stored_form_data.get('name'),Email=stored_form_data.get('email'),Phone=stored_form_data.get('phone'),Brandmarketposition=brandposition,BrandCorevalue=corevalue,Brandperceive_targetaudience=brandtarget,CustomerFeedback=customerfeedback,BrandPerformence=brandperform,Challenges_Obstacles=brandchallenge,Brand_Motivation=brandmotivation,Goals_Achieves=achieve,Expectations=brandexpectation)
+        oQuestion_data = StepformData(name=stored_form_data.get('fname'),email=stored_form_data.get('femail'),phone=stored_form_data.get('fphone'),Brandmarketposition=brandposition,BrandCorevalue=corevalue,Brandperceive_targetaudience=brandtarget,CustomerFeedback=customerfeedback,BrandPerformence=brandperform,Challenges_Obstacles=brandchallenge,Brand_Motivation=brandmotivation,Goals_Achieves=achieve,Expectations=brandexpectation)
         oQuestion_data.save()
         
          # Send email notification
         subject = 'Step Form Submission Notification'
         message = 'A form has been submitted with the following details:\n\n' \
-                  f'Name: {stored_form_data.get("name")}\n' \
-                  f'Email: {stored_form_data.get("email")}\n' \
-                  f'Phone: {stored_form_data.get("phone")}\n\n' \
+                  f'Name: {stored_form_data.get("fname")}\n' \
+                  f'Email: {stored_form_data.get("femail")}\n' \
+                  f'Phone: {stored_form_data.get("fphone")}\n\n' \
                   'Additional form details:\n' \
                   f'Brand Position: {brandposition}\n' \
                   f'Core Value: {corevalue}\n' \
@@ -206,6 +230,15 @@ def Questionsform(request):
     
     return render(request, 'uifiles/multistepform.html')
 
+
+def privacy_policy(request):
+    return render(request,'uifiles/privacy-policy.html')
+
+def faqs(request):
+    return render(request,'uifiles/faqs.html')
+
+def handler404(requerst, exception):
+    return render(requerst, 'uifiles/404.html',status=400)
 
 
 def Newsletter(request):

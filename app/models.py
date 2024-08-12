@@ -110,9 +110,9 @@ class ApplyForm(models.Model):
     
 
 class StepformData(models.Model):
-    Name = models.CharField(max_length=100,null=True)
-    Email = models.EmailField(max_length=50,null=True)
-    Phone = models.CharField(max_length=10,null=True)
+    name = models.CharField(max_length=100,null=True)
+    email = models.EmailField(max_length=50,null=True)
+    phone = models.CharField(max_length=10,null=True)
     Brandmarketposition = models.CharField(max_length=100)
     BrandCorevalue = models.CharField(max_length=500)
     Brandperceive_targetaudience = models.CharField(max_length=100)
@@ -125,4 +125,11 @@ class StepformData(models.Model):
 
 
     def __str__(self):
-        return self.Name
+        return self.name or "Unnamed Entry"
+    
+    
+class Subscribe(models.Model):
+     Email = models.EmailField(max_length=100, unique=True)
+
+     def __str__(self):
+          return self.Email

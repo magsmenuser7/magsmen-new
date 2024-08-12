@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import home,about,expertise,brand_consulting,personal_brand_consulting,image_consulting,corporate_rebranding,brand_expresso,\
 brand_creation,launchpad,blog,blogdetails,Ourmedia,Contact,Newsletter,Newslettertwo,Brand,Newsletterthree,BrandRefresh,DigitalTwin_BrandStrategy,\
-works,telugufoods,suryacolors,tdhrishika,tenali_double_horse,triplex,vsb,zavaine,career,jobdetails,applyform,Questionsform
+works,telugufoods,suryacolors,tdhrishika,tenali_double_horse,triplex,vsb,zavaine,career,jobdetails,applyform,Questionsform,privacy_policy,faqs
 
 from django.contrib.sitemaps.views import sitemap
 from app.sitemap import PostSitemap,StaticPagesSitemap
@@ -40,6 +40,8 @@ urlpatterns = [
     path('applyform/',applyform,name="applyform"),
     path('contact/',Contact,name="contact"),
     path('questions/', Questionsform , name='questions'),
+    path('privacy-policy/', privacy_policy , name='privacy-policy'),
+    path('faqs/', faqs, name='faqs'),
     path('news-letter-august-2023/',Newsletter,name='news-letter-august-2023'),
     path('brand-architecture/',Brand,name='brand-architecture'),
     path('brand-corner-october-edition/',Newslettertwo,name='the-name-of-the-article-indian-brand-success-stories'),

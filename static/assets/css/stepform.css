@@ -552,3 +552,18 @@ input[type="radio"]{
 .normal-font{
     font-size: 30px;
 }
+#step-2 .step-two-bottom{
+    padding-bottom: 70px !important;
+}
+#step-5{
+    margin-bottom: 70px !important;
+}
+#step-6{
+    margin-bottom: 70px !important;
+}
+#step-8{
+    margin-bottom: 70px !important;
+}
+#step-9{
+    margin-bottom: 70px !important;
+}

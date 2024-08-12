@@ -174,3 +174,24 @@ function isValidPhone(phonenumber) {
     let phoneRegex = /^\d{10}$/;
     return phoneRegex.test(phonenumber);
 }
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Get URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const successMessage = urlParams.get('success');
+    const errorMessage = urlParams.get('error');
+
+    // Show an alert if there's a success or error message
+    if (successMessage) {
+        alert(successMessage);
+    } else if (errorMessage) {
+        alert(errorMessage);
+    }
+
+    // Remove the query parameters from the URL
+    if (successMessage || errorMessage) {
+        window.history.replaceState(null, '', window.location.pathname);
+    }
+});

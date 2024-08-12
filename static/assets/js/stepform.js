@@ -1,39 +1,40 @@
 // get started form
 
-function writetous(){
+function writetousbtn(){
 
-    let name = document.getElementById('name').value.trim();
-    let email = document.getElementById('email').value.trim();
-    let phone = document.getElementById('phone').value.trim();
+ var fname = document.getElementById("fname").value.trim();
+ var femail = document.getElementById("femail").value.trim();
+ var fphone = document.getElementById("fphone").value.trim();
 
+if(fname === ''){
+    alert("Name Field Required");
+    return;
+}
+if(femail === ''){
+    alert("Email Field Required");
+    return;
+}
+if (!isValidEmail(femail)) {
+    alert("Invalid Email Format");
+    return;
+}
 
-    if (name === ''){
-        alert('Name field required');
-        return; // Stop execution if validation fails
-    }
-    if (email === ''){
-        alert('Email field required');
-        return; // Stop execution if validation fails
-    }
-    if (!isValidEmail(email)) {
-        alert('Invalid email format');
-        return; // Stop execution if validation fails
-    }
+if(fphone === ''){
+    alert("Phone Field Required");
+    return;
+}
 
-    if (phone === ''){
-        alert('Phone number required');
-        return; // Stop execution if validation fails
-    }
-    if (!isValidPhone(phone)) {
-        alert('Invalid phone number format');
-        return; // Stop execution if validation fails
-    }
+if (!isValidPhone(fphone)) {
+    alert("Invalid Phone Number Format");
+    return;
+}
+
 
 
     let formdata = {
-        name: name,
-        email: email,
-        phone: phone,
+        fname: fname,
+        femail: femail,
+        fphone: fphone,
     };
 
     let formDataJson = JSON.stringify(formdata);
@@ -41,19 +42,14 @@ function writetous(){
     window.location.href = 'questions/';
 
 }
-
 function isValidEmail(email) {
-    // This regex is a simple check and may not cover all cases
-    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
 }
-
 function isValidPhone(phone) {
-    // This regex checks for 10 digits with optional dashes or spaces
-    let phoneRegex = /^\d{10}$/;
-    return phoneRegex.test(phone);
+    const phonePattern = /^\d{10}$/; // Adjust pattern according to your requirement
+    return phonePattern.test(phone);
 }
-
 
 
 

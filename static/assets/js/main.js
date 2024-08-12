@@ -83,54 +83,26 @@
 
   /*--------------------------------------------------------------
                                                                                                                                             2. Mobile Menu
-                                                                                                                                           --------------------------------------------------------------*/
-  // function mainNav() {
-  //   $(".cs_nav").append('<span class="cs_munu_toggle"><span></span></span>');
-  //   $(".menu-item-has-children").append(
-  //     '<span class="cs_munu_dropdown_toggle"></span>'
-  //   );
-  //   $(".cs_munu_toggle").on("click", function () {
-  //     $(this)
-  //       .toggleClass("cs_toggle_active")
-  //       .siblings(".cs_nav_list")
-  //       .slideToggle();
-  //   });
-  //   $(".cs_munu_dropdown_toggle").on("click", function () {
-  //     $(this).toggleClass("active").siblings("ul").slideToggle();
-  //     $(this).parent().toggleClass("active");
-  //   });
-
-
+                                                                                                                                              --------------------------------------------------------------*/
   function mainNav() {
     $(".cs_nav").append('<span class="cs_munu_toggle"><span></span></span>');
     $(".menu-item-has-children").append(
       '<span class="cs_munu_dropdown_toggle"></span>'
     );
-
     $(".cs_munu_toggle").on("click", function () {
       $(this)
         .toggleClass("cs_toggle_active")
         .siblings(".cs_nav_list")
         .slideToggle();
     });
-
     $(".cs_munu_dropdown_toggle").on("click", function () {
-      var parentMenuItem = $(this).parent();
-
-      // Only toggle the dropdown for the "Services" menu item
-      if (parentMenuItem.children('a').attr('href') === '/services/') {
-        $(this).toggleClass("active").siblings("ul").slideToggle();
-        parentMenuItem.toggleClass("active");
-      }
+      $(this).toggleClass("active").siblings("ul").slideToggle();
+      $(this).parent().toggleClass("active");
     });
-}
 
-$(document).ready(function () {
-  mainNav();
-});
-
-    var servicesMenuItem = $(".menu-item-has-black-section > a[href='/services/']").parent();
-    servicesMenuItem.append('<span class="cs_munu_dropdown_toggle_1"></span>');
+    $(".menu-item-has-black-section").append(
+      '<span class="cs_munu_dropdown_toggle_1"></span>'
+    );
 
     $(".cs_munu_dropdown_toggle_1").on("click", function () {
       $(this).toggleClass("active").siblings("ul").slideToggle();
@@ -154,6 +126,7 @@ $(document).ready(function () {
       $(this).html(`<span class="cs_animo_text"><span>${xxx}</span></span>`);
     });
   }
+
 
   /*-------------------------------------
 
