@@ -26,8 +26,17 @@ def home(request):
             try:
                 # Save to the database
                 Subscribe.objects.create(Email=email)
+
+                send_mail(
+                    subject='Subscription Confirmation',
+                    message='Thank you for subscribing to our',
+                    from_email='connectmagsmen@gmail.com',
+                    recipient_list=[email],
+                    fail_silently=False,
+                )
+
                 # Return a success response
-                return HttpResponseRedirect('/?success=Subscription successful!')
+                return HttpResponseRedirect('/?success=Subscription successful! Check your email for confirmation.')
             
             except Exception as e:
                 # Handle unexpected errors

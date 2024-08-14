@@ -5,71 +5,149 @@
 <div id="scrollsmoother-container">
     <div class="cs_height_150 cs_height_lg_120"></div>
 
-    <section>
+
+    <section class="cs_gray_bg_20">
+        <div class="cs_height_90 cs_height_lg_60"></div>
         <div class="container">
-            <div class="cs_contact_ms">
-                <div class="cs_contact">
-                    <div class="cs_contact_text">
-                        <h5 class="cs_contact_subtitle anim_text_upanddowns">
-                            Fuel your next big idea with a cup (or two) of chai or coffee at Magsmen!
-                        </h5>
-                        <!-- <h1 class="cs_contact_title anim_text_writting">
-                            Get in Touch
-                        </h1> -->
+            <div class="row flex-column flex-lg-row align-items-center">
+                <div class="col-lg-8 col-12">
+                    <div class="cs_section_heading cs_style_1">
+                        <div class="cs_section_heading_text">
+                            <h5 class="cs_contact_subtitle anim_text_upanddowns">
+                                Fuel your next big idea with a cup (or two) of chai or coffee at Magsmen!
+                            </h5>
+                        </div>
                     </div>
-                    <!-- <div class="cs_height_80 cs_height_lg_20"></div> -->
-                    <div class="cs_from anim_div_ShowDowns">
-                        <form action="#" method="POST" id="contactform">
-                            {% csrf_token %}
-                            <div class="row">
-                                <div class="cs_field_group col">
-                                    <input class="cs_input_field" type="text" id="name" placeholder="Name"
-                                        name="name" />
-                                    <label for="test1" class="cs_input_label">Name</label>
-                                </div>
-                                <div class="cs_field_group col">
-                                    <input class="cs_input_field" type="email" id="email" placeholder="Name"
-                                        name="email" />
-                                    <label for="test2" class="cs_input_label">Email</label>
-                                </div>
+                    <div class="cs_height_70 cs_height_lg_20"></div>
+                    <div class="cs_startup_agency_frist cs_text_section">
+                        <div>
+                            <div class="cs_from anim_div_ShowDowns">
+                                <form action="#" method="POST" id="contactform">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="cs_field_group col">
+                                            <input class="cs_input_field" type="text" id="name" placeholder="Name"
+                                                name="name" />
+                                            <label for="test1" class="cs_input_label">Name</label>
+                                        </div>
+                                        <div class="cs_field_group col">
+                                            <input class="cs_input_field" type="email" id="email" placeholder="Name"
+                                                name="email" />
+                                            <label for="test2" class="cs_input_label">Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="cs_height_10 cs_height_lg_20"></div>
+                                    <div class="row">
+                                        <div class="cs_field_group col">
+                                            <input class="cs_input_field" type="text" id="phone" placeholder="Phone"
+                                                name="phone" />
+                                            <label for="test3" class="cs_input_label">Phone</label>
+                                        </div>
+                                        <div class="cs_field_group col">
+                                            <input class="cs_input_field" type="text" id="subject" placeholder="Subject"
+                                                name="subject" />
+                                            <label for="test4" class="cs_input_label">Subject</label>
+                                        </div>
+                                    </div>
+                                    <div class="cs_height_100 cs_height_lg_60"></div>
+                                    <div class="cs_field_group">
+                                        <input class="cs_input_field" type="text" id="message" placeholder="Message"
+                                            name="message" />
+                                        <label for="test5" class="cs_input_label">Message</label>
+                                    </div>
+                                    <div class="cs_height_60 cs_height_lg_60"></div>
+                                    <button type="button" id="sendbtn" class="cs_btn cs_style_1 cs_type_btn">
+                                        <span>Send Now</span>
+                                        <svg width="19" height="13" viewBox="0 0 19 13" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M18.5303 7.03033C18.8232 6.73744 18.8232 6.26256 18.5303 5.96967L13.7574 1.1967C13.4645 0.903806 12.9896 0.903806 12.6967 1.1967C12.4038 1.48959 12.4038 1.96447 12.6967 2.25736L16.9393 6.5L12.6967 10.7426C12.4038 11.0355 12.4038 11.5104 12.6967 11.8033C12.9896 12.0962 13.4645 12.0962 13.7574 11.8033L18.5303 7.03033ZM0 7.25H18V5.75H0V7.25Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </button>
+                                </form>
                             </div>
-                            <div class="cs_height_10 cs_height_lg_20"></div>
-                            <div class="row">
-                                <div class="cs_field_group col">
-                                    <input class="cs_input_field" type="text" id="phone" placeholder="Phone"
-                                        name="phone" />
-                                    <label for="test3" class="cs_input_label">Phone</label>
-                                </div>
-                                <div class="cs_field_group col">
-                                    <input class="cs_input_field" type="text" id="subject" placeholder="Subject"
-                                        name="subject" />
-                                    <label for="test4" class="cs_input_label">Subject</label>
-                                </div>
+                            <!-- <div class="cs_service_back_btn">
+                                <a href="#" class="cs_style_1 cs_color_1">
+                                    <span class="cs_font_18">Learn More</span>
+                                    <svg width="19" height="13" viewBox="0 0 19 13" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M18.5303 7.03033C18.8232 6.73744 18.8232 6.26256 18.5303 5.96967L13.7574 1.1967C13.4645 0.903806 12.9896 0.903806 12.6967 1.1967C12.4038 1.48959 12.4038 1.96447 12.6967 2.25736L16.9393 6.5L12.6967 10.7426C12.4038 11.0355 12.4038
+                11.5104 12.6967 11.8033C12.9896 12.0962 13.4645 12.0962 13.7574 11.8033L18.5303 7.03033ZM0 7.25H18V5.75H0V7.25Z"
+                                            fill="currentColor"></path>
+                                    </svg>
+                                </a>
+                            </div> -->
+                        </div>
+                        <div class="cs_startup_agency cs_card cs_mr_left">
+                            <h6>Head Office</h6>
+                            <div class="d-flex align-items-center">
+                                <!-- <div class="cs_hr"></div> -->
+                                <p class="cs_font_16 cs_normal cs_mp0">
+                                    208,212 Ap Cotton Association Building, Opp Avantra Jewels, Lakshmipuram Main Road, Guntur, Andhra Pradesh, 522007.
+                                </p>
                             </div>
-                            <div class="cs_height_100 cs_height_lg_60"></div>
-                            <div class="cs_field_group">
-                                <input class="cs_input_field" type="text" id="message" placeholder="Message"
-                                    name="message" />
-                                <label for="test5" class="cs_input_label">Message</label>
+                            <p class="cs_font_16 cs_mp0 contact-address">
+                                <a href="tel:+91 90449 10449" style="border-bottom: 1px solid black;">+91 90449 10449</a><br>
+                                <a href="mailto:connect@magsmen.in" style="text-transform:lowercase;border-bottom: 1px solid black;">CONNECT@MAGSMEN.IN</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12">
+                    <div class="cs_startup_agency">
+                        <div class="cs_startup_agency cs_card">
+                            <h6>Corporate Office</h6>
+                            <div class="d-flex align-items-center">
+                                <!-- <div class="cs_hr"></div> -->
+                                <p class="cs_font_16 cs_normal cs_mp0">
+                                    4th Floor 402, Ayyappa Society,
+                                Plot No:1303, Madhapur,
+                                Hyderabad, Telangana 500081.
+                                </p>
                             </div>
-                            <div class="cs_height_60 cs_height_lg_60"></div>
-                            <button type="button" id="sendbtn" class="cs_btn cs_style_1 cs_type_btn">
-                                <span>Send Now</span>
-                                <svg width="19" height="13" viewBox="0 0 19 13" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M18.5303 7.03033C18.8232 6.73744 18.8232 6.26256 18.5303 5.96967L13.7574 1.1967C13.4645 0.903806 12.9896 0.903806 12.6967 1.1967C12.4038 1.48959 12.4038 1.96447 12.6967 2.25736L16.9393 6.5L12.6967 10.7426C12.4038 11.0355 12.4038 11.5104 12.6967 11.8033C12.9896 12.0962 13.4645 12.0962 13.7574 11.8033L18.5303 7.03033ZM0 7.25H18V5.75H0V7.25Z"
-                                        fill="currentColor"></path>
-                                </svg>
-                            </button>
-                        </form>
+                            <p class="cs_font_16 cs_mp0">
+                                <a href="tel:+91 90449 10449" style="border-bottom: 1px solid black;">+91 90449 10449</a><br>
+                                <a href="mailto:hydops@magsmen.in" style="text-transform:lowercase;border-bottom: 1px solid black;">hydops@magsmen.in</a>
+                            </p>
+                        </div>
+                        <div class="cs_startup_agency cs_card">
+                            <h6>Australia Office</h6>
+                            <div class="d-flex align-items-center">
+                                <!-- <div class="cs_hr"></div> -->
+                                <p class="cs_font_16 cs_normal cs_mp0">
+                                    1/9, Fifth Avenue, Rowville, VIC, 3178.
+                                </p>
+                            </div>
+                            <p class="cs_font_16 cs_mp0">
+                                <a href="tel:+10422554889" style="border-bottom: 1px solid black;">+10422554889</a><br>
+                                <a href="mailto:hconnect@magsmen.com.au" style="text-transform:lowercase;border-bottom: 1px solid black;">connect@magsmen.com.au</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cs_height_60"></div>
+    </section>
+
+    <section>
+        <div class="container pt-5 pb-5">
+            <div class="cs_contact_ms">
+                <div class="cs_contact_section_2 anim_div_ShowRightSide">
+                    <div class="cs_google_map cs_bg" data-src="assets/img/map_img.png">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3829.2249463389244!2d80.42503527466117!3d16.311446532909017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a755aed1edb2d%3A0xf0fcdfb624d11870!2sMagsmen%20Brand%20Consultants%20-%20create%20your%20brand%20in%2090%20days!5e0!3m2!1sen!2sin!4v1723204216472!5m2!1sen!2sin"
+                            width="700" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
                 <div class="cs_contact_section_2 anim_div_ShowRightSide">
                     <div class="cs_google_map cs_bg" data-src="assets/img/map_img.png">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3829.2249463389244!2d80.42503527466117!3d16.311446532909017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a755aed1edb2d%3A0xf0fcdfb624d11870!2sMagsmen%20Brand%20Consultants%20-%20create%20your%20brand%20in%2090%20days!5e0!3m2!1sen!2sin!4v1723204216472!5m2!1sen!2sin"
-                            width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.281898889646!2d78.38957657468426!3d17.446216601108713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91677b68ba31%3A0xc143e260d2c83b53!2s4th%20Floor%2C%20402%2C%20Ayyappa%20Society%20Main%20Rd%2C%20Ayyappa%20Society%2C%20Plot%20No%3A1303%2C%20Mega%20Hills%2C%20Madhapur%2C%20Hyderabad%2C%20Telangana%20500081!5e0!3m2!1sen!2sin!4v1723647737987!5m2!1sen!2sin"
+                            width="700" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
@@ -80,7 +158,7 @@
 
 <!-----start address ---->
 <div class="cs_height_50 cs_height_lg_50"></div>
-<section class="contact-sec pt-5">
+<!-- <section class="contact-sec pt-5">
     <div class="container">
         <div class="row">
             <div class="contact-details contact-wrapper">
@@ -157,7 +235,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!---End Address---->
 
     <div class="cs_height_150 cs_height_lg_60"></div>
