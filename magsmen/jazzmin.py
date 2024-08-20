@@ -9,7 +9,7 @@ JAZZMIN_SETTINGS = {
     "site_brand": "Magsmen ",
 
     # Logo to use for your site, must be present in static files, used for brand on top left
-    "site_logo": "assets/imgs/logo/magsmen-logo-120x100.png",
+    "site_logo": "assets/img/logos/favicon.png",
 
     # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
     "login_logo": None,
