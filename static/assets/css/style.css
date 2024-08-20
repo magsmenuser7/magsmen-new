@@ -7863,6 +7863,9 @@ label {
     box-sizing: content-box;
     height: auto !important;
 }
+.sidenavbar a:hover{
+    color: #fff !important;
+}
 @media(min-width:300px) and (max-width:480px){
     .about-img-blog{
         display: block !important;
