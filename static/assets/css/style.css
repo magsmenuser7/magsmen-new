@@ -3745,6 +3745,7 @@ label {
         display: block;
         line-height: inherit;
         padding: 10px 20px;
+        font-weight: 600;
     }
     .cs_nav .cs_nav_list ul ul {
         top: 15px;
