@@ -29,7 +29,7 @@ def home(request):
 
                 send_mail(
                     subject='Subscription Confirmation',
-                    message='Thank you for subscribing to our',
+                    message='Thank you for subscribing, you will get notifications soon',
                     from_email='connectmagsmen@gmail.com',
                     recipient_list=[email],
                     fail_silently=False,

@@ -2627,7 +2627,7 @@ label {
 
 @media screen and (max-width: 767px) {
     .cs_section_heading.cs_style_1 .cs_section_title {
-        font-size: 32px;
+        /* font-size: 32px; */
     }
     .cs_section_heading.cs_style_1 .cs_section_subtitle {
         font-size: 18px;
@@ -2948,7 +2948,7 @@ label {
     align-items: center;
     margin-top: 0px;
     position: relative;
-    top: -40px;
+    top: -130px;
     z-index: 2;
 }
 
@@ -3611,6 +3611,7 @@ label {
     }
     .cs_main_header {
         position: relative;
+        box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5) !important;
     }
     .cs_main_header .container-fluid {
         padding-right: 40px;
@@ -3716,7 +3717,7 @@ label {
         background-color: var(--drak-color);
         position: absolute;
         box-shadow: 0px 1px 2px 0px rgba(2, 0, 181, 0.1);
-        border-top: 2px solid #ff6b00;
+        border-top: 2px solid #000;
         padding: 5px 0px;
         z-index: 100;
         opacity: 0;
@@ -6715,16 +6716,21 @@ label {
 ----------------------------------------------------------------*/
 
 .cs_about.cs_style_1 {
-    padding: 140px 0;
+    padding-top: 10px !important;
+    padding-bottom: 140px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
     position: relative;
 }
 
 .cs_about.cs_style_1 .cs_about_bg {
     position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 55%;
+    top:5%;
+    left: 55%;
+    height:70vh;
+    width: 39%;
+    z-index: 500;
+    display: block !important;
 }
 
 .cs_about.cs_style_1>*:not(.cs_about_bg) {
@@ -7000,7 +7006,7 @@ label {
     /* box-shadow: 0px 0px 16px 16px rgba(112, 144, 176, 0.05); */
     margin-bottom: 60px;
     align-items: start;
-    box-shadow: 0px 0px 15px;
+    box-shadow: 0px 0px 5px;
     border-radius:10px;
     border-bottom: 5px solid #DBBD7D;
 }
@@ -7132,7 +7138,7 @@ label {
 .cs_service_details {
     display: flex;
     /* flex-wrap: wrap; */
-    gap: 3%;
+    /* gap: 3%; */
 }
 
 .cs_service_details .cs_service_details_img {
@@ -7152,7 +7158,7 @@ label {
 }
 
 .cs_service_details.cs_type_2 .cs_service_details_img {
-    flex-basis: 45%;
+    flex-basis: 47%;
 }
 
 @media screen and (max-width: 991px) {
@@ -7548,8 +7554,8 @@ label {
 }
 .our-service-text p{
     margin: auto !important;
-    width: 750px !important;
-    margin-left: 50px !important;
+    width: 825px !important;
+    margin-left: 60px !important;
     text-align: justify !important;
     color: #fff !important;
 }
@@ -7625,9 +7631,10 @@ label {
 }
 .video-main-sec video{
     width: 100%;
-    height: 100%;
+    height: 90%;
     margin: auto !important;
     overflow: hidden !important;
+    object-fit: cover !important;
 }
 
 
@@ -7650,12 +7657,15 @@ label {
     display: flex;
     justify-content: center !important;
     align-items: center !important;
+    width: 100% !important;
+    gap: 3% !important;
 }
+
 .card_number{
     color:#fff !important;
 }
 .success-imgs{
-    box-shadow: 0px 0px 10px #000 !important;
+    box-shadow: 0px 0px 5px #000 !important;
     border-radius: 5px !important;
     margin: 0px 20px !important;
 }
@@ -7826,7 +7836,43 @@ label {
 .cs_contact{
     display: flex !important;
 }
+
+.about-img-parallax video{
+    height: 600px; /* Adjust the height as needed */
+    width: 100%; /* This keeps the aspect ratio */
+    object-fit: cover; /
+}
+
+.brand-creation-video video{
+    width: 100% !important;
+    height:60vh !important;
+}
+.about-img-blog{
+    display: none !important;
+}
+.applyform-title{
+    font-size: 30px !important;
+}
+
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+    height: auto !important;
+}
 @media(min-width:300px) and (max-width:480px){
+    .about-img-blog{
+        display: block !important;
+        margin: auto !important;
+    }
+    .about-img-parallax video{
+        height:auto; /* Adjust the height as needed */
+        width: 100%; /* This keeps the aspect ratio */
+        object-fit: cover; /
+    }
     .contact-sec .contact-details{
         display: block !important;
     }
@@ -7914,7 +7960,7 @@ label {
         margin-top: 40px !important;
     }
     .funfact_cs{
-        margin-bottom: 30px !important;
+        margin-bottom: 35px !important;
     }
     .cs_newsletter_input:focus{
         border-color: #fff !important;
@@ -8055,17 +8101,66 @@ label {
         border-radius: 5px !important;
     }
     .cs_about.cs_style_1 {
-        padding: 5px 0;
+        padding: 5px 0 !important;
         position: relative;
     }
     .cs_hero.cs_style1 .cs_hero_bg {
-        height: calc(85% + 100px);
+        height: calc(85% + 75px);
         position: absolute;
         width: 100%;
         left: 0;
         top: 0;
     }
-    
+    .brand-creation-video video{
+        width: 100% !important;
+        height: auto !important;
+    }
+    .cs_about.cs_style_1 .cs_about_bg {
+        position: absolute;
+        top: 0 !important;
+        left: 0;
+        height:0;
+        width: 0;
+        z-index:-1;
+    }
 
+    .applyform-sec{
+        display: flex;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        gap: 3% !important;
+    }
+    .applyform-title{
+        margin-top: 50px !important;
+    }
+    .stats-container{
+        margin-top: 10px !important;
+        padding-top: 15px !important;
+    }
+    .parallax-img {
+        width: 100%;
+        height: auto !important;
+        margin: auto !important;
+    }
+    .cs_swiper_controll {
+        display: flex;
+        align-items: center;
+        margin-top: 0px;
+        position: relative;
+        top: -40px;
+        z-index: 2;
+    }
+    .cs_white_color{
+        font-size: 18px !important;
+    }
+    .video-main-sec video{
+        width: 100%;
+        height:auto !important;
+        margin: auto !important;
+        overflow: hidden !important;
+        object-fit: cover !important;
+    }
+    
 }
 
