@@ -3670,6 +3670,7 @@ label {
         height: inherit;
         align-items: center;
         text-transform: uppercase;
+        font-weight: 600;
     }
     .cs_nav .cs_nav_list>li>ul {
         left: 0;
