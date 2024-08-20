@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 import os 
 from pathlib import Path
+from .jazzmin import JAZZMIN_SETTINGS
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -35,6 +37,7 @@ ALLOWED_HOSTS = ["*"]
 SITE_ID = 1
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,6 +48,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    
 ]
 
 MIDDLEWARE = [
@@ -140,6 +144,7 @@ UPLOAD_ROOT = os.path.join(BASE_DIR,'upload')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+JAZZMIN_SETTING = JAZZMIN_SETTINGS
 
 
 
