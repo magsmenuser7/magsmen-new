@@ -1,0 +1,80 @@
+{% extends 'uifiles/base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+  @media only screen and (max-width: 767px){
+      br {
+       display: block !important;
+      }
+  
+      h4{
+      color:var(--black-3) !important;
+      font-weight: 600;
+      text-align: left !important;
+    
+    }
+    .detail-blog-content ul li{
+        text-align: justify !important;
+  }
+}
+
+  
+  .detail-blog-content p{
+    text-align: justify !important;
+  }
+  
+  h3{
+      color:var(--black-3) !important;
+      font-weight: 600;
+    
+  }
+  .detail-blog-content h4{
+      color:var(--black-3) !important;
+      font-weight: 600;
+      font-size: 20px !important;
+  }
+  .detail-blog-content ul li{
+      color:var(--black-3) !important;
+      margin-bottom: 20px !important;
+  }
+  .line{
+      overflow: hidden;
+      box-sizing: border-box;
+      /* margin-top: 50px !important; */
+  }
+  .detail-blog-content{
+    margin: auto !important;
+  }
+</style>
+
+
+<div id="scrollsmoother-container">
+<div class="cs_height_70 cs_height_lg_60"></div>
+<div class="container line pb-4 pt-5">
+    <div class="row">
+        <h4 class="">Cancellation & Refund Policy</h4>
+        <div class="col-lg-12">
+            <div class="detail-blog-content">
+                <p>Grofessors Innovations private limited believes in helping its customers as far as possible, and has therefore a liberal cancellation policy. Under this policy:</p>
+                
+                <ul>
+                    <li>Cancellations will be considered only if the request is made within 30 days of placing the order. However, the cancellation request may not be entertained if the orders have been communicated to the vendors/merchants and they have initiated the process of shipping them.</li>
+                    <li>Grofessors Innovations private limited does not accept cancellation requests for perishable items like flowers, eatables etc. However, refund/replacement can be made if the customer establishes that the quality of product delivered is not good.</li>
+                    <li>In case of receipt of damaged or defective items please report the same to our Customer Service team. The request will, however, be entertained once the merchant has checked and determined the same at his own end. This should be reported within 30 days of receipt of the products.</li>
+                    <li>In case you feel that the product received is not as shown on the site or as per your expectations, you must bring it to the notice of our customer service within 30 days of receiving the product. The Customer Service Team after looking into your complaint will take an appropriate decision.</li>
+                    <li>In case of complaints regarding products that come with a warranty from manufacturers, please refer the issue to them.</li>
+                    <li>In case of any Refunds approved by the Grofessors Innovations private limited, it’ll take 16-30 days for the refund to be processed to the end customer.</li>
+                </ul>
+               
+                <p style="font-style: italic;font-weight: bold;">Disclaimer: The above content is created at Grofessors Innovations private limited's sole discretion. Razorpay shall not be liable for any content provided here and shall not be responsible for any claims and liability that may arise due to merchant’s non-adherence to it.</p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

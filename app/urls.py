@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import home,about,expertise,brand_consulting,personal_brand_consulting,image_consulting,corporate_rebranding,brand_expresso,\
 brand_creation,launchpad,blog,blogdetails,Ourmedia,Contact,Newsletter,Newslettertwo,Brand,Newsletterthree,BrandRefresh,DigitalTwin_BrandStrategy,\
-works,telugufoods,suryacolors,tdhrishika,tenali_double_horse,triplex,vsb,zavaine,career,jobdetails,applyform,Questionsform,privacy_policy,faqs
+works,telugufoods,suryacolors,tdhrishika,tenali_double_horse,triplex,vsb,zavaine,career,jobdetails,applyform,Questionsform,privacy_policy,faqs,terms_conditions,cancellation_and_refund_policy
 
 from django.contrib.sitemaps.views import sitemap
 from app.sitemap import PostSitemap,StaticPagesSitemap
@@ -41,6 +41,8 @@ urlpatterns = [
     path('contact/',Contact,name="contact"),
     path('questions/', Questionsform , name='questions'),
     path('privacy-policy/', privacy_policy , name='privacy-policy'),
+    path('terms-conditions/', terms_conditions , name='terms-conditions'),
+    path('cancellation-refund-policy/', cancellation_and_refund_policy , name='cancellation-refund-policy'),
     path('faqs/', faqs, name='faqs'),
     path('news-letter-august-2023/',Newsletter,name='news-letter-august-2023'),
     path('brand-architecture/',Brand,name='brand-architecture'),

@@ -241,7 +241,13 @@ def Questionsform(request):
 
 
 def privacy_policy(request):
-    return render(request,'uifiles/privacy-policy.html')
+    return render(request,'uifiles/privacy-policy-two.html')
+
+def terms_conditions(request):
+    return render(request,'uifiles/terms-conditions.html')
+
+def cancellation_and_refund_policy(request):
+    return render(request,'uifiles/cancellation-and-refund-policy.html')
 
 def faqs(request):
     return render(request,'uifiles/faqs.html')

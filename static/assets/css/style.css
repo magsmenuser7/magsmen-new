@@ -2377,7 +2377,7 @@ label {
     letter-spacing: 2px;
     font-weight: 500;
     z-index: -1;
-    font-family: Inter Tight;
+    font-family: Helvetica;
 }
 
 .cs_animated_badge .rounded_text svg {
@@ -6734,7 +6734,7 @@ label {
 .cs_about.cs_style_1 .cs_about_bg {
     position: absolute;
     top:5%;
-    left: 55%;
+    left: 54%;
     height:70vh;
     width: 39%;
     z-index: 500;
@@ -7913,7 +7913,7 @@ label {
         margin-top: 35px !important;
     }
     .sec-main-title{
-        font-size: 40px !important;
+        font-size: 35px !important;
     }
     .cs_font_16 {
         font-size: 16px;
@@ -8173,7 +8173,7 @@ label {
         object-fit: cover !important;
     }
     .cs_contact_subtitle{
-        font-size: 26px !important;
+        font-size: 25px !important;
     }
     
 }
