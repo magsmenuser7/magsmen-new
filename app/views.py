@@ -306,3 +306,12 @@ def DigitalTwin_BrandStrategy(request):
     response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
     response['Content-Disposition'] = f'inline; filename="{pdf_filename_five}"'
     return response
+
+
+def Monochromatic_colors_in_branding(request):
+    pdf_filename_six = 'monochromatic-colors-in-branding.pdf'
+    pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename_six)
+    
+    response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
+    response['Content-Disposition'] = f'inline; filename="{pdf_filename_six}"'
+    return response
