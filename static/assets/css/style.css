@@ -50,8 +50,13 @@
 /*--------------------------------------------------------------
 1. Basic Color Variable
 ----------------------------------------------------------------*/
+@font-face {
+  font-family: helvetica;
+  src: url("/assets/fonts/helvetica/Helvetica.ttf");
+  font-weight: 400;
+}
 
-@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;900&family=Kanit:wght@400;500;600;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;900&family=Kanit:wght@400;500;600;700&display=swap"); */
 :root {
     --body-font-family: "Kanit", sans-serif;
     --heading-font-family: "Inter Tight", sans-serif;
@@ -92,6 +97,7 @@ body {
     line-height: 1.6em;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    font-family: Helvetica;
 }
 
 h1,
@@ -106,15 +112,15 @@ h6 {
     font-weight: 700;
     line-height: 1.2em;
     color: var(--heading-color);
-    font-family: "Inter Tight", sans-serif;
+    font-family: Helvetica;
 }
 
 .cs_primary_font {
-    font-family: "Inter Tight", sans-serif;
+    font-family: Helvetica;
 }
 
 .cs_secondary_font {
-    font-family: var(--body-font-family);
+    font-family: Helvetica;
 }
 
 h1 {
@@ -8163,6 +8169,9 @@ label {
         margin: auto !important;
         overflow: hidden !important;
         object-fit: cover !important;
+    }
+    .cs_contact_subtitle{
+        font-size: 26px !important;
     }
     
 }
