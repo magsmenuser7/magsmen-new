@@ -8,6 +8,9 @@
     <!-- Start our services -->
     <section>
         <div class="container">
+            <!-- <h3 class="cs_section_title_3 anim_div_ShowLeftSide cs_section_title anim_text_writting">
+                Join our team & let’s work together
+            </h3> -->
             <!-- start heading -->
             <div class="cs_section_heading cs_style_1">
                 <div class="cs_section_heading_text">
@@ -22,7 +25,7 @@
     </section>
     <!-- End our services -->
 
-    <section class="career-notification">
+    <!-- <section class="career-notification">
         <div class="container">
             <div class="row">
                 {% for item in career_job %}
@@ -59,43 +62,24 @@
         </div>
     
 
-    </section>
+    </section> -->
 
-
-
-
-
-    <!-- <div class="cs_height_145 cs_height_lg_60"></div> -->
-    <!-- Start serction about your project header-->
     <section>
         <div class="container">
-            <div class="cs_learning_project">
-                <div class="cs_section_heading cs_style_1">
-                    <div class="cs_section_heading_text">
-                        <h3 class="cs_section_title_3 anim_heading_title">
-                            We Would Love To Hear More About Your Project!.
-                        </h3>
-                    </div>
-                    <div class="cs_section_heading_right cs_btn_anim">
-                        <a href="/contact/" class="cs_btn cs_style_1">
-                            <span>Contact Us</span>
-                            <svg width="19" height="13" viewBox="0 0 19 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M18.5303 7.03033C18.8232 6.73744 18.8232 6.26256 18.5303 5.96967L13.7574 1.1967C13.4645 0.903806 12.9896 0.903806 12.6967 1.1967C12.4038 1.48959 12.4038 1.96447 12.6967 2.25736L16.9393 6.5L12.6967 10.7426C12.4038
-                11.0355 12.4038 11.5104 12.6967 11.8033C12.9896 12.0962 13.4645 12.0962 13.7574 11.8033L18.5303 7.03033ZM0 7.25H18V5.75H0V7.25Z"
-                                    fill="currentColor" />
-                            </svg>
-                        </a>
+            <div class="row">
+                {% for item in career_job %}
+                <div class="col-lg-4">
+                    <div class="card career-card">
+                        <div class="card-header card-title">{{item.ExpertiseName}}</div>
+                        <div class="card-body">
+                            <a href="/applyform/">Apply Now</a>
+                        </div> 
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </section>
-    <!-- End serction about your project header-->
-
-
- 
-
+    <div class="cs_height_100 cs_height_lg_50"></div>
 
     {% endblock %}

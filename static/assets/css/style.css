@@ -50,11 +50,17 @@
 /*--------------------------------------------------------------
 1. Basic Color Variable
 ----------------------------------------------------------------*/
-@font-face {
+/* @font-face {
   font-family: helvetica;
   src: url("/assets/fonts/helvetica/Helvetica.ttf");
   font-weight: 400;
-}
+} */
+
+@font-face {
+    font-family: 'proxima-nova';
+    src: url("/static/assets/fonts/proxima-nova/fonnts.com-ProximaSansRegular.ttf");
+    font-weight: 400;
+  }
 
 /* @import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;900&family=Kanit:wght@400;500;600;700&display=swap"); */
 :root {
@@ -97,7 +103,7 @@ body {
     line-height: 1.6em;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    font-family: Helvetica;
+    font-family: 'proxima-nova';
 }
 
 h1,
@@ -112,15 +118,15 @@ h6 {
     font-weight: 700;
     line-height: 1.2em;
     color: var(--heading-color);
-    font-family: Helvetica;
+    font-family: 'proxima-nova';
 }
 
 .cs_primary_font {
-    font-family: Helvetica;
+    font-family: 'proxima-nova';
 }
 
 .cs_secondary_font {
-    font-family: Helvetica;
+   font-family: 'proxima-nova';
 }
 
 h1 {
@@ -4104,20 +4110,21 @@ label {
 
 .cs_footer_social {
     display: grid;
-    grid-gap: 15px 30px;
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-gap: 15px 40px;
+    /* grid-template-columns: repeat(2, 1fr) !important; */
     color: #fff;
+    display: flex;
 }
 
 .cs_footer_social a {
-    border: 1px solid #454545;
-    padding: 5px 50px;
+    /* border: 1px solid #454545; */
+    padding: 5px 31px;
     min-height: 40px;
-    border-radius: 5px !important;
+    /* border-radius: 5px !important; */
 }
 
 .cs_footer_social a:hover {
-    border-color: #DBBD7D ;
+    /* border-color: #DBBD7D ; */
 }
 
 .cs_footer_contact_list {
@@ -4161,6 +4168,15 @@ label {
 
 .cs_footer_info a:hover {
     color: var(--accent-color);
+}
+
+.card-title{
+    text-align: center !important;
+    width: 100% !important;
+    background-color: #000 !important;
+    color: #fff;
+    padding: 50px !important;
+    font-size: 23px !important;
 }
 
 @media screen and (max-width: 991px) {
@@ -6308,9 +6324,10 @@ label {
     position: absolute;
     bottom: -30px;
     left: 0;
-    padding: 0 15px 55px 55px;
+    padding: 10px 15px 20px 10px;
     opacity: 0;
     transition: all 0.5s ease;
+    text-align: center !important;
 }
 
 .cs_portfolio.cs_style_1 .cs_portfolio_img {
@@ -7595,13 +7612,20 @@ label {
 .shape{
     color: #fff !important;
 }
+.fab:hover{
+    color:#FDB827;
+}
 .cs_footer_info a:hover{
     color: #fff !important;
 }
 .cs_footer_social a{
     border: 1px solid #fff !important;
     color: #fff;
+    border-radius: 50% !important;
+    padding: 14px 14px !important;
+    margin: auto !important;
 }
+
 .cs_footer_social a:hover{
     border: 1px solid #DBBD7D !important;
     color: #fff;
@@ -7874,6 +7898,13 @@ label {
 .sidenavbar a:hover{
     color: #fff !important;
 }
+.pagenotfound{
+    margin-top: 90px !important;
+}
+
+/* .portfolio-title-short{
+    color: #7641C8 !important;
+} */
 @media(min-width:300px) and (max-width:480px){
     .about-img-blog{
         display: block !important;
@@ -8094,22 +8125,24 @@ label {
         height: auto !important;
     }
     .footer-about-sec{
-        display: grid;
+        /* display: grid; */
         grid-gap: 15px 30px;
-        grid-template-columns: repeat(2, 1fr);
+        /* grid-template-columns: repeat(2, 1fr); */
         color: #fff;
-        /* display: flex !important; */
+        display: flex !important;
         /* justify-content: center !important; */
         /* align-items: center !important; */
         text-align: center;
-        display: block !important; 
+        /* display: block !important;  */
+        margin-top: 45px !important;
+        margin-bottom: 30px !important;
 
     }
     .footer-about-sec a{
         width: 80% !important;
         margin: auto !important;
         margin-bottom: 25px !important;
-        border-radius: 5px !important;
+        /* border-radius: 5px !important; */
     }
     .cs_about.cs_style_1 {
         padding: 5px 0 !important;
