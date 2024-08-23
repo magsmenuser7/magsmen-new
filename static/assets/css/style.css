@@ -5803,7 +5803,7 @@ label {
     flex-grow: 1;
     position: relative;
     transition: flex-grow 0.5s ease;
-    /* cursor: pointer; */
+    cursor: pointer;
     /* box-shadow: 0px 0px 10px #000; */
     /* margin: 10px !important; */
     /* border-radius: 5px !important; */
@@ -5869,6 +5869,13 @@ label {
     width: 100%;
     height: 100%;
     background: linear-gradient(0deg, rgba(10, 10, 10, 0.581), rgba(0, 0, 0, 0.471));
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.cs_team_section .works-img .cs_portfolio_overlay {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -5976,7 +5983,7 @@ label {
     align-items: center;
     text-align: center;
     text-transform: capitalize;
-    padding: 150px 250px;
+    padding: 100px 250px;
 }
 
 .cs_learning_project .cs_section_heading.cs_style_1 .cs_section_heading_text .cs_section_title_3.cs_color_2 {
@@ -7605,7 +7612,7 @@ label {
 }
 .parallax-img{
     width: 100%;
-    height: 100%;
+    height: auto !important;
     margin: auto !important;
 }
 .service-title-card .text-light:hover{
@@ -7928,8 +7935,8 @@ label {
     flex-grow: 1;
     position: relative;
     transition: flex-grow 0.5s ease;
-    /* cursor: pointer; */
-    box-shadow: 0px 0px 10px #000;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px #000;
     margin: 10px !important;
     border-radius: 5px !important;
 }
@@ -7945,6 +7952,13 @@ label {
     transition: transform 0.7s ease;
     /* text-align: center !important; */
 }
+
+/* .zavaine-team-section{
+    flex-direction: column !important;
+    height: 90px !important;
+    width: 34% !important;
+    max-width: 415px !important;
+} */
 
 @media(min-width:300px) and (max-width:480px){
     .about-img-blog{
@@ -7969,10 +7983,23 @@ label {
         margin-top: 35px !important;
         font-size: 40px !important;
     }
-    .cs_section_heading.cs_style_1 .cs_section_title{
+    .cs_section_heading.cs_style_1 .about-main-title{
         /* font-size: 25px !important; */
         /* text-align: justify !important; */
+        margin-top: 100px !important;
+    }
+    .cs_section_heading_text .ourteam-sec{
         margin-top: 20px !important;
+    }
+    .cs_section_heading.cs_style_1 .cs_section_title {
+        font-size: 30px !important;
+        font-weight: 700;
+        margin-bottom: 25px !important;
+    }
+    .cs_animated_badge {
+        align-items: center;
+        margin: 0 auto;
+        margin-bottom: 50px;
     }
     .services-content p {
         margin: auto !important;
@@ -8272,7 +8299,38 @@ label {
     }
     .cs_team_section {
         flex-direction: column !important;
-        height: 1300px !important;
+        height: 1050px !important;
     }
+    .career-title{
+        padding-top: 90px !important;
+    }
+    .cs_section_heading_text .works-main-title{
+        margin-top: 100px !important;
+        margin-bottom: 15px !important;
+    }
+    .zavaine-team-section{
+        flex-direction: column !important;
+        height: 90px !important;
+    }
+    .team-section-cs{
+        height: 1400px !important;
+    }
+    .services-title_main{
+        padding-top: 100px !important;
+    }
+    .working-process{
+        padding-top: 50px !important;
+    }
+    .cs_work.cs_work_1 .cs_card_work.cs_style_1 .cs_card:nth-child(even) {
+        margin-top: 0px;
+        margin-bottom: 40px !important;
+    }
+    .pb-5{
+        margin-top: 50px !important;
+    }
+    .cs_accordion_body{
+        text-align: justify !important;
+    }
+
 }
 
