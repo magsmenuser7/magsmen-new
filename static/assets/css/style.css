@@ -8334,3 +8334,94 @@ label {
 
 }
 
+@media(min-width:1200px) and (max-width:1700px){
+    .cs_hero.cs_style1 .cs_hero_bg {
+        height: calc(100% + 100px);
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+    }
+    /* .cs_hero.cs_style1 {
+        min-height: 90vh !important;
+        position: relative !important;
+        padding: 150px 0 100px !important;
+        overflow: hidden !important;
+    } */
+    .cs_about.cs_style_1 .cs_about_bg {
+        position: absolute;
+        top: 12%;
+        left: 48%;
+        height: 50vh !important;
+        width: 55% !important;
+        z-index: 500;
+        display: block !important;
+    } 
+    .about-img {
+        background-size: contain !important;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .cs_slider_3 {
+        overflow: hidden;
+        width: 100% !important;
+    }
+    .cs_contact_ms {
+        display: flex;
+        width: 100% !important;
+        gap: 3%;
+    }
+}
+
+@media(min-width:1700px) and (max-width:2500px){
+    .cs_hero.cs_style1 .cs_hero_bg {
+        height: calc(100% + 100px);
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+    }
+    /* .cs_hero.cs_style1 {
+        min-height: 90vh !important;
+        position: relative !important;
+        padding: 150px 0 100px !important;
+        overflow: hidden !important;
+    } */
+    .cs_about.cs_style_1 .cs_about_bg {
+        position: absolute;
+        top: 20%;
+        left: 48%;
+        height: 50vh !important;
+        width: 55% !important;
+        z-index: 500;
+        display: block !important;
+    } 
+    .about-img {
+        background-size: contain !important;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .cs_slider_3 {
+        overflow: hidden;
+        width: 100% !important;
+    }
+    .cs_contact_ms {
+        display: flex;
+        width: 100% !important;
+        gap: 3%;
+    }
+    /* .cs_about.cs_style_1 .cs_about_bg {
+        position: absolute;
+        top: 5%;
+        left: 48%;
+        height: 20vh !important;
+        width: 55% !important;
+        z-index: 500;
+        display: block !important;
+    } */
+}
