@@ -7959,6 +7959,10 @@ label {
     width: 34% !important;
     max-width: 415px !important;
 } */
+.position-absolute {
+    position: absolute !important;
+    bottom: 85 !important;
+}
 
 @media(min-width:300px) and (max-width:480px){
     .about-img-blog{
@@ -8424,4 +8428,6 @@ label {
         z-index: 500;
         display: block !important;
     } */
+
+   
 }
