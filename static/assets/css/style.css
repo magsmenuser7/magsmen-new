@@ -317,7 +317,7 @@ textarea {
 
 .cs_preloader .loading {
     font-size: 90px;
-    font-family: "Montserrat", sans-serif;
+    font-family: 'proxima-nova';
     font-weight: 900;
     text-align: center;
 }
@@ -326,6 +326,8 @@ textarea {
     .cs_preloader .loading {
         font-size: 50px;
     }
+
+
 }
 
 .cs_preloader .loading span {
@@ -7547,6 +7549,7 @@ label {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+    padding-top: 18px !important;
 }
 .sec-main-title::before{
     content: "";
@@ -7964,10 +7967,31 @@ label {
     bottom: 85 !important;
 }
 
+
+.cs_section_heading.cs_style_1 .cs_section_subtitle, .our-sevices-title {
+    color: var(--heading-color);
+    font-size: 40px;
+    margin-bottom: 30px;
+    display: inline-block;
+    position: relative;
+    padding-left: 29px;
+    font-weight: 900;
+    padding-top: 25px !important;
+}
+.cs_moving_section {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    padding: 5px 0px;
+    animation: slide-left 40s linear infinite;
+    padding-top: 10px !important;
+}
+
 @media(min-width:300px) and (max-width:480px){
     .about-img-blog{
         display: block !important;
         margin: auto !important;
+        width: 50% !important;
     }
     .about-img-parallax video{
         height:auto; /* Adjust the height as needed */
@@ -7996,7 +8020,7 @@ label {
         margin-top: 20px !important;
     }
     .cs_section_heading.cs_style_1 .cs_section_title {
-        font-size: 30px !important;
+        font-size: 25px !important;
         font-weight: 700;
         margin-bottom: 25px !important;
     }
@@ -8160,7 +8184,7 @@ label {
         padding-bottom: 0rem !important;
     }
     .about-text{
-        margin-top: 20px !important;
+        /* margin-top: 20px !important; */
         text-align: justify !important;
     }
     .about-text li{
@@ -8198,7 +8222,7 @@ label {
     }
     .footer-about-sec{
         /* display: grid; */
-        grid-gap: 15px 30px;
+        grid-gap: 15px 15px !important;
         /* grid-template-columns: repeat(2, 1fr); */
         color: #fff;
         display: flex !important;
@@ -8211,7 +8235,7 @@ label {
 
     }
     .footer-about-sec a{
-        width: 80% !important;
+        /* width: 80% !important; */
         margin: auto !important;
         margin-bottom: 25px !important;
         /* border-radius: 5px !important; */
@@ -8335,7 +8359,9 @@ label {
     .cs_accordion_body{
         text-align: justify !important;
     }
-
+    .service-title-card{
+        display: none !important;
+    }
 }
 
 @media(min-width:1200px) and (max-width:1700px){
@@ -8379,6 +8405,27 @@ label {
         width: 100% !important;
         gap: 3%;
     }
+    .blog-title, .blog-grid-text {
+        color: #000 !important;
+        padding-top: 10px;
+    }
+    .cs_footer_social {
+        display: grid;
+        grid-gap: 15px 15px;
+        /* grid-template-columns: repeat(2, 1fr) !important; */
+        color: #fff;
+        display: flex;
+    }
+    .cs_section_heading.cs_style_1 .cs_section_subtitle,.our-sevices-title {
+        color: var(--heading-color);
+        font-size: 40px;
+        margin-bottom: 30px;
+        display: inline-block;
+        position: relative;
+        padding-left: 29px;
+        font-weight: 900;
+        /* padding-top: 20px !important; */
+    }
 }
 
 @media(min-width:1700px) and (max-width:2500px){
@@ -8408,6 +8455,7 @@ label {
         background-size: contain !important;
         background-repeat: no-repeat;
         background-position: center;
+        
     }
 
     .cs_slider_3 {
@@ -8430,4 +8478,118 @@ label {
     } */
 
    
+}
+
+@media(min-width:320px) and (max-width:480px){
+    .cs_footer_contact_list li i{
+        margin-top: px !important;
+    }
+    .about-img-blog{
+        display: block !important;
+        margin: auto !important;
+        width: 50% !important;
+    }
+    .service-title-card{
+        display: none !important;
+    }
+    .cs_footer_social {
+        display: grid;
+        grid-gap: 15px 15px;
+        /* grid-template-columns: repeat(2, 1fr) !important; */
+        color: #fff;
+        display: flex;
+    }
+    .cs_preloader {
+        position: fixed;
+        z-index: 99999;
+        top: 0;
+        width: 100%;
+        height: 100vh !important;
+        background-color: #fff;
+    }
+    .cs_card.cs_style_1 .brandconsult{
+        margin-left: 12px !important;
+    }
+    .cs_card.cs_style_1 .personalbrand{
+        margin-left: 9px !important;
+    }
+
+    .cs_card.cs_style_1 .imageconsulting{
+        margin-left: 10px !important;
+    }
+
+    .cs_card.cs_style_1 .corporaterebrand{
+        margin-left: 10px !important;
+    }
+
+    .cs_card.cs_style_1 .startupbrand-partnership{
+        margin-left: 10px !important;
+    }
+
+    .cs_card.cs_style_1 .brandexpresso{
+        margin-left: 10px !important;
+    }
+
+    .cs_card.cs_style_1 .brandcreation{
+        margin-left: 60px !important;
+    }
+
+    .footer-about-sec {
+        /* display: grid; */
+        grid-gap: 15px 15px !important;
+        /* grid-template-columns: repeat(2, 1fr); */
+        color: #fff;
+        display: flex !important;
+        /* justify-content: center !important; */
+        /* align-items: center !important; */
+        text-align: center;
+        /* display: block !important; */
+        padding-top: 45px !important;
+        margin-bottom: 30px !important;
+    }
+    .our-sevices-title::before {
+        content: "";
+        position: absolute;
+        height: 14px;
+        width: 14px;
+        border-radius: 50%;
+        background-color: #fff !important;
+        top: -5px;
+        left: 0;
+    }
+    .sec-main-title::before {
+        content: "";
+        position: absolute;
+        height: 14px;
+        width: 14px;
+        border-radius: 50%;
+        background-color: #000 !important;
+        top: -5px;
+        left: 0;
+    }
+    .cs_moving_section {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        padding: 5px 0px;
+        animation: slide-left 40s linear infinite;
+        padding-top: 11px !important;
+    }
+    .cs_stroke_text {
+        font-size: 100px;
+        font-weight: 900;
+        line-height: 1.2em;
+        color: transparent;
+        -webkit-text-stroke: 1px var(--body-color);
+        padding-top: 40px !important;
+    }
+    .blog-title {
+        color: #000 !important;
+        padding-top: 25px;
+    }
+    .cs_section_heading.cs_style_1 .cs_section_title{
+        font-size: 25px !important;
+        padding-top: 15px !important;
+    }
+
 }
