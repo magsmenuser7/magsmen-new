@@ -1804,7 +1804,7 @@ label {
     width: 14px;
     border-radius: 50%;
     background-color: #aaa;
-    top: 6px;
+    top: 30px !important;
     left: 0;
 }
 
@@ -1823,7 +1823,7 @@ label {
 .cs_section_heading.cs_style_1 .cs_section_title_3 {
     font-weight: 700;
     font-size: 45px;
-    margin-bottom: 0;
+    /* margin-bottom: 0; */
 }
 
 .cs_section_heading.cs_style_1 .cs_section_title_4 {
@@ -6549,7 +6549,6 @@ label {
 
 
 /* end portfolio details page */
-
 @media screen and (max-width: 991px) {
     /* start design studio page portfolio */
     .project_successfull {
@@ -7572,7 +7571,7 @@ label {
     width: 14px;
     border-radius: 50%;
     background-color: #fff !important;
-    top: 6px;
+    top: 30px;
     left: 0;
 }
 
@@ -7712,7 +7711,7 @@ label {
     color:#fff !important;
 }
 .success-imgs{
-    box-shadow: 0px 0px 5px #000 !important;
+    /* box-shadow: 0px 0px 5px #000 !important; */
     border-radius: 5px !important;
     margin: 0px 20px !important;
 }
@@ -7978,13 +7977,21 @@ label {
     font-weight: 900;
     padding-top: 25px !important;
 }
-.cs_moving_section {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    padding: 5px 0px;
-    animation: slide-left 40s linear infinite;
-    padding-top: 10px !important;
+
+
+/* Apply grayscale to image by default */
+.cs_portfolio_img img {
+    transition: filter 0.3s ease; /* Smooth transition effect */
+    filter: grayscale(100%) !important; /* Default grayscale */
+}
+
+/* Remove grayscale on hover to show full color */
+.cs_portfolio_img:hover img {
+    filter: grayscale(0%) !important; /* Color image on hover */
+}
+
+.cs_portfolio_subtitle{
+    visibility:hidden !important;
 }
 
 @media(min-width:300px) and (max-width:480px){
@@ -8018,11 +8025,6 @@ label {
     }
     .cs_section_heading_text .ourteam-sec{
         margin-top: 20px !important;
-    }
-    .cs_section_heading.cs_style_1 .cs_section_title {
-        font-size: 25px !important;
-        font-weight: 700;
-        margin-bottom: 25px !important;
     }
     .cs_animated_badge {
         align-items: center;
@@ -8146,7 +8148,7 @@ label {
         width: 100%;
         padding-right: 25px;
         margin: auto !important;
-        margin-top: 35px !important;
+        /* margin-top: 35px !important; */
     }
 
     .brand-creation-item{
@@ -8230,8 +8232,8 @@ label {
         /* align-items: center !important; */
         text-align: center;
         /* display: block !important;  */
-        margin-top: 45px !important;
-        margin-bottom: 30px !important;
+        /* margin-top: 45px !important;
+        margin-bottom: 30px !important; */
 
     }
     .footer-about-sec a{
@@ -8305,11 +8307,11 @@ label {
         font-size: 25px !important;
     }
 
-    .cs_section_heading.cs_style_1 .cs_section_title {
+    /* .cs_section_heading.cs_style_1 .cs_section_title {
         font-size: 30px !important;
         font-weight: 700;
         margin-bottom: 0;
-    }
+    } */
     .cs_testimonial.cs_style_1 .cs_testimonial_avatar {
         width: 180px !important;
         margin-right: 1px !important;
@@ -8426,6 +8428,15 @@ label {
         font-weight: 900;
         /* padding-top: 20px !important; */
     }
+    .cs_moving_section {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        padding: 5px 0px;
+        animation: slide-left 40s linear infinite;
+        /* padding-top: 13px; */
+    }
+    
 }
 
 @media(min-width:1700px) and (max-width:2500px){
@@ -8477,13 +8488,21 @@ label {
         display: block !important;
     } */
 
+    .cs_moving_section {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        padding: 5px 0px;
+        animation: slide-left 40s linear infinite;
+        /* padding-top: 13px; */
+    }
    
 }
 
 @media(min-width:320px) and (max-width:480px){
-    .cs_footer_contact_list li i{
+    /* .cs_footer_contact_list li i{
         margin-top: px !important;
-    }
+    } */
     .about-img-blog{
         display: block !important;
         margin: auto !important;
@@ -8544,7 +8563,7 @@ label {
         /* align-items: center !important; */
         text-align: center;
         /* display: block !important; */
-        padding-top: 45px !important;
+        /* padding-top: 45px !important; */
         margin-bottom: 30px !important;
     }
     .our-sevices-title::before {
@@ -8554,7 +8573,7 @@ label {
         width: 14px;
         border-radius: 50%;
         background-color: #fff !important;
-        top: -5px;
+        top: 32px !important;
         left: 0;
     }
     .sec-main-title::before {
@@ -8567,14 +8586,7 @@ label {
         top: -5px;
         left: 0;
     }
-    .cs_moving_section {
-        display: flex;
-        flex-shrink: 0;
-        align-items: center;
-        padding: 5px 0px;
-        animation: slide-left 40s linear infinite;
-        padding-top: 11px !important;
-    }
+
     .cs_stroke_text {
         font-size: 100px;
         font-weight: 900;
@@ -8583,13 +8595,57 @@ label {
         -webkit-text-stroke: 1px var(--body-color);
         padding-top: 40px !important;
     }
+    
     .blog-title {
         color: #000 !important;
-        padding-top: 25px;
-    }
-    .cs_section_heading.cs_style_1 .cs_section_title{
-        font-size: 25px !important;
-        padding-top: 15px !important;
+        padding-top: 25px !important;
     }
 
+    .cs_section_heading.cs_style_1 .cs_section_title {
+        font-size: 22px !important;
+        font-weight: 700;
+        margin-bottom: 25px !important;
+        /* padding-top: 20px !important; */
+    }
+    .cs_section_heading_text .subscribe_title{
+        font-size: 35px !important;
+        text-align: justify !important;
+    }
+    .cs_card_link{
+        position: absolute;
+        top: -140px !important;
+    }
+    .card_link_cs{
+        top: -100px !important;
+    }
+    .cs_card.cs_style_1 .cs_card_left{
+        flex: none;
+        width: 100%;
+        padding-right: 25px;
+        /* margin: auto !important; */
+        padding-top: 60px !important;
+    }
+    .card_left_cs{
+        padding-left: 35px !important;
+    }
+    .cs_card_title{
+        display: none !important;
+    }
+    /* .cs_moving_section_in {
+        display: flex;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        min-width: 100%;
+        padding-top: 5px !important;
+    } */
+
+    .success-imgs{
+        box-shadow: 0px 0px 5px #000 !important;
+        border-radius: 5px !important;
+        margin: 0px 20px !important;
+    }
+
+    .cs_portfolio_subtitle{
+        visibility: visible !important;
+    }
 }
