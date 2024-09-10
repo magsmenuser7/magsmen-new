@@ -1804,7 +1804,7 @@ label {
     width: 14px;
     border-radius: 50%;
     background-color: #aaa;
-    top: 30px !important;
+    top: 20px !important;
     left: 0;
 }
 
@@ -7994,6 +7994,11 @@ label {
     visibility:hidden !important;
 }
 
+.py-4 {
+    padding-top: 1.2rem !important;
+    padding-bottom: 1.rem !important;
+}
+
 @media(min-width:300px) and (max-width:480px){
     .about-img-blog{
         display: block !important;
@@ -8426,15 +8431,34 @@ label {
         position: relative;
         padding-left: 29px;
         font-weight: 900;
-        /* padding-top: 20px !important; */
     }
-    .cs_moving_section {
+
+    .cs_section_heading.cs_style_1 .cs_section_subtitle::before {
+        content: "";
+        position: absolute;
+        height: 14px;
+        width: 14px;
+        border-radius: 50%;
+        background-color: #aaa;
+        top: 30px !important;
+        left: 0;
+    }
+    .cs_footer_contact_list li i {
+        color: #fff;
+        position: absolute;
+        left: 0;
+        top: 0px !important;
         display: flex;
-        flex-shrink: 0;
-        align-items: center;
-        padding: 5px 0px;
-        animation: slide-left 40s linear infinite;
-        /* padding-top: 13px; */
+    }
+    .cs_section_heading.cs_style_1 .cs_section_subtitle, .our-sevices-title {
+        color: var(--heading-color);
+        font-size: 40px;
+        margin-bottom: 30px;
+        display: inline-block;
+        position: relative;
+        padding-left: 29px;
+        font-weight: 900;
+        padding-top: 35px !important;
     }
     
 }
@@ -8447,12 +8471,7 @@ label {
         left: 0;
         top: 0;
     }
-    /* .cs_hero.cs_style1 {
-        min-height: 90vh !important;
-        position: relative !important;
-        padding: 150px 0 100px !important;
-        overflow: hidden !important;
-    } */
+
     .cs_about.cs_style_1 .cs_about_bg {
         position: absolute;
         top: 20%;
@@ -8478,31 +8497,30 @@ label {
         width: 100% !important;
         gap: 3%;
     }
-    /* .cs_about.cs_style_1 .cs_about_bg {
-        position: absolute;
-        top: 5%;
-        left: 48%;
-        height: 20vh !important;
-        width: 55% !important;
-        z-index: 500;
-        display: block !important;
-    } */
 
-    .cs_moving_section {
-        display: flex;
-        flex-shrink: 0;
-        align-items: center;
-        padding: 5px 0px;
-        animation: slide-left 40s linear infinite;
-        /* padding-top: 13px; */
+    .cs_section_heading.cs_style_1 .cs_section_subtitle, .our-sevices-title {
+        color: var(--heading-color);
+        font-size: 40px;
+        margin-bottom: 30px;
+        display: inline-block;
+        position: relative;
+        padding-left: 29px;
+        font-weight: 900;
+        padding-top: 35px !important;
     }
+    .cs_footer_contact_list li i {
+        color: #fff;
+        position: absolute;
+        left: 0;
+        top: 0px !important;
+        display: flex;
+    }
+
    
 }
 
 @media(min-width:320px) and (max-width:480px){
-    /* .cs_footer_contact_list li i{
-        margin-top: px !important;
-    } */
+
     .about-img-blog{
         display: block !important;
         margin: auto !important;
@@ -8631,13 +8649,7 @@ label {
     .cs_card_title{
         display: none !important;
     }
-    /* .cs_moving_section_in {
-        display: flex;
-        flex-wrap: nowrap;
-        white-space: nowrap;
-        min-width: 100%;
-        padding-top: 5px !important;
-    } */
+
 
     .success-imgs{
         box-shadow: 0px 0px 5px #000 !important;
@@ -8648,4 +8660,9 @@ label {
     .cs_portfolio_subtitle{
         visibility: visible !important;
     }
+    .cs_portfolio_img img {
+        transition: filter 0.3s ease; /* Smooth transition effect */
+        filter: grayscale(0%) !important; /* Default grayscale */
+    }
+    
 }
