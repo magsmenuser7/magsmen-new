@@ -1793,19 +1793,20 @@ label {
     margin-bottom: 30px;
     display: inline-block;
     position: relative;
-    padding-left: 29px;
+    padding-left: 0px;
     font-weight: 900;
 }
 
 .cs_section_heading.cs_style_1 .cs_section_subtitle::before {
     content: "";
-    position: absolute;
+    /* position: absolute; */
     height: 14px;
     width: 14px;
     border-radius: 50%;
     background-color: #aaa;
     top: 20px !important;
     left: 0;
+    display: none !important;
 }
 
 .cs_section_heading.cs_style_1 .cs_section_title {
@@ -7552,21 +7553,22 @@ label {
 }
 .sec-main-title::before{
     content: "";
-    position: absolute;
+    /* position: absolute; */
     height: 14px;
     width: 14px;
     border-radius: 50%;
     background-color: #000 !important;
     top: 6px;
     left: 0;
+    display: none !important;
 }
 .our-sevices-title{
-    padding-left:25px !important;
+    padding-left:0px !important;
 }
 
 .our-sevices-title::before{
     content: "";
-    position: absolute;
+    /* position: absolute; */
     height: 14px;
     width: 14px;
     border-radius: 50%;
@@ -7973,7 +7975,7 @@ label {
     margin-bottom: 30px;
     display: inline-block;
     position: relative;
-    padding-left: 29px;
+    padding-left: 0px;
     font-weight: 900;
     padding-top: 25px !important;
 }
@@ -8429,19 +8431,20 @@ label {
         margin-bottom: 30px;
         display: inline-block;
         position: relative;
-        padding-left: 29px;
+        padding-left: 0px;
         font-weight: 900;
     }
 
     .cs_section_heading.cs_style_1 .cs_section_subtitle::before {
         content: "";
-        position: absolute;
+        /* position: absolute; */
         height: 14px;
         width: 14px;
         border-radius: 50%;
         background-color: #aaa;
         top: 30px !important;
         left: 0;
+        display: none !important;
     }
     .cs_footer_contact_list li i {
         color: #fff;
@@ -8456,7 +8459,7 @@ label {
         margin-bottom: 30px;
         display: inline-block;
         position: relative;
-        padding-left: 29px;
+        padding-left: 0px;
         font-weight: 900;
         padding-top: 35px !important;
     }
@@ -8504,7 +8507,7 @@ label {
         margin-bottom: 30px;
         display: inline-block;
         position: relative;
-        padding-left: 29px;
+        padding-left: 0px;
         font-weight: 900;
         padding-top: 35px !important;
     }
@@ -8596,13 +8599,14 @@ label {
     }
     .sec-main-title::before {
         content: "";
-        position: absolute;
+        /* position: absolute; */
         height: 14px;
         width: 14px;
         border-radius: 50%;
         background-color: #000 !important;
         top: -5px;
         left: 0;
+        display: none !important;
     }
 
     .cs_stroke_text {
