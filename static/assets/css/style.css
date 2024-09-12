@@ -8343,7 +8343,7 @@ label {
     }
     .cs_team_section {
         flex-direction: column !important;
-        height: 1050px !important;
+        /* height: 1050px !important; */
     }
     .career-title{
         padding-top: 90px !important;
@@ -8684,6 +8684,10 @@ label {
     .cs_section_title_3{
         font-size: 35px !important;
         padding-top: 15px !important;
+    }
+    .cs_team_section {
+        flex-direction: column !important;
+        /* height: 1050px !important; */
     }
     
 }
