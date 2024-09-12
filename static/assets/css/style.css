@@ -8678,7 +8678,7 @@ label {
         transition: filter 0.3s ease; /* Smooth transition effect */
         filter: grayscale(0%) !important; /* Default grayscale */
     }
-    /* .cs_bold{
+    /* .marquee-sec{
         padding: 10px !important;
     } */
     .cs_section_title_3{
