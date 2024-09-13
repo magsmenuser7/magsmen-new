@@ -209,7 +209,7 @@
     <div class="swiper-wrapper">
         <div class="swiper-slide">
             <div class="cs_about cs_style_1 about-slide-sec">
-                <img src="/static/assets/img/about/monogram-wise-owl.png" alt="about-wise-owl" class="about-img-blog">
+                <img src="/static/assets/img/about/monogram-wise-owl.png" alt="monogram-wise-owl" class="about-img-blog">
                 <div class="cs_about_bg cs_bg about-img" data-src="{% static 'assets/img/about/monogram-wise-owl.png' %}" style="display: block;margin: auto !important;"></div>
                 <div class="container">
                     <div class="cs_about_text about-text-content">
@@ -477,7 +477,7 @@
                 <div class="cs_card_right">
                     <div class="cs_card_right_in">
                         <h2 class="cs_card_title service-title-card">
-                            <a href="/brand-consulting/" class="text-light">Brand Consulting</a>
+                            <a href="/brand-consulting/" class="text-light" id="brandconsulting">Brand Consulting</a>
                         </h2>
                         <div class="cs_card_subtitle about-text">
                             Transform your business into a brand powerhouse with Magsmen. Because in this game, strategy is everything.
@@ -485,7 +485,7 @@
                     </div>
                 </div>
                 <div class="cs_card_link_wrap">
-                    <a href="/brand-consulting/" class="cs_card_link arrow-up">
+                    <a href="/brand-consulting/" class="cs_card_link arrow-up" id="brandconsulting-uparrow">
                         <span>
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -521,7 +521,7 @@
                 <div class="cs_card_right">
                     <div class="cs_card_right_in">
                         <h2 class="cs_card_title service-title-card">
-                            <a href="/personal-brand-consulting/" class="text-light">Personal Brand Consulting</a>
+                            <a href="/personal-brand-consulting/" class="text-light" id="personalbrand">Personal Brand Consulting</a>
                         </h2>
                         <div class="cs_card_subtitle about-text">
                             Harness the magic of your personal brand with Magsmen by your side.because even kings have their royal advisors.
@@ -529,7 +529,7 @@
                     </div>
                 </div>
                 <div class="cs_card_link_wrap">
-                    <a href="/personal-brand-consulting/" class="cs_card_link arrow-up">
+                    <a href="/personal-brand-consulting/" class="cs_card_link arrow-up" id="personalbrand-uparrow">
                         <span>
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -565,7 +565,7 @@
                 <div class="cs_card_right">
                     <div class="cs_card_right_in">
                         <h2 class="cs_card_title service-title-card">
-                            <a href="/image-consulting/" class="text-light">Image Consulting</a>
+                            <a href="/image-consulting/" class="text-light" id="imageconsulting">Image Consulting</a>
                         </h2>
                         <div class="cs_card_subtitle about-text">
                             Dress for success with Magsmen's image consulting. Because let's be honest, first impressions are made in a flash. Let's ensure yours shines.
@@ -573,7 +573,7 @@
                     </div>
                 </div>
                 <div class="cs_card_link_wrap">
-                    <a href="/image-consulting/" class="cs_card_link arrow-up">
+                    <a href="/image-consulting/" class="cs_card_link arrow-up" id="imageconsulting-uparrow">
                         <span>
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -609,14 +609,14 @@
                 <div class="cs_card_right">
                     <div class="cs_card_right_in">
                         <h2 class="cs_card_title service-title-card">
-                            <a href="/corporate-rebranding/" class="text-light">Corporate Rebranding</a>
+                            <a href="/corporate-rebranding/" class="text-light" id="corporaterebranding">Corporate Rebranding</a>
                         </h2>
                         <div class="cs_card_subtitle about-text">
                             Give your brand a facelift with Magsmen's corporate rebranding services. It's not just about a new look; it's about a new vibe that speaks to your audience.                        </div>
                     </div>
                 </div>
                 <div class="cs_card_link_wrap">
-                    <a href="/corporate-rebranding/" class="cs_card_link arrow-up">
+                    <a href="/corporate-rebranding/" class="cs_card_link arrow-up" id="corporaterebranding-uparrow">
                         <span>
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -652,14 +652,14 @@
                 <div class="cs_card_right">
                     <div class="cs_card_right_in">
                         <h2 class="cs_card_title service-title-card">
-                            <a href="/launchpad/" class="text-light">Launchpad</a>
+                            <a href="/launchpad/" class="text-light" id="launchpad">Launchpad</a>
                         </h2>
                         <div class="cs_card_subtitle about-text">
                             Launch your business into the stratosphere with Launchpad by MAGSMEN. We provide the fuel, guidance, and support you need to soar in the market. Ready to soar?                        </div>
                     </div>
                 </div>
                 <div class="cs_card_link_wrap">
-                    <a href="/launchpad/" class="cs_card_link arrow-up">
+                    <a href="/launchpad/" class="cs_card_link arrow-up" id="launchpad-uparrow">
                         <span>
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -695,7 +695,7 @@
                 <div class="cs_card_right">
                     <div class="cs_card_right_in">
                         <h2 class="cs_card_title service-title-card">
-                            <a href="/brand-expresso/" class="text-light">Brand Expresso</a>
+                            <a href="/brand-expresso/" class="text-light" id="brandexpresso">Brand Expresso</a>
                         </h2>
                         <div class="cs_card_subtitle about-text">
                             Revitalize your brand in just 90 days with Brand Expresso—transforming identity, boosting presence, and standing out boldly in the market!
@@ -703,7 +703,7 @@
                     </div>
                 </div>
                 <div class="cs_card_link_wrap">
-                    <a href="/brand-expresso/" class="cs_card_link arrow-up">
+                    <a href="/brand-expresso/" class="cs_card_link arrow-up" id="brandexpresso-uparrow">
                         <span>
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -739,7 +739,7 @@
                 <div class="cs_card_right brand-creation-item">
                     <div class="cs_card_right_in">
                         <h2 class="cs_card_title service-title-card">
-                            <a href="/brand-creation/" class="text-light">Brand Creation</a>
+                            <a href="/brand-creation/" class="text-light" id="brandcreation">Brand Creation</a>
                         </h2>
                         <div class="cs_card_subtitle about-text">
                             Turn your ideas into reality in 90 days with Brand Creation—from concept to creation. Because every unique brand deserves a unique approach!
@@ -747,7 +747,7 @@
                     </div>
                 </div>
                 <div class="cs_card_link_wrap">
-                    <a href="/brand-creation/" class="cs_card_link arrow-up">
+                    <a href="/brand-creation/" class="cs_card_link arrow-up" id="brancreation-uparrow">
                         <span>
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -804,8 +804,8 @@
                     <div class="swiper-slide success-imgs">
                         <div class="cs_horizontal_scroll">
                             <a class="cs_portfolio cs_style_1">
-                                <div class="cs_portfolio_img">
-                                    <img src="{% static 'assets/img/works/Telugu-foods.jpg' %}" alt="Telugu-foods" />
+                                <div class="cs_portfolio_img telugufoods">
+                                    <img src="{% static 'assets/img/works/Telugu-foods.jpg' %}" alt="telugu-foods" />
                                 </div>
                                 <!-- <div class="cs_portfolio_overlay"></div> -->
                                 <div class="cs_portfolio_info">
@@ -822,8 +822,8 @@
                     <div class="swiper-slide success-imgs">
                         <div class="cs_horizontal_scroll">
                             <a class="cs_portfolio cs_style_1">
-                                <div class="cs_portfolio_img">
-                                    <img src="{% static 'assets/img//works/Surya-Colours.jpg' %}" alt="Surya-Colours" />
+                                <div class="cs_portfolio_img suryacolors">
+                                    <img src="{% static 'assets/img//works/Surya-Colours.jpg' %}" alt="surya-colours" />
                                 </div>
                                 <!-- <div class="cs_portfolio_overlay"></div> -->
                                 <div class="cs_portfolio_info">
@@ -840,7 +840,7 @@
                     <div class="swiper-slide success-imgs">
                         <div class="cs_horizontal_scroll">
                             <a class="cs_portfolio cs_style_1">
-                                <div class="cs_portfolio_img">
+                                <div class="cs_portfolio_img tdhinstantfoods">
                                     <img src="{% static 'assets/img/works/tdh-instant.png' %}" alt="tdh-instant-foods" />
                                 </div>
                                 <!-- <div class="cs_portfolio_overlay"></div> -->
@@ -858,7 +858,7 @@
                     <div class="swiper-slide success-imgs">
                         <div class="cs_horizontal_scroll">
                             <a class="cs_portfolio cs_style_1">
-                                <div class="cs_portfolio_img">
+                                <div class="cs_portfolio_img tenalidoublehorse">
                                     <img src="{% static 'assets/img/works/tenali-double-horse.jpg' %}" alt="tenali-double-horse" />
                                 </div>
                                 <!-- <div class="cs_portfolio_overlay"></div> -->
@@ -876,8 +876,8 @@
                     <div class="swiper-slide success-imgs">
                         <div class="cs_horizontal_scroll">
                             <a class="cs_portfolio cs_style_1">
-                                <div class="cs_portfolio_img">
-                                    <img src="{% static 'assets/img/works/Triplex.jpg' %}" alt="Triplex" />
+                                <div class="cs_portfolio_img triplex">
+                                    <img src="{% static 'assets/img/works/Triplex.jpg' %}" alt="triplex" />
                                 </div>
                                 <!-- <div class="cs_portfolio_overlay"></div> -->
                                 <div class="cs_portfolio_info">
@@ -894,8 +894,8 @@
                     <div class="swiper-slide success-imgs">
                         <div class="cs_horizontal_scroll">
                             <a class="cs_portfolio cs_style_1">
-                                <div class="cs_portfolio_img">
-                                    <img src="{% static 'assets/img/works/VSB.png' %}" alt="VSB" />
+                                <div class="cs_portfolio_img vsb">
+                                    <img src="{% static 'assets/img/works/VSB.png' %}" alt="vsb" />
                                 </div>
                                 <!-- <div class="cs_portfolio_overlay"></div> -->
                                 <div class="cs_portfolio_info">
@@ -912,8 +912,8 @@
                     <div class="swiper-slide success-imgs">
                         <div class="cs_horizontal_scroll">
                             <a class="cs_portfolio cs_style_1">
-                                <div class="cs_portfolio_img">
-                                    <img src="{% static 'assets/img/works/zavaine2.png' %}" alt="Zavaiine" />
+                                <div class="cs_portfolio_img zavaine">
+                                    <img src="{% static 'assets/img/works/zavaine2.png' %}" alt="zavaine" />
                                 </div>
                                 <!-- <div class="cs_portfolio_overlay"></div> -->
                                 <div class="cs_portfolio_info">
@@ -1074,7 +1074,7 @@
                                     </blockquote>
                                     <div class="cs_testimonial_meta">
                                         <div class="cs_testimonial_avatar">
-                                            <img src="{% static 'assets/img/clients/homepage-testimonial-telugufoods-168x168.png' %}" alt="telugu-foods" />
+                                            <img src="{% static 'assets/img/clients/homepage-testimonial-telugufoods-168x168.png' %}" alt="telugufoods" />
                                         </div>
                                         <div class="cs_testimonial_meta_right">
                                             <h3 class="cs_testimonial_avatar_name">
@@ -1107,7 +1107,7 @@
                                     </blockquote>
                                     <div class="cs_testimonial_meta">
                                         <div class="cs_testimonial_avatar">
-                                            <img src="{% static 'assets/img/clients/xxx.png' %}" alt="Avatar" />
+                                            <img src="{% static 'assets/img/clients/xxx.png' %}" alt="xxx" />
                                         </div>
                                         <div class="cs_testimonial_meta_right">
                                             <h3 class="cs_testimonial_avatar_name">
@@ -1141,7 +1141,7 @@
                                     </blockquote>
                                     <div class="cs_testimonial_meta">
                                         <div class="cs_testimonial_avatar">
-                                            <img src="{% static 'assets/img/clients/homepage-testimonial-vsb-168-150.png' %}" alt="Avatar" />
+                                            <img src="{% static 'assets/img/clients/homepage-testimonial-vsb-168-150.png' %}" alt="vsb" />
                                         </div>
                                         <div class="cs_testimonial_meta_right">
                                             <h3 class="cs_testimonial_avatar_name">
@@ -1173,7 +1173,7 @@
                                     </blockquote>
                                     <div class="cs_testimonial_meta">
                                         <div class="cs_testimonial_avatar">
-                                            <img src="{% static 'assets/img/clients/bhramara.png' %}" alt="Avatar" />
+                                            <img src="{% static 'assets/img/clients/bhramara.png' %}" alt="bhramara" />
                                         </div>
                                         <!-- <div class="cs_testimonial_meta_right">
                                             <h3 class="cs_testimonial_avatar_name">
@@ -1203,7 +1203,7 @@
                                     </blockquote>
                                     <div class="cs_testimonial_meta">
                                         <div class="cs_testimonial_avatar">
-                                            <img src="{% static 'assets/img/clients/suma.png' %}" alt="Avatar" />
+                                            <img src="{% static 'assets/img/clients/suma.png' %}" alt="suma-kanakala" />
                                         </div>
                                         <!-- <div class="cs_testimonial_meta_right">
                                             <h3 class="cs_testimonial_avatar_name">
@@ -1235,7 +1235,7 @@
                                     </blockquote>
                                     <div class="cs_testimonial_meta">
                                         <div class="cs_testimonial_avatar">
-                                            <img src="{% static 'assets/img/clients/tenali-double-horse-200x100.png' %}" alt="Avatar" />
+                                            <img src="{% static 'assets/img/clients/tenali-double-horse-200x100.png' %}" alt="tenali-double-horse" />
                                         </div>
                                         <div class="cs_testimonial_meta_right">
                                             <h3 class="cs_testimonial_avatar_name">
@@ -1462,8 +1462,8 @@
                             <source src="{% static 'assets/img/about/magsmen-logo-bottom.mp4' %}" type="video/mp4">
                         </video> -->
                           <div class="">
-                              <img src="{% static 'assets/img/about/monogram-wise-owl.png' %}" class="anim_div_ShowLeftSide "
-                                  alt="monogram" />
+                              <img src="{% static 'assets/img/about/monogram-wise-owl.png' %}" class="anim_div_ShowLeftSide"
+                                  alt="monogram-wise-owl" />
                           </div>
                       </div>
                       <div class="col-md-6">
