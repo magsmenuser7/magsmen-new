@@ -315,3 +315,11 @@ def Monochromatic_colors_in_branding(request):
     response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
     response['Content-Disposition'] = f'inline; filename="{pdf_filename_six}"'
     return response
+
+def band_corner_the_new_age_of_buying_brand_activism(request):
+    pdf_filename_seven = 'band-corner-the-new-age-of-buying-brand-activism.pdf'
+    pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename_seven)
+    
+    response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
+    response['Content-Disposition'] = f'inline; filename="{pdf_filename_seven}"'
+    return response

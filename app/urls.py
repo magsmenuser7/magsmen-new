@@ -2,7 +2,7 @@ from django.urls import path
 from .views import home,about,expertise,brand_consulting,personal_brand_consulting,image_consulting,corporate_rebranding,brand_expresso,\
 brand_creation,launchpad,blog,blogdetails,Ourmedia,Contact,Newsletter,Newslettertwo,Brand,Newsletterthree,BrandRefresh,DigitalTwin_BrandStrategy,\
 works,telugufoods,suryacolors,tdhrishika,tenali_double_horse,triplex,vsb,zavaine,career,jobdetails,applyform,Questionsform,privacy_policy,faqs,terms_conditions,cancellation_and_refund_policy,\
-Monochromatic_colors_in_branding
+Monochromatic_colors_in_branding,band_corner_the_new_age_of_buying_brand_activism
 
 from django.contrib.sitemaps.views import sitemap
 from app.sitemap import PostSitemap,StaticPagesSitemap
@@ -52,6 +52,7 @@ urlpatterns = [
     path('brand-refresh-vs-rebranding/',BrandRefresh,name="brand-refresh-rebranding"),
     path('digital-twin-brand-strategy/',DigitalTwin_BrandStrategy,name="digital-twin-brand-strategy"),
     path('monochromatic-colors-in-branding/',Monochromatic_colors_in_branding,name="monochromatic-colors-in-branding"),
+    path('the-new-age-of-buying-brand-activism/',band_corner_the_new_age_of_buying_brand_activism,name="the-new-age-of-buying-brand-activism"),
     path('sitemap.xml/',sitemap,{'sitemaps':sitemaps},name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt',TemplateView.as_view(template_name="uifiles/robots.txt", content_type="text/plain")),
    
