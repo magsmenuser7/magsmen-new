@@ -1,6 +1,6 @@
 
 
-{% extends 'uifiles/base.html' %}
+{% extends 'uifiles/base-two.html' %}
 {% load static %}
 {% block content %}
 
@@ -14,9 +14,9 @@
                     <div class="cs_section_heading_text blog-heading">
                         <div class="row blog-details">
                             <div class="col-lg-5 blog-title">
-                                <h2 class="cs_section_title anim_heading_title">
+                               <a href="https://www.magsmen.in/the-new-age-of-buying-brand-activism/" target="_blank"><h2 class="cs_section_title anim_heading_title">
                                     Brand Corner
-                                 </h2>
+                                 </h2></a>
                             </div>
                             <div class="col-lg-7 about-text">
                                 <p>Explore diverse facets of branding through our latest insights and visionary concepts. Gain profound knowledge about the essential elements that empower a brand's success.</p>
@@ -69,17 +69,30 @@
         <div class="container">
             <div class="cs_portfolio_details">
                 <div class="cs_section_next_prv anim_div_ShowZoom">
-                    <div class="cs_prv_btn">
+                    
                         {% if posts.has_previous %}
-                        <a href="?page={{ posts.previous_page_number }}">Previous</a>
+                        <a href="?page={{ posts.previous_page_number }}" class="prev-btn">
+                            Previous
+                        </a>
                         {% endif %}
-                    </div>
+
+                    <!-- <div class="cs_prv_btn">
+                        {% if posts.has_previous %}
+                        <a href="?page={{ posts.previous_page_number }}" class="prev-btn">Previous</a>
+                        {% endif %}
+                    </div> -->
                     <div>|</div>
-                    <div class="cs_next">
+
+                    {% if posts.has_next %}
+                    <a href="?page={{ posts.next_page_number }}" class="next-btn">
+                        Next
+                    </a>
+                    {% endif %}
+                    <!-- <div class="cs_next">
                         {% if posts.has_next %}
-                        <a href="?page={{ posts.next_page_number }}">Next</a>
+                        <a href="?page={{ posts.next_page_number }}" class="next-btn">Next</a>
                         {% endif %}
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

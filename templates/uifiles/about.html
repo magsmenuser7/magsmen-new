@@ -2,22 +2,25 @@
 <meta name="description" content="At Magsmen, we don't simply tell stories - we make them. Drawing inspiration from the word 'Magsman', meaning storytelling, our team works to craft impactful solutions for your brand's most pressing challenges and help you build a legacy in your line of industry.">
 <meta name="keywords" content="brand consultent, Brand Experts">
 
-{% extends 'uifiles/base.html' %}
+{% extends 'uifiles/base-two.html' %}
 {% load static %}
 {% block content %}
 
 <div id="scrollsmoother-container">
-    <!-- <div class="cs_height_219 cs_height_lg_120"></div> -->
-    <div class="cs_height_70"></div>
+    <div class="cs_height_219 cs_height_lg_120"></div>
+    <!-- <div class="cs_height_70"></div> -->
     <!-- start banner -->
     <section>
         <div class="container">
             <div class="cs_section_heading cs_style_1 cs_type_1">
-                <div class="cs_section_heading_text">
-                    <div class="cs_height_70"></div>
-                    <h3 class="cs_section_title_3 anim_div_ShowLeftSide cs_section_title anim_text_writting about-main-title">
+                <div class="cs_section_heading_text why-choose-sec">
+                    <!-- <div class="cs_height_70"></div> -->
+                    <h2 class="cs_section_title anim_text_writting main-title sub-heading-text pb-3">
                         Crafting­ businesses­ that­ make­ waves,­ we're­ the­ architects­ at ­play.
-                    </h3>
+                    </h2>
+                    <!-- <h3 class="cs_section_title_3 anim_div_ShowLeftSide cs_section_title anim_text_writting about-main-title">
+                        Crafting­ businesses­ that­ make­ waves,­ we're­ the­ architects­ at ­play.
+                    </h3> -->
                     <!-- <h2 class="cs_section_title anim_text_writting">
                         Crafting­ businesses­ that­ make­ waves,­ we're­ the­ architects­ at ­play.
                     </h2> -->
@@ -70,12 +73,13 @@
     </div>
     <!-- End Video Block -->
 
-    <div class="cs_height_70"></div>
+    <div class="cs_height_115 cs_height_lg_60"></div>
+
     <!-- Start FunFact -->
-    <div class="container stats-container">
+    <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-3">
-                <div class="cs_funfact cs_style1 funfact_cs">
+                <div class="cs_funfact cs_style1">
                     <div class="cs_funfact_number cs_stroke_text me-4">
                         <div class="">
                             <span id="count1" class="amin_auto_count">11</span>
@@ -88,7 +92,7 @@
                 </div>
             </div>
             <div class="col-lg-3">
-                <div class="cs_funfact cs_style1 funfact_cs">
+                <div class="cs_funfact cs_style1">
                     <div class="cs_funfact_number cs_stroke_text me-4">
                         <div class="">
                             <span id="count2" class="amin_auto_count">312</span>
@@ -102,7 +106,7 @@
                 </div>
             </div>
             <div class="col-lg-3">
-                <div class="cs_funfact cs_style1 funfact_cs">
+                <div class="cs_funfact cs_style1">
                     <div class="cs_funfact_number cs_stroke_text">
                         <span id="count3" class="amin_auto_count">14</span>
                     </div>
@@ -112,13 +116,14 @@
                 </div>
             </div>
             <div class="col-lg-3">
-                <div class="cs_funfact cs_style1 funfact_cs">
+                <div class="cs_funfact cs_style1">
                     <div class="cs_funfact_number cs_stroke_text">
-                        <span id="count4" class="amin_auto_count">412M</span>
+                        <span id="count4" class="amin_auto_count">412</span>
+                         <span>M</span>
                     </div>
+                    
                     <div class="cs_funfact_text cs_primary_font">
-                        <p>Impressions Reached
-                        </p>
+                        <p>Impressions Reached</p>
                     </div>
                 </div>
             </div>
@@ -126,7 +131,7 @@
     </div>
     <!-- End FunFact -->
 
-    <div class="cs_height_70"></div>
+    <div class="cs_height_150 cs_height_lg_60"></div>
     <!-- start our agency story -->
     <section style="background-color: #000;">
         <div class="cs_primary_bg" style="background-color: #000 !important;">
@@ -195,38 +200,32 @@
     <!-- end our agency story -->
 
 
-        <!-- Start about founder -->
-        <section>
-            <div class="container">
-                <!-- start heading -->
-                <!-- end heading -->
-                <div class="cs_height_100 cs_height_lg_50"></div>
-                <div class="row cs_cr_pr cs_row_gap_150">
-                    <div class="col-md-6 mb-4">
-                        <div class="h-100">
-                            <img src="{% static 'assets/img/about/sandeep-img-oo.png' %}" class="w-100 h-60 anim_div_ShowLeftSide"
-                                alt="sandeep-img-oo" />
-                        </div>
+
+    <!-- <div class="cs_height_150 cs_height_lg_60"></div> -->
+    <!-- Start our services -->
+    <section>
+        <div class="container">
+            <div class="cs_height_100 cs_height_lg_50"></div>
+            <div class="row cs_cr_pr cs_row_gap_150">
+                <div class="col-md-6 mb-4">
+                    <div class="h-100">
+                        <img src="{% static 'assets/img/about/sandeep-img-oo.png' %}" class="w-100 h-60 anim_div_ShowLeftSide"
+                            alt="sandeep-img-oo" />
                     </div>
-                    <div class="col-md-6 my-auto about-text">
-                        <h2>Sandeep</h2>
+                </div>
+                <div class="col-md-6 my-auto">
+                    <h2>Sandeep</h2>
                         <h5>Founder of Magsmen Brand Consultants</h5>
                         <p>Magsmen's journey began in 2020, led by the visionary Mr. N. Sandeep. Leveraging his 8+ years of brand-building expertise, his innovative approach has positioned Magsmen as a leading force in the industry within four years.</p>
                         <p>Honored with several prestigious awards, Mr. Sandeep goes beyond formulas, believing in the power of brand storytelling to unlock growth potential for businesses of all sectors.</p>
-                    </div>
                 </div>
             </div>
-        </section>
-        <!-- End about founder -->
-
-
-        <!-- <div class="cs_height_50 cs_height_lg_10"></div> -->
-    <!-- <div class="cs_height_145 cs_height_lg_60"></div> -->
-    <div class="cs_height_40 cs_height_lg_30"></div>
-     
-
+        </div>
+    </section>
+    <!-- End our services -->
     <!-- <div class="cs_height_150 cs_height_lg_60"></div> -->
-      <!-- <div class="cs_height_45 cs_height_lg_45"></div> -->
+    <div class="cs_height_70"></div>
+
     <!-- Start Partner Logo -->
     <div class="cs_moving_section_wrap cs_bold cs_moving_section_hover_push">
         <div class="cs_moving_section_in">
@@ -427,6 +426,4 @@
     <!-- <div class="cs_height_150 cs_height_lg_60"></div> -->
     <div class="cs_height_70"></div>
  
-
-
     {% endblock %}

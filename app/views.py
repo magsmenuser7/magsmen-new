@@ -45,7 +45,7 @@ def home(request):
             # Return an error response if email is empty
             return HttpResponseRedirect('/?error=Email field cannot be empty.')
 
-    return render(request, 'uifiles/home.html',{'blog_list':blog_list})
+    return render(request, 'uifiles/home-two.html',{'blog_list':blog_list})
 
 def about(request):
     return render(request, 'uifiles/about.html')

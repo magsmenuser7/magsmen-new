@@ -1,31 +1,24 @@
-{% extends 'uifiles/base.html' %}
+
+
+
+{% extends 'uifiles/base-two.html' %}
 {% load static %}
 {% block content %}
 
 <div id="scrollsmoother-container">
-    <!-- <div class="cs_height_150 cs_height_lg_60"></div> -->
-    <div class="cs_height_70"></div>
+    <div class="cs_height_219 cs_height_lg_120"></div>
+
 
     <!-- Start our services -->
-    <section>
-        <div class="container">
-            <!-- <h3 class="cs_section_title_3 anim_div_ShowLeftSide cs_section_title anim_text_writting">
-                Join our team & let’s work together
-            </h3> -->
-            <!-- start heading -->
-            <div class="cs_section_heading cs_style_1">
-                <div class="cs_section_heading_text">
-                    <div class="cs_height_70"></div>
-                    <h2 class="cs_section_title anim_heading_title career-title">
-                       We're Hiring
-                    </h2>
-                </div>
+    <div class="container">
+        <div class="cs_section_heading cs_style_1 cs_type_1">
+            <div class="cs_section_heading_text blog-title">
+                <h2 class="cs_section_title anim_text_writting">
+                    We're Hiring 
+                </h2>
             </div>
-            <!-- end heading -->
-            <!-- <div class="cs_height_100 cs_height_lg_50"></div> -->
-            <div class="cs_height_70"></div>
         </div>
-    </section>
+    </div>
     <!-- End our services -->
 
     <!-- <section class="career-notification">
@@ -66,7 +59,7 @@
     
 
     </section> -->
-
+    <div class="cs_height_100 cs_height_lg_60"></div>
     <section>
         <div class="container">
             <div class="row">
@@ -74,9 +67,12 @@
                 <div class="col-lg-4">
                     <div class="card career-card">
                         <div class="card-header card-title">{{item.ExpertiseName}}</div>
-                        <div class="card-body">
-                            <a href="/applyform/">Apply Now</a>
-                        </div> 
+
+                        <a href="/applyform/" class="apply-btn">
+                            <span>Apply Now</span>
+                        </a>
+                        <!-- <a href="/applyform/" class="apply-btn">Apply Now</a> -->
+    
                     </div>
                 </div>
                 {% endfor %}
