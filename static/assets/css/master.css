@@ -8480,4 +8480,8 @@ a:hover{
         color: var(--body-color);
         transition: 0.3s ease;
     }
+    .cs_scrollup:hover {
+        background-color: #fff !important;
+        color: #000 !important;
+    }
 }
