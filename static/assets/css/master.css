@@ -8457,4 +8457,27 @@ a:hover{
         line-height: 2.6em !important;
         color: #fff;
     }
+    .cs_portfolio_details .cs_solutions_section .cs_heading_text {
+        margin-bottom: 30px;
+        margin-top: 5px !important;
+    }
+    .cs_field_group select {
+        width: 100%;
+        border-top: 0px;
+        border-left: 0px;
+        border-right: 0px;
+        border-bottom: 2px solid #000 !important;
+        padding-bottom: 24px !important;
+    }
+    .cs_field_group .cs_input_field {
+        width: 100%;
+        outline: none;
+        border: 0;
+        border-bottom: 2px solid #000 !important;
+        padding: 19px 0px;
+        background: transparent;
+        font-size: 18px;
+        color: var(--body-color);
+        transition: 0.3s ease;
+    }
 }
