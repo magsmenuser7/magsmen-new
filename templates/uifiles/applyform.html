@@ -20,7 +20,7 @@
                         <h5 class="cs_contact_subtitle anim_text_upanddowns applyform-title mt-3">
                             Join Us in Crafting Brand Stories
                         </h5>
-                        <form action="#" method="POST" id="apply-form" class="mt-5 mb-5">
+                        <form action="#" method="POST" id="apply-form" class="mt-5 mb-5 career-submit-form">
                             {% csrf_token %}
                             <div class="row">
                                 <div class="cs_field_group col">
@@ -44,15 +44,15 @@
                                 <div class="cs_field_group col">
                                     <!-- <input class="cs_input_field" type="text" id="subject" placeholder="Subject"
                                         name="subject" /> -->
-                                        <select name="selectcategory" id="selectcategory" required>
+                                        <select name="selectcategory" id="selectcategory" class="cs_input_field" required>
                                             <!-- <option value="select">SELECT CATEGORY</option> -->
                                             <!-- <option value="digitalmarketing">Digital Marketing</option> -->
                                             <option value="brandstrategy">Brand Strategy</option>
                                             <option value="designing">Designing</option>
                                             <option value="bdm">BDM</option>
-                                            <option value="Apply for internship">Apply for internship</option>
-                                            <option value="Apply as a consultant">Apply as a consultant</option>
-                                            <option value="Apply as an advisor">Apply as an advisor</option>
+                                            <option value="Apply for internship">Digital Marketing</option>
+                                            <option value="Apply as a consultant">Apply for internship</option>
+                                            <option value="Apply as an advisor">Apply as an advisor/consultant</option>
                                           </select>
                                     <!-- <label for="test4" class="cs_input_label">Subject</label> -->
                                 </div>
@@ -61,7 +61,7 @@
 
                             <div class="row">
                                 <div class="cs_field_group col">
-                                    <select name="location" id="location" required>
+                                    <select name="location" id="location" class="cs_input_field" required>
                                         <option value="location">LOCATION</option>
                                         <option value="hyderabad">Hyderabad</option>
                                         <option value="guntur">Guntur</option>

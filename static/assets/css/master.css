@@ -2442,7 +2442,7 @@ label {
 }
 
 .cs_input_field:placeholder-shown~.cs_input_label {
-    top: 20px;
+    top: 35px;
     font-size: 18px;
 }
 
@@ -2642,7 +2642,7 @@ label {
         margin-bottom: 15px;
     }
     .cs_section_heading.cs_style_1 .cs_section_title_3 {
-        font-size: 26px;
+        font-size: 20px;
     }
     .cs_case_study {
         padding: 80px 12px;
@@ -4089,7 +4089,7 @@ label {
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center !important;
     font-size: 16px;
     text-transform: uppercase;
     line-height: 1.6em;
@@ -7853,8 +7853,9 @@ a:hover{
     border-left: 0px;
     border-right: 0px;
     border-bottom: 2px solid #000 !important;
-    padding-bottom: 10px !important;
+    padding-bottom: 20px !important;
 }
+
 .cs_contact_ms {
     display: flex;
     width: 100% !important;
@@ -7919,7 +7920,7 @@ a:hover{
     outline: none;
     border: 0;
     border-bottom: 2px solid #000 !important;
-    padding: 5px 0px;
+    padding: 12px 0px;
     background: transparent;
     font-size: 18px;
     color: var(--body-color);
@@ -8014,6 +8015,19 @@ a:hover{
 .brand-creation-info{
     margin-left: 50px !important;
 }
+.service-explore span:hover{
+    color: #fff !important;
+}
+.cs_footer_contact_list .australia-address{
+   width:100% !important;
+}
+.cs_scrollup:hover {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+.cs_footer_nav a{
+    margin: 0px 25px !important;
+}
 @media(min-width:320px) and (max-width:500px){
     .about-img-wise-owl {
         width: 80% !important;
@@ -8070,6 +8084,7 @@ a:hover{
         font-size: 25px;
         font-weight: 900;
         margin-bottom: 0;
+        padding-top: 5px !important;
     }
     .text-content{
         text-align: justify !important;
@@ -8080,7 +8095,7 @@ a:hover{
         object-fit: cover;
     }
     .cs_section_heading.cs_style_1 .main-title {
-        padding-top: 110px !important;
+        /* padding-top: 110px !important; */
     }
     .about-text {
         text-align: justify !important;
@@ -8402,5 +8417,44 @@ a:hover{
     }
     .brand-creation-info{
         margin-left: 0px !important;
+    }
+    .cs_footer_nav a {
+        margin: 0px 12px !important;
+    }
+    .cs_footer_contact_list .australia-address {
+        width: 100% !important;
+    }
+    .cs_footer_contact_list .head-office-phone{
+        width: 100% !important;
+    }
+    .cs_footer_contact_list .corporate-phone{
+        width: 100% !important;
+    }
+    .cs_pagination.cs_style2 {
+        font-weight: 700;
+        font-size: 35px;
+        line-height: 1em;
+        color: --primary-color;
+        width: initial;
+        width: 130px;
+        padding-top: 18px;
+    }
+    .funfact-cs{
+        padding: 20px 0px!important;
+    }
+    .brandcorner-text{
+        margin-top: 20px !important;
+    }
+    .cs_footer_nav {
+        list-style: none;
+        padding: 0 0 40px 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center !important;
+        font-size: 16px;
+        text-transform: uppercase;
+        line-height: 2.6em !important;
+        color: #fff;
     }
 }
