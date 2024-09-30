@@ -2442,7 +2442,7 @@ label {
 }
 
 .cs_input_field:placeholder-shown~.cs_input_label {
-    top: 35px;
+    top: 45px;
     font-size: 18px;
 }
 
@@ -7853,7 +7853,7 @@ a:hover{
     border-left: 0px;
     border-right: 0px;
     border-bottom: 2px solid #000 !important;
-    padding-bottom: 20px !important;
+    padding-bottom: 28px !important;
 }
 
 .cs_contact_ms {
@@ -7920,7 +7920,7 @@ a:hover{
     outline: none;
     border: 0;
     border-bottom: 2px solid #000 !important;
-    padding: 12px 0px;
+    padding: 20px 0px;
     background: transparent;
     font-size: 18px;
     color: var(--body-color);
@@ -8474,7 +8474,7 @@ a:hover{
         outline: none;
         border: 0;
         border-bottom: 2px solid #000 !important;
-        padding: 19px 0px;
+        padding: 20px 0px;
         background: transparent;
         font-size: 18px;
         color: var(--body-color);
@@ -8483,5 +8483,9 @@ a:hover{
     .cs_scrollup:hover {
         background-color: #fff !important;
         color: #000 !important;
+    }
+    .cs_input_field:placeholder-shown~.cs_input_label {
+        top: 51px !important;
+        font-size: 18px;
     }
 }
