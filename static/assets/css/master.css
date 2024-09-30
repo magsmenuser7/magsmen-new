@@ -2643,6 +2643,7 @@ label {
     }
     .cs_section_heading.cs_style_1 .cs_section_title_3 {
         font-size: 20px;
+        margin-top: 10px !important;
     }
     .cs_case_study {
         padding: 80px 12px;
@@ -4094,6 +4095,7 @@ label {
     text-transform: uppercase;
     line-height: 1.6em;
     color: #fff;
+    font-style: normal !important;
 }
 
 .cs_footer_nav>li {
@@ -6576,6 +6578,7 @@ label {
 .cs_funfact.cs_style1 .cs_funfact_number {
     display: flex;
     align-items: center;
+    
 }
 
 .cs_funfact.cs_style1 .cs_funfact_number>span+span {
@@ -8028,6 +8031,112 @@ a:hover{
 .cs_footer_nav a{
     margin: 0px 25px !important;
 }
+.home-video-sec{
+    padding-top: 80px !important;
+}
+.cs_footer_contact_list li i {
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 6px !important;
+    display: flex;
+}
+/* .cs_btn.cs_style_1 span{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}  */
+.about-img-parallax video {
+    height: 630px;
+    width: 100%;
+    object-fit: cover;
+}
+.service-explore span{
+    padding-top: 5px !important;
+}
+
+
+/* ================================= card flip ============================================= */
+
+
+.maincardcontainer {
+    perspective: 1000px; 
+    margin-bottom: 40px !important;
+    
+    
+}
+
+.maincard {
+    width: 100%;
+    height: 50vh !important; 
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease; 
+    box-shadow: 0px 0px 5px !important;
+    
+}
+
+
+.maincardcontainer:hover .maincard {
+    transform: rotateY(180deg);
+}
+
+
+.card-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius:5px !important;
+   
+}
+
+.card-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; 
+    box-sizing: border-box;
+    border-radius:6px !important;
+    background-color: #000;
+    transform: rotateY(180deg); 
+    opacity: 0.6 !important;
+    border: 0 !important;
+    outline: 0px !important;
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center !important;
+}
+.card-back h6{
+    color:#fff !important;
+}
+.card-back span:hover{
+    color: #fff !important;
+    overflow: hidden !important;
+}
+
+
+.card-front {
+    background-color: white;
+    z-index: 2;
+}
+
+
+.card-front img {
+    width: 100%;
+    height: 48vh !important;
+   
+}
+
+.cs_btn.cs_style_1.click-here:hover{
+    color: #fff !important;
+}
+
 @media(min-width:320px) and (max-width:500px){
     .about-img-wise-owl {
         width: 80% !important;
@@ -8118,7 +8227,7 @@ a:hover{
         display: flex;
         flex-wrap: wrap;
         font-size: 16px;
-        line-height: 1.6em;
+        line-height: 2em;
         margin: 40px 0px !important;
     }
     .cs_footer_contact_list li {
@@ -8241,9 +8350,12 @@ a:hover{
     }
     .launchpad-list{
         text-align: justify !important;
-        /* font-size: 15px !important; */
+        font-size: 16px !important;
     }
-
+    .launchpad-list li{
+        margin-bottom: 15px !important;
+        /* line-height: 1em !important; */
+    }
     .zavaine-team-section {
         flex-direction: column !important;
         height: 90px !important;
@@ -8338,7 +8450,7 @@ a:hover{
         padding-bottom: 1000px !important;
     }
     .cs_section_heading_text .about-sec-main-title{
-        padding-top: 50px !important;
+        /* padding-top: 50px !important; */
     }
     .cs_swiper_controll {
         display: flex;
@@ -8367,7 +8479,7 @@ a:hover{
     .cs_section_heading.cs_style_1 .cs_section_subtitle {
         color: var(--heading-color);
         font-size: 18px;
-        margin-bottom: 45px;
+        /* margin-bottom: 45px; */
         display: inline-block;
         position: relative;
         padding-left: 0px;
@@ -8396,8 +8508,8 @@ a:hover{
         text-align: justify !important;
     }
     .cs_contact_subtitle {
-        font-size: 33px !important;
-        padding-top: 50px;
+        font-size: 25px !important;
+        /* padding-top: 50px; */
     }
     .contact-sec{
         margin-top: 20px !important;
@@ -8440,7 +8552,7 @@ a:hover{
         padding-top: 18px;
     }
     .funfact-cs{
-        padding: 20px 0px!important;
+        margin: 20px 0px!important;
     }
     .brandcorner-text{
         margin-top: 20px !important;
@@ -8456,6 +8568,7 @@ a:hover{
         text-transform: uppercase;
         line-height: 2.6em !important;
         color: #fff;
+        font-style: normal !important;
     }
     .cs_portfolio_details .cs_solutions_section .cs_heading_text {
         margin-bottom: 30px;
@@ -8487,5 +8600,43 @@ a:hover{
     .cs_input_field:placeholder-shown~.cs_input_label {
         top: 51px !important;
         font-size: 18px;
+    }
+    .cs_about.cs_style_1{
+        padding: 45px 0 !important;
+        position: relative;
+    }
+    .service-explore span{
+        padding-top: 5px !important;
+    }
+    .cs_funfact.cs_style1 .cs_funfact_number {
+        display: flex;
+        align-items: center;
+        font-size: 50px !important;
+        
+    }
+    .cs_funfact.cs_style1 .cs_funfact_text {
+        font-size: 20px;
+        line-height: 1.6em;
+        position: relative;
+        /* padding: 5px 0; */
+        padding-left: 27px;
+        padding-top: 10px !important;
+    }
+    .cs_funfact.cs_style1 .cs_funfact_number>span+span {
+        position: relative;
+        top: 0px !important;
+    }
+    .founder-sec h5{
+        font-size: 20px !important;
+    }
+    .launchpad-sub-text{
+        font-size: 22px !important;
+        width: 100% !important;
+    }
+    .blog-title h2,h1 {
+        font-size: 45px !important;
+    }
+    .applyform-title{
+        margin-top: 60px !important;
     }
 }
