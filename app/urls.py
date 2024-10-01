@@ -2,7 +2,7 @@ from django.urls import path
 from .views import home,about,expertise,brand_consulting,personal_brand_consulting,image_consulting,corporate_rebranding,brand_expresso,\
 brand_creation,launchpad,blog,blogdetails,Ourmedia,Contact,Newsletter,Newslettertwo,Brand,Newsletterthree,BrandRefresh,DigitalTwin_BrandStrategy,\
 works,telugufoods,suryacolors,tdhrishika,tenali_double_horse,triplex,vsb,zavaine,career,jobdetails,applyform,Questionsform,privacy_policy,faqs,terms_conditions,cancellation_and_refund_policy,\
-Monochromatic_colors_in_branding,band_corner_the_new_age_of_buying_brand_activism
+Monochromatic_colors_in_branding,band_corner_the_new_age_of_buying_brand_activism,magsmen_brand_portfolio
 
 from django.contrib.sitemaps.views import sitemap
 from app.sitemap import PostSitemap,StaticPagesSitemap
@@ -45,6 +45,7 @@ urlpatterns = [
     path('terms-conditions/', terms_conditions , name='terms-conditions'),
     path('cancellation-refund-policy/', cancellation_and_refund_policy , name='cancellation-refund-policy'),
     path('faqs/', faqs, name='faqs'),
+    path('magsmen-brand-portfolio/',magsmen_brand_portfolio,name='magsmen-brand-portfolio'),
     path('news-letter-august-2023/',Newsletter,name='news-letter-august-2023'),
     path('brand-architecture/',Brand,name='brand-architecture'),
     path('brand-corner-october-edition/',Newslettertwo,name='the-name-of-the-article-indian-brand-success-stories'),

@@ -8157,6 +8157,17 @@ option {
 .section-main-title {
     line-height: 2em !important;
 }
+
+.offcanvas-main-navbar a{
+    display: block !important;
+    margin-bottom: 5px !important;
+}
+.offcanvas-main-navbar li{
+    font-size:15px !important;
+}
+.offcanvas-services a{
+    font-size: 15px !important;
+}
 @media(min-width:320px) and (max-width:500px){
     .about-img-wise-owl {
         width: 80% !important;
