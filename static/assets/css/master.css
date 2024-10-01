@@ -8154,9 +8154,6 @@ option {
     font-size: 14px;
     padding-top: 2px;
 }
-.section-main-title {
-    line-height: 2em !important;
-}
 
 .offcanvas-main-navbar a{
     display: block !important;
@@ -8167,6 +8164,10 @@ option {
 }
 .offcanvas-services a{
     font-size: 15px !important;
+}
+
+.blog-more-btn span:hover{
+    color:#000 !important;
 }
 @media(min-width:320px) and (max-width:500px){
     .about-img-wise-owl {
@@ -8239,7 +8240,7 @@ option {
     }
     .about-text {
         text-align: justify !important;
-        line-height: 2em !important;
+        /* line-height: 2em !important; */
     }
     .cs_animated_badge {
         align-items: center;
@@ -8585,6 +8586,7 @@ option {
     }
     .funfact-cs{
         margin: 20px 0px!important;
+        line-height: 2.5em !important;
     }
     .brandcorner-text{
         margin-top: 20px !important;
@@ -8644,7 +8646,7 @@ option {
         display: flex;
         align-items: center;
         font-size: 50px !important;
-        line-height: 2em !important;
+        
         
     }
     .cs_funfact.cs_style1 .cs_funfact_text {
@@ -8698,5 +8700,11 @@ option {
         height: 93vh !important;
         background-color: #fff;
     }
+    .section-main-title {
+        line-height: 1.5em !important;
+    }
 
+    .sub-title-head{
+        line-height: 1.8em !important;
+    }
 }
