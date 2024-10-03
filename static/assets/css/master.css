@@ -8176,7 +8176,7 @@ a:hover{
     padding-bottom: 24px !important; 
 }
 
-@media(min-width:320px) and (max-width:480px){
+@media(min-width:320px) and (max-width:500px){
     .about-img-wise-owl {
         width: 80% !important;
         height: auto !important;
