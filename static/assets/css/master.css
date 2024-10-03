@@ -8626,8 +8626,8 @@ select {
         border-left: 0px;
         border-right: 0px;
         border-bottom: 2px solid #000 !important;
-        padding-bottom: 24px !important;
-        margin-top: 32px !important;
+        padding-bottom: 23px !important;
+        margin-top: 30px !important;
     }
     .cs_field_group .cs_input_field {
         width: 100%;
