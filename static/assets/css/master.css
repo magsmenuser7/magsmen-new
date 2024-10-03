@@ -7863,14 +7863,14 @@ a:hover{
 
 .cs_contact_ms {
     display: flex;
-    /* width: 100% !important; */
+    width: 100% !important;
     gap: 3%;
 }
 .applyform-sec {
     display: flex;
     justify-content: center !important;
     align-items: center !important;
-    /* width: 100% !important; */
+    width: 100% !important;
     gap: 3% !important;
 }
 .applyform-title {
@@ -8173,9 +8173,15 @@ a:hover{
     border-left: 0px;
     border-right: 0px;
     border-bottom: 2px solid #000 !important;
-    padding-bottom: 24px !important; 
+    padding-bottom: 23px !important; 
 }
 
+select {
+    margin: 0;
+    /* font-family: 'proxima-nova'; */
+    /* font-size: inherit; */
+    /* line-height: inherit; */
+}
 @media(min-width:320px) and (max-width:500px){
     .about-img-wise-owl {
         width: 80% !important;
