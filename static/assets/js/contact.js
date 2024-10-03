@@ -114,18 +114,24 @@ $(document).ready(function(){
             alert('Invalid phone number format');
             return; // Stop execution if validation fails
         }
-        if (selectcategory === 'select'){
+
+        if (selectcategory === 'selectcategory'){
             alert("Category field required")
             return;
         }
+
         if (location === 'location'){
             alert("Location field required")
             return;
         }
+        
         if (!file){
             alert('Please upload a file');
             return;
         }
+
+
+
 
 
         // SubmitEvent()
@@ -174,6 +180,8 @@ function isValidPhone(phonenumber) {
     let phoneRegex = /^\d{10}$/;
     return phoneRegex.test(phonenumber);
 }
+
+
 
 
 

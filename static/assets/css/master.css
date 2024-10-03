@@ -2442,7 +2442,7 @@ label {
 }
 
 .cs_input_field:placeholder-shown~.cs_input_label {
-    top: 45px;
+    top: 20px;
     font-size: 18px;
 }
 
@@ -2643,7 +2643,7 @@ label {
     }
     .cs_section_heading.cs_style_1 .cs_section_title_3 {
         font-size: 20px;
-        margin-top: 10px !important;
+        margin-top: 15px !important;
     }
     .cs_case_study {
         padding: 80px 12px;
@@ -7857,20 +7857,20 @@ a:hover{
     border-left: 0px;
     border-right: 0px;
     border-bottom: 2px solid #000 !important;
-    padding-bottom: 20px !important;
-    margin-top: 28px !important;
+    padding-bottom: 15px !important;
+    /* margin-top: 28px !important; */
 }
 
 .cs_contact_ms {
     display: flex;
-    /* width: 100% !important; */
+    width: 100% !important;
     gap: 3%;
 }
 .applyform-sec {
     display: flex;
     justify-content: center !important;
     align-items: center !important;
-    /* width: 100% !important; */
+    width: 100% !important;
     gap: 3% !important;
 }
 .applyform-title {
@@ -7925,7 +7925,7 @@ a:hover{
     outline: none;
     border: 0;
     border-bottom: 2px solid #000 !important;
-    padding: 20px 0px;
+    padding: 5px 0px;
     background: transparent;
     font-size: 18px;
     color: var(--body-color);
@@ -8033,9 +8033,7 @@ a:hover{
 .cs_footer_nav a{
     margin: 0px 25px !important;
 }
-/* .home-video-sec{
-    padding-top: 80px !important;
-} */
+
 .cs_footer_contact_list li i {
     color: #fff;
     position: absolute;
@@ -8043,11 +8041,7 @@ a:hover{
     top: 6px !important;
     display: flex;
 }
-/* .cs_btn.cs_style_1 span{
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}  */
+
 .about-img-parallax video {
     height: 650px;
     width: 100%;
@@ -8148,12 +8142,12 @@ a:hover{
     transition-property: transform;
     box-sizing: content-box;
 }
-option {
+/* option {
     background-color: #000;
     color: #fff !important;
     font-size: 14px;
     padding-top: 2px;
-}
+} */
 
 .offcanvas-main-navbar a{
     display: block !important;
@@ -8586,7 +8580,6 @@ option {
     }
     .funfact-cs{
         margin: 20px 0px!important;
-        line-height: 2.5em !important;
     }
     .brandcorner-text{
         margin-top: 20px !important;
@@ -8621,7 +8614,7 @@ option {
         outline: none;
         border: 0;
         border-bottom: 2px solid #000 !important;
-        padding: 20px 0px;
+        padding: 5px 0px;
         background: transparent;
         font-size: 18px;
         color: var(--body-color);
@@ -8631,10 +8624,10 @@ option {
         background-color: #fff !important;
         color: #000 !important;
     }
-    .cs_input_field:placeholder-shown~.cs_input_label {
+    /* .cs_input_field:placeholder-shown~.cs_input_label {
         top: 51px !important;
         font-size: 18px;
-    }
+    } */
     .cs_about.cs_style_1{
         padding: 45px 0 !important;
         position: relative;
@@ -8646,7 +8639,7 @@ option {
         display: flex;
         align-items: center;
         font-size: 50px !important;
-        
+        line-height: 2em !important;
         
     }
     .cs_funfact.cs_style1 .cs_funfact_text {
@@ -8692,19 +8685,28 @@ option {
         justify-content: center !important;
         align-items: center !important; */
     }
-    .cs_preloader {
+    /* .cs_preloader {
         position: fixed;
         z-index: 99999;
         top: 0;
         width: 100%;
         height: 93vh !important;
         background-color: #fff;
-    }
+    } */
     .section-main-title {
         line-height: 1.5em !important;
     }
 
     .sub-title-head{
         line-height: 1.8em !important;
+    }
+    .cs_from h4{
+        font-size: 22px !important;
+    }
+    .text-height{
+        line-height: 2em !important;
+    }
+    .works-top-heaight{
+        height: 30px !important;
     }
 }
