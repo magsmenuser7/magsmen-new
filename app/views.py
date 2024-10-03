@@ -257,7 +257,7 @@ def handler404(requerst, exception):
 
 def magsmen_brand_portfolio(request):
    
-    pdf_filename = 'magsmen-brand-portfolio.pdf'
+    pdf_filename = 'magsmen-brand-consultants-portfolio.pdf'
     pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename)
     
     response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
