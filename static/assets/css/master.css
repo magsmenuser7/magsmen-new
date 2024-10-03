@@ -8038,7 +8038,7 @@ a:hover{
     color: #fff;
     position: absolute;
     left: 0;
-    top: 6px !important;
+    top: 4px !important;
     display: flex;
 }
 
@@ -8163,6 +8163,19 @@ a:hover{
 .blog-more-btn span:hover{
     color:#000 !important;
 }
+
+.cs_field_group_1{
+    padding-top: 21px !important;
+}
+.cs_field_group_1 select{
+    width: 100%;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 2px solid #000 !important;
+    padding-bottom: 24px !important; 
+}
+
 @media(min-width:320px) and (max-width:500px){
     .about-img-wise-owl {
         width: 80% !important;
@@ -8601,20 +8614,21 @@ a:hover{
         margin-bottom: 30px;
         margin-top: 5px !important;
     }
-    .cs_field_group select {
+    .cs_field_group_1 select {
         width: 100%;
         border-top: 0px;
         border-left: 0px;
         border-right: 0px;
         border-bottom: 2px solid #000 !important;
         padding-bottom: 24px !important;
+        margin-top: 32px !important;
     }
     .cs_field_group .cs_input_field {
         width: 100%;
         outline: none;
         border: 0;
         border-bottom: 2px solid #000 !important;
-        padding: 5px 0px;
+        padding: 20px 0px;
         background: transparent;
         font-size: 18px;
         color: var(--body-color);
@@ -8624,10 +8638,10 @@ a:hover{
         background-color: #fff !important;
         color: #000 !important;
     }
-    /* .cs_input_field:placeholder-shown~.cs_input_label {
+    .cs_input_field:placeholder-shown~.cs_input_label {
         top: 51px !important;
         font-size: 18px;
-    } */
+    }
     .cs_about.cs_style_1{
         padding: 45px 0 !important;
         position: relative;
@@ -8685,14 +8699,14 @@ a:hover{
         justify-content: center !important;
         align-items: center !important; */
     }
-    /* .cs_preloader {
+    .cs_preloader {
         position: fixed;
         z-index: 99999;
         top: 0;
         width: 100%;
-        height: 93vh !important;
+        height: 100vh !important;
         background-color: #fff;
-    } */
+    }
     .section-main-title {
         line-height: 1.5em !important;
     }
@@ -8700,13 +8714,16 @@ a:hover{
     .sub-title-head{
         line-height: 1.8em !important;
     }
-    .cs_from h4{
+    /* .cs_from h4{
         font-size: 22px !important;
-    }
+    } */
     .text-height{
         line-height: 2em !important;
     }
     .works-top-heaight{
         height: 30px !important;
+    }
+    .cs_height_50_mobile{
+        height: 20px !important;
     }
 }
