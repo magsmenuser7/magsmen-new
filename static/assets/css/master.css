@@ -8745,4 +8745,13 @@ select {
         right: 20px;
         transform: rotate(45deg);
     }
+    .cs_preloader {
+        position: fixed;
+        z-index: 99999;
+        top: 0;
+        width: 100% !important;
+        height: 100vh !important;
+        background-color: #fff;
+        display: none !important;
+    }
 }
