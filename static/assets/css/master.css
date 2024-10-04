@@ -7851,15 +7851,15 @@ a:hover{
     color: #000 !important;
 }
 
-.cs_field_group select {
+/* .cs_field_group select {
     width: 100%;
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
     border-bottom: 2px solid #000 !important;
     padding-bottom: 15px !important;
-    /* margin-top: 28px !important; */
-}
+    margin-top: 28px !important;
+} */
 
 .cs_contact_ms {
     display: flex;
@@ -8166,7 +8166,22 @@ a:hover{
 
 .cs_field_group_1{
     padding-top: 21px !important;
+    position: relative;
 }
+.cs_field_group_1:after{
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: 10px;
+    height: 10px;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    top: 40%;
+    right: 20px;
+    transform: rotate(45deg);
+}
+
+
 .cs_field_group_1 select{
     width: 100%;
     border-top: 0px;
@@ -8174,13 +8189,14 @@ a:hover{
     border-right: 0px;
     border-bottom: 2px solid #000 !important;
     padding-bottom: 23px !important; 
+    appearance: none;
 }
 
 select {
     margin: 0;
     /* font-family: 'proxima-nova'; */
-    font-size: inherit;
-    line-height: inherit;
+    font-size: 15px;
+    line-height:inherit;
 }
 @media(min-width:320px) and (max-width:500px){
     .about-img-wise-owl {
@@ -8623,7 +8639,7 @@ select {
         border-right: 0px;
         border-bottom: 2px solid #000 !important;
         padding-bottom: 23px !important;
-        margin-top: 30px !important;
+        margin-top: 32px !important;
     }
     .cs_field_group .cs_input_field {
         width: 100%;
@@ -8699,7 +8715,7 @@ select {
     }
 
     .sub-title-head{
-        line-height: 1.3em !important;
+        line-height: 1.4em !important;
     }
     /* .cs_from h4{
         font-size: 22px !important;
@@ -8712,5 +8728,17 @@ select {
     }
     .cs_height_50_mobile{
         height: 20px !important;
+    }
+    .cs_field_group_1:after{
+        content: '';
+        position: absolute;
+        z-index: 1;
+        width: 10px;
+        height: 10px;
+        border-right: 1px solid #000;
+        border-bottom: 1px solid #000;
+        top: 57%;
+        right: 20px;
+        transform: rotate(45deg);
     }
 }
