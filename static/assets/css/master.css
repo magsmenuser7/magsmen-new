@@ -8190,6 +8190,7 @@ a:hover{
     border-bottom: 2px solid #000 !important;
     padding-bottom: 23px !important; 
     appearance: none;
+    color: #000;
 }
 
 select {
@@ -8197,6 +8198,7 @@ select {
     /* font-family: 'proxima-nova'; */
     font-size: 15px;
     line-height:inherit;
+    color: #000 !important;
 }
 @media(min-width:320px) and (max-width:500px){
     .about-img-wise-owl {
@@ -8639,7 +8641,9 @@ select {
         border-right: 0px;
         border-bottom: 2px solid #000 !important;
         padding-bottom: 23px !important;
-        margin-top: 32px !important;
+        margin-top: 28px !important;
+        color: #000 !important;
+        border-radius: 5px !important;
     }
     .cs_field_group .cs_input_field {
         width: 100%;
