@@ -149,12 +149,9 @@ def applyform(request):
         '''.format(name, email, phone, selectcategory, location)
 
         email_from = 'connectmagsmen@gmail.com'
-        recipient_list = ['kajasuresh522@gmail.com', ]
-        send_mail(subject, message, 'connectmagsmen@gmail.com', recipient_list=['kajasuresh522@gmail.com'])
-        
-        # if file:
-        #     email.attach('career-page.pdf', file.read(), file.content_type)
-        # email.send()
+        recipient_list = ['connectmagsmen@gmail.com', ]
+        send_mail(subject, message, 'connectmagsmen@gmail.com', recipient_list=['connectmagsmen@gmail.com'])
+
         return JsonResponse({'success': True})
     return render(request, 'uifiles/applyform.html')
 
@@ -179,7 +176,7 @@ def Contact(request):
         From:{}
         '''.format(name,email,phone,subject,message,email)
         try:
-            send_mail(subject, message,'connectmagsmen@gmail.com',recipient_list=['kajasuresh522@gmail.com','connectmagsmen@gmail.com']) 
+            send_mail(subject, message,'connectmagsmen@gmail.com',recipient_list=['connectmagsmen@gmail.com']) 
             messages.success(request,'Message has been sucesfully send')
         except:
             messages.error(request,'Your message has been failed, Please Try Agian')
@@ -229,10 +226,10 @@ def Questionsform(request):
                   f'Brand Expectation: {brandexpectation}'
         
         from_email = 'connectmagsmen@gmail.com'  # Update with your sender email
-        to_email = ['kajasuresh522@gmail.com']  # Update with recipient email(s)
+        to_email = ['connectmagsmen@gmail.com']  # Update with recipient email(s)
         
         try:
-            send_mail(subject, message,'connectmagsmen@gmail.com', recipient_list=['kajasuresh522@gmail.com'])
+            send_mail(subject, message,'connectmagsmen@gmail.com', recipient_list=['connectmagsmen@gmail.com'])
             return JsonResponse({'success': True})
         except Exception as e:
             return JsonResponse({'success': False, 'error': str(e)})
@@ -257,7 +254,7 @@ def handler404(requerst, exception):
 
 def magsmen_brand_portfolio(request):
    
-    pdf_filename = 'magsmen-brand-consultants-portfolio.pdf'
+    pdf_filename = 'magsmen-brand-portfolio.pdf'
     pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename)
     
     response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
