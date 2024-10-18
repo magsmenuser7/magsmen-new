@@ -71,6 +71,9 @@ def brand_expresso(request):
 def brand_creation(request):
     return render(request, 'uifiles/brand-creation.html')
 
+def link_fluence(request):
+    return render(request, 'uifiles/linkfluence.html')
+
 def launchpad(request):
     return render(request, 'uifiles/launchpad.html')
 
@@ -328,4 +331,12 @@ def band_corner_the_new_age_of_buying_brand_activism(request):
     
     response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
     response['Content-Disposition'] = f'inline; filename="{pdf_filename_seven}"'
+    return response
+
+def brand_naming_unlock_the_soul_of_your_brand(request):
+    pdf_filename_eight = 'brand-naming-unlock-the-soul-of-your-brand.pdf'
+    pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename_eight)
+    
+    response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
+    response['Content-Disposition'] = f'inline; filename="{pdf_filename_eight}"'
     return response

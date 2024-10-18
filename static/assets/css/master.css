@@ -8200,6 +8200,13 @@ select {
     line-height:inherit;
     color: #000 !important;
 }
+
+.cs_toolbox .magsmen-portfolio-pdf{
+    color: #000 !important;
+}
+.cs_toolbox .magsmen-portfolio-pdf:hover{
+    color: #000 !important;
+}
 @media(min-width:320px) and (max-width:500px){
     .about-img-wise-owl {
         width: 80% !important;
@@ -8754,4 +8761,5 @@ select {
         background-color: #fff;
         display: none !important;
     }
+
 }
