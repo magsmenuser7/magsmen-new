@@ -7523,14 +7523,14 @@ label {
     align-items: start;
     box-shadow: 0px 0px 5px;
     border-radius: 10px;
-    border-bottom: 5px solid #DBBD7D;
+    border-bottom: 5px solid #7641c8;
 }
 
 .cs_startup_agency.cs_card .cs_hr {
     width: 30px;
     height: 1px;
     margin-right: 15px;
-    background-color: #DBBD7D;
+    background-color: #7641c8;
 }
 
 .cs_btn.cs_style_1::before {
@@ -7539,7 +7539,7 @@ label {
     height: 65px;
     width: 65px;
     border-radius: 50%;
-    background-color: #DBBD7D;
+    background-color: #7641c8;
     top: 50%;
     transform: translateY(-50%);
     left: 0px;
@@ -7581,7 +7581,7 @@ a:hover{
     left: 0;
     top: 0;
     opacity:1;
-    background-color:#DBBD7D;
+    background-color:#7641c8;
 }
 
 .cs_newsletter.cs_style_1 .cs_newsletter_input:focus {
@@ -7975,7 +7975,7 @@ a:hover{
     background-color: #fff !important;
 }
 .cs_card_title a:hover{
-    color: #DBBD7D !important;
+    color: #7641c8 !important;
 }
 .cs_style_1{
     font-size: 20px !important;
