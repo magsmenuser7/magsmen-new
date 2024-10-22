@@ -8201,13 +8201,13 @@ select {
     color: #000 !important;
 }
 
-.cs_toolbox .magsmen-portfolio-pdf{
+.magsmen-portfolio-pdf{
     color: #000 !important;
     font-family: 'proxima-nova';
     text-transform: uppercase !important;
     font-size: 17px !important;
 }
-.cs_toolbox .magsmen-portfolio-pdf:hover{
+.magsmen-portfolio-pdf:hover{
     color: #000 !important;
     font-family: 'proxima-nova';
 }
