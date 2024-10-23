@@ -8766,5 +8766,8 @@ select {
         background-color: #fff;
         display: none !important;
     }
+    .magsmen-portfolio-pdf{
+        display: none !important;
+    }
 
 }
