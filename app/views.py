@@ -340,3 +340,11 @@ def brand_naming_unlock_the_soul_of_your_brand(request):
     response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
     response['Content-Disposition'] = f'inline; filename="{pdf_filename_eight}"'
     return response
+
+def the_power_of_consistency_why_brand_tone_matters(request):
+    pdf_filename_nine = 'the-power-of-consistency-why-brand-tone-matters.pdf'
+    pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename_nine)
+    
+    response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
+    response['Content-Disposition'] = f'inline; filename="{pdf_filename_nine}"'
+    return response
