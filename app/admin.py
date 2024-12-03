@@ -36,7 +36,7 @@ class AdminSubscribe(admin.ModelAdmin):
     list_display = ('Email',)
 
 class AdminIntalksForm(admin.ModelAdmin):
-    list_display = ['Intalk_Name','Intalk_Email','Intalk_Contact','Intalk_City','Intalk_Reason_to_connect']
+    list_display = ['Name','Email','Contact','City','Reason_to_connect']
 
 
 
