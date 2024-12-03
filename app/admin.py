@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BlogPost,Category,Media,ContactData,CareerInfo,ApplyForm,StepformData,Subscribe
+from .models import BlogPost,Category,Media,ContactData,CareerInfo,ApplyForm,StepformData,Subscribe,IntalksForm
 
 # Register your models here.
 
@@ -35,6 +35,9 @@ class AdminStepformData(admin.ModelAdmin):
 class AdminSubscribe(admin.ModelAdmin):
     list_display = ('Email',)
 
+class AdminIntalksForm(admin.ModelAdmin):
+    list_display = ['Intalk_Name','Intalk_Email','Intalk_Contact','Intalk_City','Intalk_Reason_to_connect']
+
 
 
 admin.site.register(Category,AdminHappyCategories)
@@ -45,3 +48,4 @@ admin.site.register(CareerInfo,AdminCareerInfo)
 admin.site.register(ApplyForm,AdminApplyForm)
 admin.site.register(StepformData,AdminStepformData)
 admin.site.register(Subscribe,AdminSubscribe)
+admin.site.register(IntalksForm,AdminIntalksForm)

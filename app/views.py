@@ -10,8 +10,22 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.core.mail import send_mail,EmailMessage
 from django.contrib import messages
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import IntalksFormSerializer
+
 # Create your views here.
 
+class IntalksFormView(APIView):
+    def post(self, request):
+        serializer = IntalksFormSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"message": "Form submitted successfully!"}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    
 def home(request):
     blog_list = BlogPost.objects.filter().order_by('-Id')[:3]    #filter(status=1).order_by('Create_at')
 
@@ -347,3 +361,6 @@ def the_power_of_consistency_why_brand_tone_matters(request):
     response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
     response['Content-Disposition'] = f'inline; filename="{pdf_filename_nine}"'
     return response
+
+
+

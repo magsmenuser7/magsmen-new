@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'rest_framework',
     
 ]
 

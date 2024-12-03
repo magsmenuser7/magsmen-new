@@ -133,3 +133,18 @@ class Subscribe(models.Model):
 
      def __str__(self):
           return self.Email
+     
+
+
+
+
+class IntalksForm(models.Model):
+    Intalk_Name = models.CharField(max_length=100)
+    Intalk_Email = models.EmailField(max_length=50)
+    Intalk_Contact = models.CharField(max_length=10)
+    Intalk_City = models.CharField(max_length=10)
+    Intalk_Reason_to_connect = models.CharField(max_length=10)
+    # created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.Intalk_Name
