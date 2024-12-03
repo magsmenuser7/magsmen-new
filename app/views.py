@@ -14,9 +14,11 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import IntalksFormSerializer
+from rest_framework.decorators import api_view
 
 # Create your views here.
 
+@api_view(['POST'])
 class IntalksFormView(APIView):
     def post(self, request):
         serializer = IntalksFormSerializer(data=request.data)
@@ -25,7 +27,7 @@ class IntalksFormView(APIView):
             return Response({"message": "Form submitted successfully!"}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-    
+
 def home(request):
     blog_list = BlogPost.objects.filter().order_by('-Id')[:3]    #filter(status=1).order_by('Create_at')
 

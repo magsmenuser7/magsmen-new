@@ -7,7 +7,7 @@ Monochromatic_colors_in_branding,band_corner_the_new_age_of_buying_brand_activis
 from django.contrib.sitemaps.views import sitemap
 from app.sitemap import PostSitemap,StaticPagesSitemap
 from django.views.generic.base import TemplateView
-from .views import IntalksFormView
+from app.views import IntalksFormView
 
 sitemaps = {
     'posts': PostSitemap,
@@ -60,7 +60,7 @@ urlpatterns = [
     path('the-power-of-consistency-why-brand-tone-matters/',the_power_of_consistency_why_brand_tone_matters,name="the-power-of-consistency-why-brand-tone-matters"),
     path('sitemap.xml/',sitemap,{'sitemaps':sitemaps},name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt',TemplateView.as_view(template_name="uifiles/robots.txt", content_type="text/plain")),
-     path('api/intalks-contact-form/', IntalksFormView.as_view(), name='intalks-contact-form'),
+     path('/api/contact/', IntalksFormView, name='contact'),
    
 
 ]
