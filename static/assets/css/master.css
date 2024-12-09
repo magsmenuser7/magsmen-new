@@ -8772,4 +8772,21 @@ select {
         display: none !important;
     }
 
+    .cs_munu_toggle span, .cs_munu_toggle span:before, .cs_munu_toggle span:after {
+        width: 100%;
+        height: 2px;
+        background-color: currentColor;
+        display: block;
+    }
+
+}
+
+
+@media screen and (max-width: 1199px) {
+    .cs_munu_toggle span, .cs_munu_toggle span:before, .cs_munu_toggle span:after {
+        width:0% !important;
+        height: 0px !important;
+        background-color: currentColor;
+        display: block;
+    }
 }

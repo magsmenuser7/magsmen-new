@@ -5,7 +5,7 @@ from django.http import FileResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import redirect, render
 
 from magsmen import settings
-from .models import BlogPost,Media,ContactData,CareerInfo,ApplyForm,StepformData,Subscribe
+from .models import BlogPost, IntalksForm,Media,ContactData,CareerInfo,ApplyForm,StepformData,Subscribe
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.core.mail import send_mail,EmailMessage
 from django.contrib import messages
@@ -27,6 +27,21 @@ def contact_api_view(request):
             serializer.save()
             return Response({"success": "Contact saved successfully!"}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+@api_view(['GET'])
+def get_contacts(request):
+    contacts = IntalksForm.objects.all()  # Replace 'Contact' with your model name
+    serializer = ContactSerializer(contacts, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+        #serializer = ContactSerializer(data=request.data)
+    #    if serializer.is_valid():
+    #         instance = serializer.save()  # Save first
+    #         print(serializer.data)        # Access serialized data after saving
+    #         return Response(serializer.data, status=201)
+    #   else:
+    #     return Response(serializer.errors, status=400)
     
 
 def home(request):
