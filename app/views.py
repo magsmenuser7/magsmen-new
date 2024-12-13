@@ -380,5 +380,13 @@ def the_power_of_consistency_why_brand_tone_matters(request):
     response['Content-Disposition'] = f'inline; filename="{pdf_filename_nine}"'
     return response
 
+def a_cutting_edge_approach_in_branding_compressed(request):
+    pdf_filename_ten = 'a-cutting-edge-approach-in-branding-compressed.pdf'
+    pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename_ten)
+    
+    response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
+    response['Content-Disposition'] = f'inline; filename="{pdf_filename_ten}"'
+    return response
+
 
 
