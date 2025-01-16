@@ -5,6 +5,8 @@ works,telugufoods,suryacolors,tdhrishika,tenali_double_horse,triplex,vsb,zavaine
 Monochromatic_colors_in_branding,band_corner_the_new_age_of_buying_brand_activism,magsmen_brand_portfolio,brand_naming_unlock_the_soul_of_your_brand,the_power_of_consistency_why_brand_tone_matters,\
 a_cutting_edge_approach_in_branding_compressed
 
+from .views import *
+
 from django.contrib.sitemaps.views import sitemap
 from app.sitemap import PostSitemap,StaticPagesSitemap
 from django.views.generic.base import TemplateView
@@ -63,7 +65,7 @@ urlpatterns = [
     path('sitemap.xml/',sitemap,{'sitemaps':sitemaps},name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt',TemplateView.as_view(template_name="uifiles/robots.txt", content_type="text/plain")),
     path('api/contact/', contact_api_view, name='contact-api'),
-    path('api/getcontact/',get_contacts, name='getcontact-api')
-   
+    path('api/getcontact/',get_contacts, name='getcontact-api'),
+    path('brand_corner_trademarks_and_deceptive_practices/',brand_corner_trademarks, name='brand_corner_trademarks_and_deceptive_practices'),
 
 ]
