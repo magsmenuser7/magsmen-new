@@ -66,6 +66,6 @@ urlpatterns = [
     path('robots.txt',TemplateView.as_view(template_name="uifiles/robots.txt", content_type="text/plain")),
     path('api/contact/', contact_api_view, name='contact-api'),
     path('api/getcontact/',get_contacts, name='getcontact-api'),
-    path('brand_corner_trademarks/',brand_corner_news_letter, name='brand_corner_trademarks_and_deceptive_practices'),
+    path('brand_corner_trademarks_and_deceptive_practices/',brand_corner_news_letter, name='brand_corner_trademarks_and_deceptive_practices'),
 
 ]
