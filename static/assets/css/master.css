@@ -8064,7 +8064,7 @@ a:hover{
     
 }
 
-.maincard {
+/* .maincard {
     width: 100%;
     height: 50vh !important; 
     position: relative;
@@ -8143,7 +8143,7 @@ a:hover{
     display: flex;
     transition-property: transform;
     box-sizing: content-box;
-}
+} */
 /* option {
     background-color: #000;
     color: #fff !important;

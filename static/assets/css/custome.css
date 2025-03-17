@@ -1,0 +1,67 @@
+.maincard {
+    width: 100%;
+    height: 50vh !important;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s ease, box-shadow 0.3s ease-in-out;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2) !important;
+    border-radius: 6px !important;
+}
+.maincardcontainer:hover .maincard {
+    transform: scale(1.03) !important;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3) !important;
+}
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 6px !important;
+}
+.card-front {
+    background-color: white;
+    z-index: 2;
+    opacity: 1;
+}
+.card-front img {
+    width: 100%;
+    height: 48vh !important;
+    transition: transform 0.4s ease-in-out;
+}
+.maincardcontainer:hover .card-front img {
+    transform: scale(1.1);
+}
+.card-back {
+    background-color: rgba(0, 0, 0, 0.85);
+    opacity: 0;
+    transform: scale(0.95);
+    color: #fff;
+    text-align: center;
+    flex-direction: column;
+    padding: 20px;
+}
+.maincardcontainer:hover .card-front {
+    opacity: 0;
+}
+.maincardcontainer:hover .card-back {
+    opacity: 1;
+    transform: scale(1);
+}
+.card-back h6 {
+    color: #fff !important;
+    margin-bottom: 10px;
+}
+.card-back span {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease-in-out;
+}
+.card-back span:hover {
+    color: #fff !important;
+}
+.cs_btn.cs_style_1.click-here:hover {
+    color: #fff !important;
+}
