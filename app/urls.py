@@ -67,5 +67,7 @@ urlpatterns = [
     path('api/contact/', contact_api_view, name='contact-api'),
     path('api/getcontact/',get_contacts, name='getcontact-api'),
     path('brand_corner_trademarks_and_deceptive_practices/',brand_corner_news_letter, name='brand_corner_trademarks_and_deceptive_practices'),
+    path('beyond-the-logo-More-Than-a-Mark-Its-a-Movement/',brand_corner_beyond_the_logonews_letter, name='beyond-the-logo-More-Than-a-Mark-Its-a-Movement'),
+
 
 ]
