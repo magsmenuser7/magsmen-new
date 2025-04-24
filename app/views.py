@@ -405,3 +405,11 @@ def brand_corner_beyond_the_logonews_letter(request):
     response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
     response['Content-Disposition'] = f'inline; filename="{pdf_filename_ten}"'
     return response
+
+def brand_corner_beyond_single_use(request):
+    pdf_filename_ten = 'brand-corner-beyond-single-use.pdf'
+    pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename_ten)
+    
+    response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
+    response['Content-Disposition'] = f'inline; filename="{pdf_filename_ten}"'
+    return response

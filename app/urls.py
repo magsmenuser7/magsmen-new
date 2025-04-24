@@ -61,13 +61,14 @@ urlpatterns = [
     path('the-new-age-of-buying-brand-activism/',band_corner_the_new_age_of_buying_brand_activism,name="the-new-age-of-buying-brand-activism"),
     path('brand-naming-unlock-the-soul-of-your-brand/',brand_naming_unlock_the_soul_of_your_brand,name="brand-naming-unlock-the-soul-of-your-brand"),
     path('the-power-of-consistency-why-brand-tone-matters/',the_power_of_consistency_why_brand_tone_matters,name="the-power-of-consistency-why-brand-tone-matters"),
-     path('a-cutting-edge-approach-in-branding/',a_cutting_edge_approach_in_branding_compressed,name="a-cutting-edge-approach-in-branding"),
+    path('a-cutting-edge-approach-in-branding/',a_cutting_edge_approach_in_branding_compressed,name="a-cutting-edge-approach-in-branding"),
     path('sitemap.xml/',sitemap,{'sitemaps':sitemaps},name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt',TemplateView.as_view(template_name="uifiles/robots.txt", content_type="text/plain")),
     path('api/contact/', contact_api_view, name='contact-api'),
     path('api/getcontact/',get_contacts, name='getcontact-api'),
     path('brand_corner_trademarks_and_deceptive_practices/',brand_corner_news_letter, name='brand_corner_trademarks_and_deceptive_practices'),
     path('beyond-the-logo-More-Than-a-Mark-Its-a-Movement/',brand_corner_beyond_the_logonews_letter, name='beyond-the-logo-More-Than-a-Mark-Its-a-Movement'),
+    path('brand-corner-beyond-single-use/',brand_corner_beyond_single_use, name='brand-corner-beyond-single-use'),
 
 
 ]
