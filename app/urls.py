@@ -69,6 +69,7 @@ urlpatterns = [
     path('brand_corner_trademarks_and_deceptive_practices/',brand_corner_news_letter, name='brand_corner_trademarks_and_deceptive_practices'),
     path('beyond-the-logo-More-Than-a-Mark-Its-a-Movement/',brand_corner_beyond_the_logonews_letter, name='beyond-the-logo-More-Than-a-Mark-Its-a-Movement'),
     path('brand-corner-beyond-single-use/',brand_corner_beyond_single_use, name='brand-corner-beyond-single-use'),
+    path('brand_corner_ethical_branding/',brand_corner_ethical_branding, name='brand_corner_ethical_branding'),
 
 
 ]
