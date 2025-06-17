@@ -421,3 +421,11 @@ def brand_corner_ethical_branding(request):
     response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
     response['Content-Disposition'] = f'inline; filename="{pdf_filename_ten}"'
     return response
+
+def quiet_branding_silence_that_speaks_volumes(request):
+    pdf_filename_eleven = 'quiet-branding-silence-that-speaks-volumes.pdf'
+    pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename_eleven)
+    
+    response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
+    response['Content-Disposition'] = f'inline; filename="{pdf_filename_eleven}"'
+    return response
