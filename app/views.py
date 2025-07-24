@@ -429,3 +429,12 @@ def quiet_branding_silence_that_speaks_volumes(request):
     response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
     response['Content-Disposition'] = f'inline; filename="{pdf_filename_eleven}"'
     return response
+
+
+def the_raise_ofreferral_marketing_growth_strategy_or_grey_zone(request):
+    pdf_filename_twelve = 'the-raise-ofreferral-marketing-growth-strategy-or-grey-zone.pdf'
+    pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename_twelve)
+    
+    response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
+    response['Content-Disposition'] = f'inline; filename="{pdf_filename_twelve}"'
+    return response
