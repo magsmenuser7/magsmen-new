@@ -438,3 +438,7 @@ def the_raise_ofreferral_marketing_growth_strategy_or_grey_zone(request):
     response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
     response['Content-Disposition'] = f'inline; filename="{pdf_filename_twelve}"'
     return response
+
+
+def brandauditsystem(request):
+    return render(request, 'uifiles/brandauditsystem.html')

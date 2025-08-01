@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Brand Audit System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKx3buserklXl5unvunw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background: #f8f9fa;
+            font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+            color: #1f2937;
+        }
+
+        /* --- Common Styles for all sections --- */
+        .section-container {
+            display: none; /* All sections initially hidden */
+            padding: 4rem 1rem 2rem;
+        }
+        .section-container.active {
+            display: block; /* Active section visible */
+        }
+        .container {
+            max-width: 960px; /* Adjust as needed for content width */
+        }
+
+        /* --- Hero Section Styles --- */
+        .hero {
+            text-align: center;
+        }
+        .hero h1 {
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 0.25rem;
+        }
+        .hero .subtitle {
+            font-size: 0.95rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+        .badge-powered {
+            display: inline-block;
+            background: #1f2937;
+            color: #fff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.55rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+        .audit-card {
+            max-width: 720px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 0.75rem;
+            padding: 1.75rem 1.5rem;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.08);
+            position: relative;
+        }
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: #f1f5f9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: #374151;
+        }
+        .audit-card .btn-start {
+            background: #1f2937;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none; /* Remove underline for anchor tag acting as button */
+            display: inline-block; /* Ensure padding and margins work correctly */
+        }
+        .audit-card .btn-start:hover {
+            background: #111827;
+        }
+        .small-text {
+            font-size: 0.65rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+
+        /* --- What We Analyze Section Styles --- */
+        .what-we-analyze {
+            /* Inherits padding from .section-container */
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+        .analysis-card {
+            background: #fff;
+            border-radius: 0.75rem;
+            padding: 1rem 1rem;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .analysis-card .title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .analysis-card .desc {
+            font-size: 0.65rem;
+            color: #4b5563;
+            flex-grow: 1;
+        }
+
+        /* --- Bottom CTA Section Styles --- */
+        .bottom-cta {
+            background: #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 2rem 1rem;
+            margin: 3rem auto 2rem; /* Adjusted for centering */
+            text-align: center;
+            max-width: 960px; /* Align with container max-width */
+        }
+        .bottom-cta h3 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .bottom-cta p {
+            color: #4b5563;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        .btn-journey {
+            background: #1f2937;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.75rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-journey:hover {
+            background: #111827;
+        }
+
+        /* --- Audit Form Section Styles --- */
+        .audit-form-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure it takes full viewport height when active */
+            padding: 2rem 1rem; /* Adjust padding for smaller screens */
+        }
+        .audit-assessment-card {
+            max-width: 600px;
+            width: 100%;
+            background: #fff;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.08);
+        }
+        .progress-bar-container {
+            height: 8px;
+            background-color: #e5e7eb;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #1f2937;
+            width: 0%;
+            border-radius: 4px;
+            transition: width 0.3s ease-in-out;
+        }
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: #f1f5f9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #374151;
+            margin: 0 auto 1.5rem;
+        }
+        .form-question h2 {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        .form-question p {
+            font-size: 0.9rem;
+            color: #6b7280;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .form-control-custom {
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+        .form-control-custom:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+            outline: none;
+        }
+        .radio-options label {
+            display: inline-block;
+            margin-right: 1.5rem;
+            cursor: pointer;
+            font-size: 0.95rem;
+            color: #374151;
+            font-weight: 500;
+        }
+        .radio-options input[type="radio"] {
+            margin-right: 0.5rem;
+            transform: scale(1.1);
+        }
+        .checkbox-options label {
+            display: block;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            font-size: 0.95rem;
+            color: #374151;
+            font-weight: 500;
+        }
+        .checkbox-options input[type="checkbox"] {
+            margin-right: 0.75rem;
+            transform: scale(1.1);
+        }
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2.5rem;
+        }
+        .navigation-buttons .btn-nav {
+            background: #1f2937;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.75rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .navigation-buttons .btn-nav:hover {
+            background: #111827;
+        }
+        .navigation-buttons .btn-prev {
+            background: #e5e7eb;
+            color: #374151;
+        }
+        .navigation-buttons .btn-prev:hover {
+            background: #d1d5db;
+        }
+        .navigation-buttons .btn-disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* --- Results Section Styles --- */
+        .results-section {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        .results-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.08);
+        }
+        .alert-warning-custom {
+            background-color: #fef3c7; /* light orange/yellow */
+            border-color: #fbbf24; /* orange/yellow */
+            color: #b45309; /* dark orange/brown */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        .alert-warning-custom .icon {
+            margin-right: 0.75rem;
+            font-size: 1.2rem;
+        }
+        .score-box {
+            background-color: #f1f5f9;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .score-box .score {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #1f2937;
+            line-height: 1;
+        }
+        .score-box .score-label {
+            font-size: 0.85rem;
+            color: #4b5563;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .progress-line {
+            height: 10px;
+            background-color: #e5e7eb;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background-color: #1f2937;
+            border-radius: 5px;
+            /* width will be dynamic */
+        }
+        .section-heading {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .breakdown-item:last-child {
+            border-bottom: none;
+        }
+        .breakdown-item .label {
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+            color: #374151;
+        }
+        .breakdown-item .label i {
+            margin-right: 0.75rem;
+            color: #6b7280;
+            font-size: 1.1rem;
+        }
+        .breakdown-item .score-bar {
+            flex-grow: 1;
+            height: 6px;
+            background-color: #e5e7eb;
+            border-radius: 3px;
+            margin: 0 1rem;
+            overflow: hidden;
+        }
+        .breakdown-item .score-fill {
+            height: 100%;
+            background-color: #1f2937;
+            border-radius: 3px;
+        }
+        .breakdown-item .percentage {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1f2937;
+            width: 40px; /* fixed width for alignment */
+            text-align: right;
+        }
+        .business-summary-card {
+            background-color: #f9fafb;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border: 1px solid #e5e7eb;
+        }
+        .business-summary-card h6 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .summary-item .label {
+            color: #4b5563;
+        }
+        .summary-item .value {
+            font-weight: 500;
+            color: #1f2937;
+            text-align: right;
+        }
+        .elevate-brand-cta {
+            background: #e0f2fe; /* light blue */
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            border: 1px solid #90cdf4;
+        }
+        .elevate-brand-cta h3 {
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #1f2937;
+        }
+        .elevate-brand-cta p {
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        .elevate-brand-cta .btn-group .btn {
+            padding: 0.75rem 1.25rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            margin: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .elevate-brand-cta .btn-consultation {
+            background-color: #1f2937;
+            color: #fff;
+            border: none;
+        }
+        .elevate-brand-cta .btn-consultation:hover {
+            background-color: #111827;
+        }
+        .elevate-brand-cta .btn-contact {
+            background-color: #f1f5f9;
+            color: #1f2937;
+            border: 1px solid #d1d5db;
+        }
+        .elevate-brand-cta .btn-contact:hover {
+            background-color: #e5e7eb;
+        }
+        .about-consultants {
+            background-color: #fff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+        }
+        .about-consultants h6 {
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #1f2937;
+        }
+        .about-consultants p {
+            font-size: 0.85rem;
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .about-consultants a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #1f2937;
+            text-decoration: none;
+        }
+        .about-consultants a:hover {
+            text-decoration: underline;
+        }
+        .take-another-assessment {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .take-another-assessment a {
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .take-another-assessment a:hover {
+            text-decoration: underline;
+        }
+
+        @media (min-width: 992px) {
+            .audit-card {
+                padding: 2rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="landing-section" class="section-container active">
+        <section class="hero">
+            <div class="container">
+                <div class="badge-powered">Powered by <strong>Magnam Brand Consultants</strong></div>
+                <h1>Brand Audit System</h1>
+                <div class="subtitle">Discover your brand’s true potential with our comprehensive assessment</div>
+
+                <div class="audit-card mt-4">
+                    <div class="text-center mb-3">
+                        <h5 class="mb-1">Get Your Free Brand Assessment</h5>
+                        <div class="text-muted" style="font-size:0.85rem;">Understand your brand’s current state and discover opportunities for growth</div>
+                    </div>
+                    <div class="row gy-3 text-center">
+                        <div class="col-md-4">
+                            <div class="d-flex flex-column align-items-center">
+                                <div class="feature-icon mb-2"><i class="fa-solid fa-chart-column"></i></div>
+                                <div class="fw-bold" style="font-size:0.75rem;">Comprehensive Analysis</div>
+                                <div class="small-text">6-category assessment covering all aspects of your brand</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="d-flex flex-column align-items-center">
+                                <div class="feature-icon mb-2"><i class="fa-solid fa-bullseye"></i></div>
+                                <div class="fw-bold" style="font-size:0.75rem;">Personalized Recommendations</div>
+                                <div class="small-text">Get specific advice based on your unique brand score</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="d-flex flex-column align-items-center">
+                                <div class="feature-icon mb-2"><i class="fa-solid fa-user-tie"></i></div>
+                                <div class="fw-bold" style="font-size:0.75rem;">Expert Consultation</div>
+                                <div class="small-text">Direct access to brand consultants for next steps</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="#" class="btn-start" id="start-audit">
+                            <i class="fa-solid fa-rocket me-1"></i> Start Your Free Brand Audit
+                        </a>
+                        <div class="small-text">Takes only 5 minutes • No credit card required</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="what-we-analyze">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What We Analyze</h2>
+                </div>
+                <div class="section-subtitle">
+                    <div>Our comprehensive audit covers every aspect of your brand</div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="analysis-card">
+                            <div class="d-flex align-items-start mb-2">
+                                <div class="me-2"><i class="fa-regular fa-star" style="font-size:1.2rem;"></i></div>
+                                <div>
+                                    <div class="title">Design Quality</div>
+                                    <div class="desc">Logo, visual identity, website design, and overall aesthetic appeal</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="analysis-card">
+                            <div class="d-flex align-items-start mb-2">
+                                <div class="me-2"><i class="fa-solid fa-circle-check" style="font-size:1.2rem;"></i></div>
+                                <div>
+                                    <div class="title">Communication</div>
+                                    <div class="desc">Brand messaging, voice consistency, and value proposition clarity</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="analysis-card">
+                            <div class="d-flex align-items-start mb-2">
+                                <div class="me-2"><i class="fa-regular fa-bullseye" style="font-size:1.2rem;"></i></div>
+                                <div>
+                                    <div class="title">Strategic Alignment</div>
+                                    <div class="desc">Brand positioning, target audience fit, and competitive differentiation</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="analysis-card">
+                            <div class="d-flex align-items-start mb-2">
+                                <div class="me-2"><i class="fa-solid fa-chart-line" style="font-size:1.2rem;"></i></div>
+                                <div>
+                                    <div class="title">Marketing Investment</div>
+                                    <div class="desc">Budget allocation, channel effectiveness, and ROI optimization</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="analysis-card">
+                            <div class="d-flex align-items-start mb-2">
+                                <div class="me-2"><i class="fa-regular fa-shield" style="font-size:1.2rem;"></i></div>
+                                <div>
+                                    <div class="title">Platform Presence</div>
+                                    <div class="desc">Digital footprint, social media, and multi-channel consistency</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="analysis-card">
+                            <div class="d-flex align-items-start mb-2">
+                                <div class="me-2"><i class="fa-solid fa-award" style="font-size:1.2rem;"></i></div>
+                                <div>
+                                    <div class="title">Growth Potential</div>
+                                    <div class="desc">Scalability assessment and future opportunity identification</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="bottom-cta">
+                <h3>Ready to Transform Your Brand?</h3>
+                <p>Join hundreds of businesses who’ve discovered their brand’s true potential</p>
+                <a href="#" class="btn-journey" id="begin-journey">Begin Your Brand Journey</a>
+            </div>
+        </section>
+    </div>
+
+    <div id="audit-form-section" class="section-container audit-form-section">
+        <div class="audit-assessment-card">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h5 class="mb-0">Brand Audit Assessment</h5>
+                <div class="text-muted" id="step-counter">Step 1 of 6</div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="progress-bar"></div>
+            </div>
+
+            <form id="audit-form">
+                <div class="step" id="step-1">
+                    <div class="step-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                    <div class="form-question">
+                        <h2>Let's start with the basics</h2>
+                        <p>Tell us about your business and online presence</p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="websiteUrl" class="form-label mb-2">Website URL (optional)</label>
+                        <div class="input-group">
+                            <input type="url" class="form-control-custom" id="websiteUrl" placeholder="https://yourwebsite.com">
+                            <button class="btn btn-outline-secondary" type="button" style="border-radius:0.5rem; margin-left:0.5rem; color:#374151;">Analyze</button>
+                        </div>
+                        <small class="text-muted">We'll analyze your website to pre-fill some answers</small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="businessType" class="form-label mb-2">What type of business are you?</label>
+                        <input type="text" class="form-control-custom" id="businessType" placeholder="e.g., E-commerce, SaaS, Consulting, Restaurant">
+                    </div>
+                    <div class="mb-3">
+                        <label for="brandDescription" class="form-label mb-2">Describe your current brand in one sentence</label>
+                        <textarea class="form-control-custom" id="brandDescription" rows="2" placeholder="What does your brand represent? What makes you unique?"></textarea>
+                    </div>
+                </div>
+
+                <div class="step" id="step-2" style="display:none;">
+                    <div class="step-icon"><i class="fa-solid fa-paint-roller"></i></div>
+                    <div class="form-question">
+                        <h2>Design Quality Assessment</h2>
+                        <p>How would you rate your current design assets?</p>
+                    </div>
+                    <div class="mb-3 text-center">
+                        <label class="form-label mb-3">Overall Design Quality (1-10)</label><br>
+                        <div class="radio-options">
+                            <input type="radio" id="design-1" name="designQuality" value="1"> <label for="design-1">1</label>
+                            <input type="radio" id="design-2" name="designQuality" value="2"> <label for="design-2">2</label>
+                            <input type="radio" id="design-3" name="designQuality" value="3"> <label for="design-3">3</label>
+                            <input type="radio" id="design-4" name="designQuality" value="4" checked> <label for="design-4">4</label>
+                            <input type="radio" id="design-5" name="designQuality" value="5"> <label for="design-5">5</label>
+                            <input type="radio" id="design-6" name="designQuality" value="6"> <label for="design-6">6</label>
+                            <input type="radio" id="design-7" name="designQuality" value="7"> <label for="design-7">7</label>
+                            <input type="radio" id="design-8" name="designQuality" value="8"> <label for="design-8">8</label>
+                            <input type="radio" id="design-9" name="designQuality" value="9"> <label for="design-9">9</label>
+                            <input type="radio" id="design-10" name="designQuality" value="10"> <label for="design-10">10</label>
+                        </div>
+                        <small class="text-muted mt-2 d-block">Consider logo, website design, marketing materials, color scheme, typography</small>
+                    </div>
+                </div>
+
+                <div class="step" id="step-3" style="display:none;">
+                    <div class="step-icon"><i class="fa-solid fa-comments"></i></div>
+                    <div class="form-question">
+                        <h2>Communication Clarity</h2>
+                        <p>How clear is your brand messaging?</p>
+                    </div>
+                    <div class="mb-3 text-center">
+                        <label class="form-label mb-3">Communication Effectiveness (1-10)</label><br>
+                        <div class="radio-options">
+                            <input type="radio" id="comm-1" name="communicationEffectiveness" value="1"> <label for="comm-1">1</label>
+                            <input type="radio" id="comm-2" name="communicationEffectiveness" value="2"> <label for="comm-2">2</label>
+                            <input type="radio" id="comm-3" name="communicationEffectiveness" value="3"> <label for="comm-3">3</label>
+                            <input type="radio" id="comm-4" name="communicationEffectiveness" value="4"> <label for="comm-4">4</label>
+                            <input type="radio" id="comm-5" name="communicationEffectiveness" value="5" checked> <label for="comm-5">5</label>
+                            <input type="radio" id="comm-6" name="communicationEffectiveness" value="6"> <label for="comm-6">6</label>
+                            <input type="radio" id="comm-7" name="communicationEffectiveness" value="7"> <label for="comm-7">7</label>
+                            <input type="radio" id="comm-8" name="communicationEffectiveness" value="8"> <label for="comm-8">8</label>
+                            <input type="radio" id="comm-9" name="communicationEffectiveness" value="9"> <label for="comm-9">9</label>
+                            <input type="radio" id="comm-10" name="communicationEffectiveness" value="10"> <label for="comm-10">10</label>
+                        </div>
+                        <small class="text-muted mt-2 d-block">Consider brand voice, messaging consistency, value proposition clarity</small>
+                    </div>
+                </div>
+
+                <div class="step" id="step-4" style="display:none;">
+                    <div class="step-icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <div class="form-question">
+                        <h2>Strategic Alignment</h2>
+                        <p>How well does your brand align with your business goals?</p>
+                    </div>
+                    <div class="mb-3 text-center">
+                        <label class="form-label mb-3">Strategy Alignment (1-10)</label><br>
+                        <div class="radio-options">
+                            <input type="radio" id="strategy-1" name="strategyAlignment" value="1"> <label for="strategy-1">1</label>
+                            <input type="radio" id="strategy-2" name="strategyAlignment" value="2"> <label for="strategy-2">2</label>
+                            <input type="radio" id="strategy-3" name="strategyAlignment" value="3"> <label for="strategy-3">3</label>
+                            <input type="radio" id="strategy-4" name="strategyAlignment" value="4" checked> <label for="strategy-4">4</label>
+                            <input type="radio" id="strategy-5" name="strategyAlignment" value="5"> <label for="strategy-5">5</label>
+                            <input type="radio" id="strategy-6" name="strategyAlignment" value="6"> <label for="strategy-6">6</label>
+                            <input type="radio" id="strategy-7" name="strategyAlignment" value="7"> <label for="strategy-7">7</label>
+                            <input type="radio" id="strategy-8" name="strategyAlignment" value="8"> <label for="strategy-8">8</label>
+                            <input type="radio" id="strategy-9" name="strategyAlignment" value="9"> <label for="strategy-9">9</label>
+                            <input type="radio" id="strategy-10" name="strategyAlignment" value="10"> <label for="strategy-10">10</label>
+                        </div>
+                        <small class="text-muted mt-2 d-block">Consider target audience alignment, brand positioning, competitive differentiation</small>
+                    </div>
+                </div>
+
+                <div class="step" id="step-5" style="display:none;">
+                    <div class="step-icon"><i class="fa-solid fa-dollar-sign"></i></div>
+                    <div class="form-question">
+                        <h2>Marketing & Budget</h2>
+                        <p>Tell us about your marketing investment</p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label mb-3">Monthly Marketing Budget Range</label>
+                        <div class="radio-options d-block">
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="marketingBudget" id="budget-0-1000" value="$0 - $1,000" checked>
+                                <label class="form-check-label" for="budget-0-1000">
+                                    $0 - $1,000
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="marketingBudget" id="budget-1000-5000" value="$1,000 - $5,000">
+                                <label class="form-check-label" for="budget-1000-5000">
+                                    $1,000 - $5,000
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="marketingBudget" id="budget-5000-10000" value="$5,000 - $10,000">
+                                <label class="form-check-label" for="budget-5000-10000">
+                                    $5,000 - $10,000
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="marketingBudget" id="budget-10000-plus" value="$10,000+">
+                                <label class="form-check-label" for="budget-10000-plus">
+                                    $10,000+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step" id="step-6" style="display:none;">
+                    <div class="step-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <div class="form-question">
+                        <h2>Platforms & Channels</h2>
+                        <p>Where do you currently engage with customers?</p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label mb-3">Select all platforms you actively use</label>
+                        <div class="row checkbox-options">
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="platform-website" value="Website">
+                                    <label class="form-check-label" for="platform-website">Website</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="platform-facebook" value="Facebook">
+                                    <label class="form-check-label" for="platform-facebook">Facebook</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="platform-twitter" value="Twitter/X">
+                                    <label class="form-check-label" for="platform-twitter">Twitter/X</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="platform-youtube" value="YouTube">
+                                    <label class="form-check-label" for="platform-youtube">YouTube</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="platform-google-ads" value="Google Ads">
+                                    <label class="form-check-label" for="platform-google-ads">Google Ads</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="platform-print-media" value="Print Media">
+                                    <label class="form-check-label" for="platform-print-media">Print Media</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="platform-events" value="Events">
+                                    <label class="form-check-label" for="platform-events">Events</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="platform-instagram" value="Instagram">
+                                    <label class="form-check-label" for="platform-instagram">Instagram</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="platform-linkedin" value="LinkedIn">
+                                    <label class="form-check-label" for="platform-linkedin">LinkedIn</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="platform-tiktok" value="TikTok">
+                                    <label class="form-check-label" for="platform-tiktok">TikTok</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="platform-email-marketing" value="Email Marketing">
+                                    <label class="form-check-label" for="platform-email-marketing">Email Marketing</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="platform-seo" value="SEO">
+                                    <label class="form-check-label" for="platform-seo">SEO</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="platform-radio-tv" value="Radio/TV">
+                                    <label class="form-check-label" for="platform-radio-tv">Radio/TV</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="platform-other" value="Other">
+                                    <label class="form-check-label" for="platform-other">Other</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="additionalInfo" class="form-label mb-2">Any additional information? (Optional)</label>
+                        <textarea class="form-control-custom" id="additionalInfo" rows="3" placeholder="Specific challenges, goals, or context we should know about..."></textarea>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button type="button" class="btn-nav btn-prev" id="prev-button" style="display:none;"><i class="fa-solid fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn-nav" id="next-button">Next <i class="fa-solid fa-arrow-right"></i></button>
+                    <button type="submit" class="btn-nav" id="complete-assessment-button" style="display:none;">Complete Assessment <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="results-section" class="section-container results-section">
+        <div class="container results-container">
+            <div class="alert-warning-custom mb-4">
+                <span class="icon"><i class="fa-solid fa-triangle-exclamation"></i></span>
+                Your Brand Audit Score
+                <div class="ms-auto" style="font-size: 0.75rem; color: #b45309;">
+                    Based on your comprehensive brand assessment
+                </div>
+            </div>
+
+            <div class="score-box">
+                <div class="score" id="overall-score">--%</div>
+                <div class="progress-line">
+                    <div class="progress-fill" id="overall-score-progress"></div>
+                </div>
+                <div class="score-label mt-3" id="score-message"></div>
+                <div class="text-muted mt-2" style="font-size: 0.8rem;">
+                    Your brand has solid elements but there's room for improvement. Let's discuss how to elevate your brand.
+                </div>
+            </div>
+
+            <h4 class="section-heading">Detailed Breakdown</h4>
+            <p class="text-muted" style="font-size: 0.85rem; margin-top: -1rem;">See how each category contributes to your overall brand score</p>
+
+            <div class="breakdown-list" id="detailed-breakdown">
+                <div class="breakdown-item">
+                    <div class="label"><i class="fa-regular fa-star"></i> Design Quality</div>
+                    <div class="score-bar">
+                        <div class="score-fill" style="width: 0%;" data-category="designQuality"></div>
+                    </div>
+                    <div class="percentage" data-category="designQuality">0%</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="label"><i class="fa-solid fa-comments"></i> Communication</div>
+                    <div class="score-bar">
+                        <div class="score-fill" style="width: 0%;" data-category="communicationEffectiveness"></div>
+                    </div>
+                    <div class="percentage" data-category="communicationEffectiveness">0%</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="label"><i class="fa-solid fa-bullseye"></i> Strategic Alignment</div>
+                    <div class="score-bar">
+                        <div class="score-fill" style="width: 0%;" data-category="strategyAlignment"></div>
+                    </div>
+                    <div class="percentage" data-category="strategyAlignment">0%</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="label"><i class="fa-solid fa-chart-line"></i> Marketing Investment</div>
+                    <div class="score-bar">
+                        <div class="score-fill" style="width: 0%;" data-category="marketingBudgetScore"></div>
+                    </div>
+                    <div class="percentage" data-category="marketingBudgetScore">0%</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="label"><i class="fa-solid fa-mobile-screen"></i> Platform Presence</div>
+                    <div class="score-bar">
+                        <div class="score-fill" style="width: 0%;" data-category="platformPresenceScore"></div>
+                    </div>
+                    <div class="percentage" data-category="platformPresenceScore">0%</div>
+                </div>
+            </div>
+
+            <div class="business-summary-card">
+                <h6>Your Business Summary</h6>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="summary-item">
+                            <span class="label">Business Type</span>
+                            <span class="value" id="summary-businessType">Not specified</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Current Brand Description</span>
+                            <span class="value" id="summary-brandDescription">Not provided</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Marketing Budget</span>
+                            <span class="value" id="summary-marketingBudget">Not specified</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="summary-item">
+                            <span class="label">Website</span>
+                            <span class="value" id="summary-websiteUrl">Not provided</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Active Platforms</span>
+                            <span class="value" id="summary-activePlatforms">None specified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="elevate-brand-cta">
+                <h3>Let's Elevate Your Brand</h3>
+                <p>Your brand has solid foundations with great potential. We can help you identify and implement the improvements that will drive significant growth.</p>
+                <div class="btn-group d-flex flex-wrap justify-content-center">
+                    <a href="#" class="btn btn-consultation"><i class="fa-solid fa-calendar-alt"></i> Book a Brand Enhancement Consultation</a>
+                    <a href="#" class="btn btn-contact"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a>
+                    <a href="#" class="btn btn-contact"><i class="fa-solid fa-phone"></i> Call Now</a>
+                    <a href="#" class="btn btn-contact"><i class="fa-solid fa-envelope"></i> Email Us</a>
+                </div>
+            </div>
+
+            <div class="about-consultants">
+                <h6>About Magnam Brand Consultants</h6>
+                <p>
+                    We specialize in transforming businesses through strategic brand development, design excellence, and growth-focused marketing strategies. Our data-driven approach ensures measurable results for your brand investment.
+                </p>
+                <a href="https://www.magmam.com" target="_blank">Visit us at www.magmam.com</a>
+            </div>
+
+            <div class="take-another-assessment">
+                <a href="#" id="restart-audit"><i class="fa-solid fa-rotate"></i> Take Another Assessment</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        let currentStep = 1;
+        const totalSteps = 6;
+        const steps = document.querySelectorAll('#audit-form .step');
+        const progressBar = document.getElementById('progress-bar');
+        const stepCounter = document.getElementById('step-counter');
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+        const completeAssessmentButton = document.getElementById('complete-assessment-button');
+        const auditForm = document.getElementById('audit-form');
+
+        const landingSection = document.getElementById('landing-section');
+        const auditFormSection = document.getElementById('audit-form-section');
+        const resultsSection = document.getElementById('results-section');
+
+        const startAuditButton = document.getElementById('start-audit');
+        const beginJourneyButton = document.getElementById('begin-journey');
+        const restartAuditButton = document.getElementById('restart-audit');
+
+        // Function to show a specific section and hide others
+        function showSection(sectionId) {
+            document.querySelectorAll('.section-container').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+            window.scrollTo(0, 0); // Scroll to top when section changes
+        }
+
+        // Initialize display to show only the landing section
+        showSection('landing-section');
+
+        // --- Audit Form Logic ---
+        function updateFormVisibility() {
+            steps.forEach((step, index) => {
+                step.style.display = (index + 1 === currentStep) ? 'block' : 'none';
+            });
+
+            stepCounter.textContent = `Step ${currentStep} of ${totalSteps}`;
+            progressBar.style.width = `${(currentStep / totalSteps) * 100}%`;
+
+            prevButton.style.display = (currentStep > 1) ? 'flex' : 'none';
+            nextButton.style.display = (currentStep < totalSteps) ? 'flex' : 'none';
+            completeAssessmentButton.style.display = (currentStep === totalSteps) ? 'flex' : 'none';
+        }
+
+        nextButton.addEventListener('click', () => {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                updateFormVisibility();
+            }
+        });
+
+        prevButton.addEventListener('click', () => {
+            if (currentStep > 1) {
+                currentStep--;
+                updateFormVisibility();
+            }
+        });
+
+        auditForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            generateAndShowResults();
+        });
+
+        // --- Navigation Buttons ---
+        startAuditButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            currentStep = 1; // Reset to first step
+            updateFormVisibility();
+            showSection('audit-form-section');
+        });
+
+        beginJourneyButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            currentStep = 1; // Reset to first step
+            updateFormVisibility();
+            showSection('audit-form-section');
+        });
+
+        restartAuditButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            auditForm.reset(); // Clear form fields
+            currentStep = 1; // Reset to first step
+            updateFormVisibility();
+            showSection('audit-form-section');
+        });
+
+
+        // --- Results Generation Logic ---
+        function generateAndShowResults() {
+            // Collect form data
+            const formData = {
+                websiteUrl: document.getElementById('websiteUrl').value,
+                businessType: document.getElementById('businessType').value,
+                brandDescription: document.getElementById('brandDescription').value,
+                designQuality: parseInt(document.querySelector('input[name="designQuality"]:checked')?.value || 0),
+                communicationEffectiveness: parseInt(document.querySelector('input[name="communicationEffectiveness"]:checked')?.value || 0),
+                strategyAlignment: parseInt(document.querySelector('input[name="strategyAlignment"]:checked')?.value || 0),
+                marketingBudget: document.querySelector('input[name="marketingBudget"]:checked')?.value || 'Not specified',
+                activePlatforms: Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+                                    .map(cb => cb.value)
+                                    .join(', ') || 'None specified',
+                additionalInfo: document.getElementById('additionalInfo').value
+            };
+
+            // Calculate scores (simple example, you'd have more complex logic)
+            // Each category contributes equally for now, max score 100 for each relevant category
+            const designScore = (formData.designQuality / 10) * 100;
+            const communicationScore = (formData.communicationEffectiveness / 10) * 100;
+            const strategyScore = (formData.strategyAlignment / 10) * 100;
+
+            // Simple scoring for marketing budget (can be more nuanced)
+            let marketingBudgetScore = 0;
+            if (formData.marketingBudget === '$0 - $1,000') marketingBudgetScore = 20;
+            else if (formData.marketingBudget === '$1,000 - $5,000') marketingBudgetScore = 50;
+            else if (formData.marketingBudget === '$5,000 - $10,000') marketingBudgetScore = 80;
+            else if (formData.marketingBudget === '$10,000+') marketingBudgetScore = 100;
+
+            // Simple scoring for platforms (can be more nuanced, e.g., based on number or type)
+            let platformPresenceScore = 0;
+            const numPlatforms = formData.activePlatforms.split(',').filter(p => p.trim() !== '').length;
+            if (numPlatforms > 0 && numPlatforms <= 3) platformPresenceScore = 40;
+            else if (numPlatforms > 3 && numPlatforms <= 7) platformPresenceScore = 70;
+            else if (numPlatforms > 7) platformPresenceScore = 100;
+
+            // Calculate overall average score
+            // Ensure scores are treated as numbers and handle cases where they might be 0 (e.g., if no radio selected)
+            const scores = [designScore, communicationScore, strategyScore, marketingBudgetScore, platformPresenceScore].filter(s => !isNaN(s));
+            const totalScores = scores.reduce((sum, score) => sum + score, 0);
+            const overallScore = scores.length > 0 ? Math.round(totalScores / scores.length) : 0;
+
+            // Update results section
+            document.getElementById('overall-score').textContent = `${overallScore}%`;
+            document.getElementById('overall-score-progress').style.width = `${overallScore}%`;
+
+            let scoreMessage = "Good Foundation with Growth Potential"; // Default
+            if (overallScore >= 80) {
+                scoreMessage = "Excellent Brand Strength!";
+            } else if (overallScore >= 50) {
+                scoreMessage = "Good Foundation with Growth Potential";
+            } else {
+                scoreMessage = "Significant Opportunities for Brand Development";
+            }
+            document.getElementById('score-message').textContent = scoreMessage;
+
+            // Update detailed breakdown
+            document.querySelector('#detailed-breakdown .breakdown-item div[data-category="designQuality"]').style.width = `${designScore}%`;
+            document.querySelector('#detailed-breakdown .breakdown-item .percentage[data-category="designQuality"]').textContent = `${Math.round(designScore)}%`;
+
+            document.querySelector('#detailed-breakdown .breakdown-item div[data-category="communicationEffectiveness"]').style.width = `${communicationScore}%`;
+            document.querySelector('#detailed-breakdown .breakdown-item .percentage[data-category="communicationEffectiveness"]').textContent = `${Math.round(communicationScore)}%`;
+
+            document.querySelector('#detailed-breakdown .breakdown-item div[data-category="strategyAlignment"]').style.width = `${strategyScore}%`;
+            document.querySelector('#detailed-breakdown .breakdown-item .percentage[data-category="strategyAlignment"]').textContent = `${Math.round(strategyScore)}%`;
+
+            document.querySelector('#detailed-breakdown .breakdown-item div[data-category="marketingBudgetScore"]').style.width = `${marketingBudgetScore}%`;
+            document.querySelector('#detailed-breakdown .breakdown-item .percentage[data-category="marketingBudgetScore"]').textContent = `${Math.round(marketingBudgetScore)}%`;
+
+            document.querySelector('#detailed-breakdown .breakdown-item div[data-category="platformPresenceScore"]').style.width = `${platformPresenceScore}%`;
+            document.querySelector('#detailed-breakdown .breakdown-item .percentage[data-category="platformPresenceScore"]').textContent = `${Math.round(platformPresenceScore)}%`;
+
+
+            // Update business summary
+            document.getElementById('summary-businessType').textContent = formData.businessType || 'Not specified';
+            document.getElementById('summary-brandDescription').textContent = formData.brandDescription || 'Not provided';
+            document.getElementById('summary-marketingBudget').textContent = formData.marketingBudget;
+            document.getElementById('summary-websiteUrl').textContent = formData.websiteUrl || 'Not provided';
+            document.getElementById('summary-activePlatforms').textContent = formData.activePlatforms || 'None specified';
+
+
+            showSection('results-section');
+        }
+
+        // Initialize form visibility for the first step
+        updateFormVisibility();
+    </script>
+</body>
+</html>
