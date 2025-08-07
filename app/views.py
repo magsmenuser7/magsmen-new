@@ -440,5 +440,15 @@ def the_raise_ofreferral_marketing_growth_strategy_or_grey_zone(request):
     return response
 
 
+
+def otc_purple(request):
+    pdf_filename_thirteen = 'otc-purple.pdf'
+    pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename_thirteen)
+    
+    response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
+    response['Content-Disposition'] = f'inline; filename="{pdf_filename_thirteen}"'
+    return response
+
+
 def brandauditsystem(request):
     return render(request, 'uifiles/brandauditsystem.html')
