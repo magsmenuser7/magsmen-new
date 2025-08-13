@@ -510,6 +510,74 @@ Silicon Valley, Madhapur, Hyderabad, Telangana – 500081
     <script src="{% static 'assets/js/stepform.js' %}"></script>
 
 
+<!-- <div id="popup-overlay">
+  <div id="popup-box">
+    <span id="close-popup">&times;</span>
+    <img src="{% static 'assets/img/logos/otc-2.png' %}" alt="Popup Image" style="max-width:100%;">
+  </div>
+</div>
+
+
+<script>
+  window.addEventListener('load', function() {
+    if (window.location.pathname === "/") {
+      document.getElementById('popup-overlay').style.display = 'flex';
+    }
+  });
+
+  document.getElementById('close-popup').addEventListener('click', function() {
+    document.getElementById('popup-overlay').style.display = 'none';
+  });
+</script> -->
+
+
+
+
+
+
+
+<!-- 
+     <div id="image-popup" class="image-popup-modal">
+      <div class="image-popup-content">
+        <span class="image-popup-close-btn">&times;</span>
+        <img
+          src="{% static 'assets/img/logos/otc-2.png' %}"
+          alt="otc-2"
+        />
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const popupModal = document.getElementById('image-popup');
+        const closeButton = document.querySelector('.image-popup-close-btn');
+
+        // Function to show the popup
+        function showPopup() {
+          popupModal.style.display = 'flex';
+          document.body.style.overflow = 'hidden'; // Prevents scrolling
+        }
+
+        // Delay the popup to show after 10 seconds
+        setTimeout(showPopup, 10000); // 10000 milliseconds = 10 seconds
+
+        // Close the popup when the close button is clicked
+        closeButton.addEventListener('click', function () {
+          popupModal.style.display = 'none';
+          document.body.style.overflow = ''; // Re-enables scrolling
+        });
+
+        // Close the popup when clicking outside the content
+        window.addEventListener('click', function (event) {
+          if (event.target === popupModal) {
+            popupModal.style.display = 'none';
+            document.body.style.overflow = '';
+          }
+        });
+      });
+    </script> -->
+
+
 </body>
 
 </html>
