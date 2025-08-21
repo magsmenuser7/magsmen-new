@@ -3,7 +3,7 @@ from .views import home,about,expertise,brand_consulting,personal_brand_consulti
 brand_creation,link_fluence,launchpad,blog,blogdetails,Ourmedia,Contact,Newsletter,Newslettertwo,Brand,Newsletterthree,BrandRefresh,DigitalTwin_BrandStrategy,\
 works,telugufoods,suryacolors,tdhrishika,tenali_double_horse,triplex,vsb,zavaine,career,jobdetails,applyform,Questionsform,privacy_policy,faqs,terms_conditions,cancellation_and_refund_policy,\
 Monochromatic_colors_in_branding,band_corner_the_new_age_of_buying_brand_activism,magsmen_brand_portfolio,brand_naming_unlock_the_soul_of_your_brand,the_power_of_consistency_why_brand_tone_matters,\
-a_cutting_edge_approach_in_branding_compressed,quiet_branding_silence_that_speaks_volumes,the_raise_ofreferral_marketing_growth_strategy_or_grey_zone,brandauditsystem,otc_purple
+a_cutting_edge_approach_in_branding_compressed,quiet_branding_silence_that_speaks_volumes,the_raise_ofreferral_marketing_growth_strategy_or_grey_zone,brandauditsystem,otc_purple,glocalization_where_global_meets_local
 
 from .views import *
 
@@ -72,6 +72,7 @@ urlpatterns = [
     path('brand_corner_ethical_branding/',brand_corner_ethical_branding, name='brand_corner_ethical_branding'),
     path('quiet-branding-silence-that-speaks-volumes/',quiet_branding_silence_that_speaks_volumes, name='quiet-branding-silence-that-speaks-volumes'),
     path('the-raise-ofreferral-marketing-growth-strategy-or-grey-zone/',the_raise_ofreferral_marketing_growth_strategy_or_grey_zone, name='the-raise-ofreferral-marketing-growth-strategy-or-grey-zone'),
+    path('glocalization-where-global-meets-local/', glocalization_where_global_meets_local, name='glocalization-where-global-meets-local'),
     path('brandauditsystem/', brandauditsystem, name='brandauditsystem'),
     path('one-time-consulting/', otc_purple, name='one-time-consulting'),
 ]
