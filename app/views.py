@@ -449,6 +449,14 @@ def glocalization_where_global_meets_local(request):
     response['Content-Disposition'] = f'inline; filename="{pdf_filename_thirteen}"'
     return response
 
+def festive_commerce_why_navratri_is_the_new_brand_battleground(request):
+    pdf_filename_fourteen = 'festive-commerce-why-navratri-is-the-new-brand-battleground.pdf'
+    pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename_fourteen)
+    
+    response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
+    response['Content-Disposition'] = f'inline; filename="{pdf_filename_fourteen}"'
+    return response
+
 
 
 
