@@ -75,7 +75,7 @@ urlpatterns = [
     path('the-raise-ofreferral-marketing-growth-strategy-or-grey-zone/',the_raise_ofreferral_marketing_growth_strategy_or_grey_zone, name='the-raise-ofreferral-marketing-growth-strategy-or-grey-zone'),
     path('glocalization-where-global-meets-local/', glocalization_where_global_meets_local, name='glocalization-where-global-meets-local'),
     path('festive-commerce-why-navratri-is-the-new-brand-battleground/', festive_commerce_why_navratri_is_the_new_brand_battleground, name='festive-commerce-why-navratri-is-the-new-brand-battleground'),
-    path('the-bottled-water-isn’t-just-hydrating-it’s-transforming/', the_bottled_water_is_not_just_hydrating_it_is_transforming, name='the-bottled-water-isn’t-just-hydrating-it’s-transforming'),
+    path('the-bottled-water-is-not-just-hydrating-it-is-transforming/', the_bottled_water_is_not_just_hydrating_it_is_transforming, name='the-bottled-water-is-not-just-hydrating-it-is-transforming'),
 
     path('brandauditsystem/', brandauditsystem, name='brandauditsystem'),
     path('one-time-consulting/', otc_purple, name='one-time-consulting'),
