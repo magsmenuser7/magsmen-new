@@ -27,9 +27,10 @@ STATIC_DIRS = os.path.join(BASE_DIR,'static')
 SECRET_KEY = 'django-insecure-2gz6gtchf=78xz@p4smn@gz0v5ni5-u76iwpx8sk-t_jp+(=k#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['93.127.199.26','magsmen.com','www.magsmen.com']
+# ALLOWED_HOSTS = ["*"]
 # '93.127.199.26','magsmen.in','www.magsmen.in'
 
 # Application definition
@@ -159,8 +160,8 @@ JAZZMIN_SETTING = JAZZMIN_SETTINGS
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'connectmagsmen@gmail.com'
-EMAIL_HOST_PASSWORD = 'swdazsfmewgaqmzb'
+EMAIL_HOST_USER = 'magsmenconnect@gmail.com'
+EMAIL_HOST_PASSWORD = 'lhln yivw ywva ewiy'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False

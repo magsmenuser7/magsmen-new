@@ -350,8 +350,8 @@ def submit_strategy(request):
                 send_mail(
                     subject,
                     message,
-                    'connectmagsmen@gmail.com',
-                    recipient_list=['connectmagsmen@gmail.com','kajasuresh522@gmail.com'],
+                    'magsmenconnect@gmail.com',
+                    recipient_list=['magsmenconnect@gmail.com','kajasuresh522@gmail.com','connect@magsmen.com',],
                     fail_silently=False
                 )
                 messages.success(request, 'Your strategy has been successfully submitted!')
