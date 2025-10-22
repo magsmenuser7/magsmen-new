@@ -5,17 +5,19 @@ from django.http import FileResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import redirect, render
 
 from magsmen import settings
-from .models import BlogPost, IntalksForm,Media,ContactData,CareerInfo,ApplyForm,StepformData,Subscribe
+from .models import BlogPost, IntalksForm,Media,ContactData,CareerInfo,ApplyForm,StepformData,Subscribe,StrategySubmission
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.core.mail import send_mail,EmailMessage
 from django.contrib import messages
-
 
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import ContactSerializer
+import textwrap
+
+
 
 # Create your views here.
 
@@ -286,6 +288,98 @@ def faqs(request):
 
 def handler404(requerst, exception):
     return render(requerst, 'uifiles/404.html',status=400)
+
+# def puzzle(requerst):
+#     return render(requerst, 'uifiles/puzzle.html')
+
+def submit_strategy(request):
+    if request.method == "POST":
+        try:
+            # ✅ FIX: Load data from JSON body instead of request.POST
+            try:
+                data = json.loads(request.body)
+            except json.JSONDecodeError:
+                return JsonResponse({'success': False, 'message': 'Invalid JSON format in request body.'}, status=400)
+
+            # Retrieve data from the parsed JSON dictionary
+            full_name = data.get('full_name', "")
+            email = data.get('email', "")
+            phone_number = data.get('phone_number', "")
+            location = data.get('location', "")
+            # Ensure hyphens match your HTML form names
+            q1_answer = data.get('q1_answer', "") 
+            q2_answer = data.get('q2_answer', "") 
+            q3_answer = data.get('q3_answer', "") 
+
+            # Rest of the saving and emailing logic is the same
+
+            # ✅ 1. Save to database
+            # You must ensure StrategySubmission is defined and imported correctly
+            submission = StrategySubmission(
+                full_name=full_name,
+                email=email,
+                phone_number=phone_number,
+                location=location,
+                q1_answer=q1_answer,
+                q2_answer=q2_answer,
+                q3_answer=q3_answer,
+            )
+            submission.save()
+            
+            # ✅ 2. Email content 
+            subject = f'New Strategy Submission from {full_name}'
+            raw_message = f"""
+            A new strategy submission has been received:
+
+            Name: {full_name}
+            Email: {email}
+            Phone: {phone_number}
+            Location: {location}
+
+            --- Responses ---
+            Q1: {q1_answer}
+            Q2: {q2_answer}
+            Q3: {q3_answer}
+
+            From: {email}
+            """
+            message = textwrap.dedent(raw_message).strip()
+
+            # ✅ 3. Send email
+            try:
+                send_mail(
+                    subject,
+                    message,
+                    'connectmagsmen@gmail.com',
+                    recipient_list=['connectmagsmen@gmail.com','kajasuresh522@gmail.com'],
+                    fail_silently=False
+                )
+                messages.success(request, 'Your strategy has been successfully submitted!')
+                return JsonResponse({'success': True, 'message': 'Strategy submitted successfully!'})
+            except Exception as email_error:
+                messages.error(request, f'Submission saved, but email failed: {str(email_error)}')
+                return JsonResponse({'success': False, 'message': 'Submission saved but email failed.'})
+
+        except Exception as main_error:
+            # CATCH ALL: If anything else failed
+            print(f"CRITICAL POST ERROR: {main_error}")
+            messages.error(request, f'A critical server error occurred during submission: {str(main_error)}')
+            return JsonResponse({'success': False, 'message': 'Critical server error. Submission failed.'}, status=500)
+
+    # Return for GET requests only
+    return render(request, 'uifiles/puzzle.html')
+
+
+
+
+
+
+
+
+
+
+
+
 
 def magsmen_brand_portfolio(request):
     pdf_filename = 'owl-Magsmen-Brand-Presentation.pdf'

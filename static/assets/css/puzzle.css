@@ -1,0 +1,367 @@
+/* Base Styles and Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1a1a1a; /* Very dark background */
+    color: #f5f5f5; /* Light text color */
+    line-height: 1.6;
+}
+
+.section-dark {
+    padding: 60px 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+
+p {
+    margin-bottom: 1rem;
+    font-weight: 300;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Typography and Accents */
+.accent-text {
+    color: #ffc107; /* Yellow/Gold accent color */
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ffc107;
+    border: 1px solid #ffc107;
+    padding: 4px 8px;
+    display: inline-block;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+/* Header Section Styling */
+header {
+    text-align: center;
+    padding: 80px 0;
+}
+
+.brand-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.brand-subtitle {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #b0b0b0;
+}
+
+/* Founder Section */
+.founder-section {
+    background-color: #0d0d0d; /* Slightly darker than body */
+    padding: 80px 0 !important;
+}
+
+.founder-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px !important;
+}
+
+.founder-image-container img{
+    width: 350px;
+    height: auto;
+}
+
+#phone_number{
+    width: 100px !important;
+    height:fit-content !important;
+    max-width:200px !important
+}
+
+
+
+@media (min-width: 768px) {
+    .founder-grid {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}
+
+.founder-image-container {
+    width: 100%;
+    max-width: 350px;
+    /* padding: 20px; */
+    /* background-color: #2b2b2b; */
+    border-radius: 8px;
+    text-align: center;
+}
+
+.founder-initials {
+    width: 200px;
+    height: 200px;
+    background-color: #554a2a;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffc107;
+}
+
+.founder-text-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.founder-text-content h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.2;
+    margin-top: 0;
+}
+
+.quote-box {
+    border-left: 4px solid #ffc107;
+    padding-left: 20px;
+    margin-top: 20px;
+    font-style: italic;
+    color: #b0b0b0;
+}
+
+/* Strategic Challenge Section */
+.strategic-challenge {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.strategic-challenge h2 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+.challenge-subtitle {
+    color: #b0b0b0;
+    margin-bottom: 40px;
+}
+
+.scenario-box {
+    background-color: #242424;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.scenario-box h3 {
+    color: #ffc107;
+    margin-top: 0;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.icon-circle {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    border-radius: 50%;
+    background-color: #ffc107;
+    color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.info-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #ffc107;
+}
+
+.info-item p {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.rupee-symbol {
+    font-weight: 600;
+}
+
+/* Form Section Styling */
+.form-section {
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+
+#strategy-form {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form-intro {
+    color: #b0b0b0;
+    margin-bottom: 40px;
+}
+
+.form-card {
+    background-color: #242424;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.card-title {
+    color: #f5f5f5;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.card-subtitle {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.icon-pin {
+    color: #ffc107;
+    margin-right: 5px;
+}
+
+.input-group-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+    flex-direction: column;
+}
+
+@media (min-width: 600px) {
+    .input-group-row {
+        flex-direction: row;
+    }
+}
+
+.input-group {
+    flex: 1;
+}
+
+label {
+    display: block;
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    color: #f5f5f5;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #ffc107;
+}
+
+textarea {
+    min-height: 80px;
+    /* Pencil icon simulation - not perfect but closest with pure CSS/Font */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23ffc107" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px bottom 10px;
+    background-size: 18px;
+    padding-right: 40px; /* Space for the "icon" */
+}
+
+/* Submit Button */
+.submit-button {
+    background-color: #ffc107;
+    color: #1a1a1a;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: #ffd740;
+}
+
+#phone_number{
+    width: 100%;
+    max-width: 200px !important;
+}
+
+/* Mobile Adjustments (Ensuring good spacing/readability on small screens) */
+@media (max-width: 480px) {
+    .section-dark {
+        padding: 40px 0;
+    }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    h3 { font-size: 1.2rem; }
+
+    .founder-initials {
+        width: 150px;
+        height: 150px;
+        font-size: 2.5rem;
+    }
+
+    .scenario-box, .form-card {
+        padding: 20px;
+    }
+}

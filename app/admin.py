@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BlogPost,Category,Media,ContactData,CareerInfo,ApplyForm,StepformData,Subscribe,IntalksForm
+from .models import BlogPost,Category,Media,ContactData,CareerInfo,ApplyForm,StepformData,Subscribe,IntalksForm,StrategySubmission
 
 # Register your models here.
 
@@ -39,6 +39,23 @@ class AdminIntalksForm(admin.ModelAdmin):
     list_display = ['id','Name','Email','Contact','City','Reason_to_connect']
 
 
+class StrategySubmissionAdmin(admin.ModelAdmin):
+    list_display = (
+        'full_name',
+        'email',
+        'phone_number',
+        'location',
+        'q1_answer',
+        'q2_answer',
+        'q3_answer',
+        'submitted_at',
+    )
+    search_fields = ('full_name', 'email', 'phone_number', 'location', 'q1_answer', 'q2_answer', 'q3_answer')
+    list_filter = ('submitted_at', 'location')
+    readonly_fields = ('submitted_at',)
+    ordering = ('-submitted_at',)
+
+
 
 admin.site.register(Category,AdminHappyCategories)
 admin.site.register(BlogPost,AdminHappyBlogpost)
@@ -49,3 +66,4 @@ admin.site.register(ApplyForm,AdminApplyForm)
 admin.site.register(StepformData,AdminStepformData)
 admin.site.register(Subscribe,AdminSubscribe)
 admin.site.register(IntalksForm,AdminIntalksForm)
+admin.site.register(StrategySubmission,StrategySubmissionAdmin)

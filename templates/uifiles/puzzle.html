@@ -1,0 +1,157 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Strategy Challenge</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/css/puzzle.css' %}">
+</head>
+<body>
+
+    <header class="section-dark">
+        <div class="container header-content">
+            <h1 class="brand-title">We Build Brands <span class="accent-text">That Move Markets</span> And Minds</h1>
+            <p class="brand-subtitle">We partner with founders, leaders, and enterprises to architect brand strategies rooted in <span class="bold">clarity, differentiation, and growth</span>.</p>
+        </div>
+    </header>
+
+    <section class="section-dark founder-section">
+        <div class="container founder-grid">
+            <div class="founder-image-container">
+                <img src="{% static 'assets/img/about/sandeep-img-oo.png' %}" alt="sandeep-img-oo" >
+                <!-- <div class="founder-initials">SN</div>
+                <p>Founder Image</p> -->
+            </div>
+            <div class="founder-text-content">
+                <p class="tag">FOUNDER</p>
+                <h2>Engineering Brands,<br>Not Just Building Them</h2>
+                <p class="founder-bio">Founded by <span class="bold">Sandeep N. Magsmen</span> has advised startups, legacy organizations, and Fortune 25 clients across India and beyond.</p>
+                <p class="founder-bio">The firm's work extends beyond visual identity into the realm of business transformation helping companies become more consistent, credible, and culturally resonant.</p>
+                <div class="quote-box">
+                    <p>"We believe that great brands are not built; they are <span class="bold">engineered</span> through insight, intent, and iteration."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark strategic-challenge">
+        <div class="container">
+            <p class="tag">STRATEGIC CHALLENGE</p>
+            <h2>The Puzzle</h2>
+            <p class="challenge-subtitle">A brand strategy case study for strategic thinkers</p>
+
+            <div class="scenario-box">
+                <h3>The Scenario</h3>
+                <p>A new D2C skincare brand has just launched. Here's what you know.</p>
+
+                <div class="info-item">
+                    <span class="icon-circle">@</span>
+                    <div>
+                        <p class="info-title">Origin & Inspiration</p>
+                        <p>Made in India but inspired by K-beauty principles</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="icon-circle">✨</span>
+                    <div>
+                        <p class="info-title">Brand Identity</p>
+                        <p><span class="bold">Tagline:</span> "Science that Smiles"</p>
+                        <p><span class="bold">Instagram bio:</span> "For skin that breathes confidence."</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="icon-circle">💰</span>
+                    <div>
+                        <p class="info-title">Flagship Products</p>
+                        <ul>
+                            <li>GlowDrop Serum (<span class="rupee-symbol">₹</span>999)</li>
+                            <li>CalmCloud Mist (<span class="rupee-symbol">₹</span>699)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="icon-circle">#</span>
+                    <div>
+                        <p class="info-title">First Campaign</p>
+                        <p><span class="bold">#FilterOutFake</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+<section class="section-dark form-section">
+    <div class="container">
+        <form id="strategy-form">
+            {% csrf_token %}
+            <p class="tag">YOUR MISSION</p>
+            <h2>Decode The Strategy</h2>
+            <p class="form-intro">Answer these three questions to demonstrate your brand strategy thinking</p>
+
+            <div class="form-card">
+                <h3 class="card-title"><span class="icon-pin">📍</span> Your Information</h3>
+                <div class="input-group-row">
+                    <div class="input-group">
+                        <label for="full_name">Name *</label>
+                        <input type="text" id="full_name" name="full_name" placeholder="Your full name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                </div>
+
+                <div class="input-group-row">
+                    <div class="input-group">
+                        <label for="phone_number">Phone Number *</label>
+                        <input type="text" id="phone_number" name="phone_number" placeholder="+91 98765 43210" required pattern="[0-9+\-\s()]{7,15}">
+                    </div>
+                    <div class="input-group">
+                        <label for="location">Location *</label>
+                        <input type="text" id="location" name="location" placeholder="City, Country" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <h3 class="card-title">Question 1: Who is their core consumer person?</h3>
+                <p class="card-subtitle">Demographics, psychographics, motivations</p>
+                <label for="q1_answer">Share your insights on the target consumer...</label>
+                <textarea id="q1_answer" name="q1_answer" rows="5"></textarea>
+            </div>
+
+            <div class="form-card">
+                <h3 class="card-title">Question 2: What is their unique positioning statement?</h3>
+                <p class="card-subtitle">In one crisp line  "For X who want Y, brand Z offers..."</p>
+                <label for="q2_answer">Craft a positioning statement...</label>
+                <textarea id="q2_answer" name="q2_answer" rows="3"></textarea>
+            </div>
+
+            <div class="form-card">
+                <h3 class="card-title">Question 3: Your 3 month playbook</h3>
+                <p class="card-subtitle">Focus on visibility, engagement, and retention</p>
+                <label for="q3_answer">Outline your strategic approach...</label>
+                <textarea id="q3_answer" name="q3_answer" rows="7"></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">Submit Your Strategy</button>
+        </form>
+    </div>
+</section>
+
+
+
+
+
+
+<script src="{% static 'assets/js/puzzle.js' %}"></script>
+
+
+</body>
+</html>
