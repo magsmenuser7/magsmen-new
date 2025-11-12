@@ -370,7 +370,8 @@ def submit_strategy(request):
     return render(request, 'uifiles/puzzle.html')
 
 
-
+def tdhproteindashboard(request):
+    return render(request, 'uifiles/tdhproteindashboard.html')
 
 
 
