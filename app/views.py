@@ -383,7 +383,7 @@ def tdhproteindashboard(request):
 
 
 def magsmen_brand_portfolio(request):
-    pdf_filename = 'owl-Magsmen-Brand-Presentation.pdf'
+    pdf_filename = 'magsmen-brand-consultants-presentation.pdf'
     pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename)
     
     response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
