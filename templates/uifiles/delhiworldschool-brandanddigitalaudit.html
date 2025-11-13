@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand & Digital Audit: Delhi World School, Chintal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chosen Palette: "Academic & Professional" (BG: bg-gray-50, Text: text-gray-800, Primary: bg-blue-800/bg-blue-600, Accent: bg-yellow-400) -->
+    <!-- Application Structure Plan: A tabbed dashboard interface. Sections: 1. Dashboard (Summary), 2. Brand Identity, 3. Market Position, 4. Digital Audit, 5. Strategic Plan. Interactions: JS-driven tab navigation, interactive Chart.js donuts/bars, and JS-based toggles for persona comparison. WHY: An audit is multi-faceted. A tabbed structure allows stakeholders (school leadership) to immediately access the section most relevant to them (e.g., "Strategy" or "Market") without linear scrolling. It presents a complex analysis as an organized, explorable tool, prioritizing user control and ease of navigation. -->
+    <!-- Visualization & Content Choices: [BHI/Web Scores -> Goal: Inform -> Viz: Donut Charts -> Interaction: Hover -> Justification: Quick snapshot of health -> Library: Chart.js (Canvas)], [Competitive Data -> Goal: Compare -> Viz: Grouped Bar Chart -> Interaction: Hover -> Justification: Clearly shows DWS vs. market -> Library: Chart.js (Canvas)], [Consumer Personas -> Goal: Organize -> Viz: HTML Cards -> Interaction: JS Toggle Buttons -> Justification: Clean side-by-side comparison -> Library: Vanilla JS], [Recommendations -> Goal: Organize/Inform -> Viz: HTML/Tailwind Grid of Cards -> Interaction: Static -> Justification: Clear, actionable final output -> Library: HTML/Tailwind] -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn {
+            border-bottom-width: 3px;
+            border-bottom-color: transparent;
+        }
+        .tab-btn.active {
+            border-bottom-color: #1D4ED8;
+            color: #1E3A8A;
+            font-weight: 600;
+        }
+        .persona-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        .persona-content.active {
+            display: block;
+        }
+        .persona-btn.active {
+            background-color: #1E3A8A;
+            color: white;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+        
+        <header class="mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-blue-800 mb-2">Brand & Digital Audit</h1>
+            <p class="text-lg text-gray-600">Delhi World School, Chintal</p>
+        </header>
+
+        
+        <div class="mb-6 border-b border-gray-300">
+            <nav class="flex flex-wrap -mb-px" aria-label="Tabs">
+                <button class="tab-btn active text-gray-500 hover:text-gray-700 py-4 px-3 md:px-6 text-sm md:text-base font-medium transition-colors" data-tab="dashboard">
+                    Dashboard
+                </button>
+                <button class="tab-btn text-gray-500 hover:text-gray-700 py-4 px-3 md:px-6 text-sm md:text-base font-medium transition-colors" data-tab="brand">
+                    Brand Identity
+                </button>
+                <button class="tab-btn text-gray-500 hover:text-gray-700 py-4 px-3 md:px-6 text-sm md:text-base font-medium transition-colors" data-tab="market">
+                    Market Position
+                </button>
+                <button class="tab-btn text-gray-500 hover:text-gray-700 py-4 px-3 md:px-6 text-sm md:text-base font-medium transition-colors" data-tab="digital">
+                    Digital Audit
+                </button>
+                <button class="tab-btn text-gray-500 hover:text-gray-700 py-4 px-3 md:px-6 text-sm md:text-base font-medium transition-colors" data-tab="strategy">
+                    Strategic Plan
+                </button>
+            </nav>
+        </div>
+
+        
+        <main>
+            
+            <div id="dashboard-content" class="tab-content active">
+                <p class="text-gray-700 mb-6">This executive dashboard provides a multi-dimensional summary of the audit. It visualizes the core components of brand health, digital performance, and the competitive landscape to provide a complete diagnostic overview. Strategic imperatives are presented as a direct outcome of this analysis.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4 text-center">Brand Health Indicators</h3>
+                        <p class="text-center text-gray-600 text-sm mb-4">Multi-factor assessment of brand position (Score / 10).</p>
+                        <div class="chart-container" style="height: 320px; max-height: 350px;">
+                            <canvas id="brandHealthRadar"></canvas>
+                        </div>
+                    </div>
+
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4 text-center">Digital Performance Audit</h3>
+                        <p class="text-center text-gray-600 text-sm mb-4">Multi-factor assessment of web presence (Score / 10).</p>
+                        <div class="chart-container" style="height: 320px; max-height: 350px;">
+                            <canvas id="webAuditRadar"></canvas>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4 text-center">Competitive Snapshot</h3>
+                        <p class="text-center text-gray-600 text-sm mb-4">Perception scores vs. key regional competitor.</p>
+                        <div class="chart-container" style="height: 320px; max-height: 350px;">
+                            <canvas id="competitiveSnapshotChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4">Key Strategic Imperatives</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="text-blue-600 font-bold mr-2 mt-1">&#10003;</span>
+                                <span><strong>Localize the Story:</strong> Develop a unique "Why Chintal" narrative beyond the main franchise brand.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-600 font-bold mr-2 mt-1">&#10003;</span>
+                                <span><strong>Demonstrate, Don't Claim:</strong> Use video and student work to showcase facilities in action.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-600 font-bold mr-2 mt-1">&#10003;</span>
+                                <span><strong>Build Emotional Connection:</strong> Invest in authentic photography/videography to replace stock-like images.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-600 font-bold mr-2 mt-1">&#10003;</span>
+                                <span><strong>Optimize Digital Infrastructure:</strong> Implement a dedicated parent portal and activate local social media.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div id="brand-content" class="tab-content">
+                <p class="text-gray-700 mb-6">This section analyzes the core components of the DWS Chintal brand, from its underlying personality to the emotional profiles of its target audience. Understanding this is key to building a compelling and differentiated brand story.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4">Brand Archetypes</h3>
+                        <p class="text-gray-700 mb-2"><strong>Primary: The Sage</strong> (Knowledge, Wisdom, Expertise). This is projected through the "Delhi World" brand, CBSE affiliation, and academic focus.</p>
+                        <p class="text-gray-700"><strong>Secondary: The Caregiver</strong> (Nurturing, Safety, Support). This is the expected archetype for any school but needs to be more actively communicated to build trust.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4">Story Analysis: The Gap</h3>
+                        <p class="text-gray-700 mb-2"><strong>Current Story:</strong> The website tells the story of the Delhi World Foundation (the franchise). It's a national, corporate story of quality and standards.</p>
+                        <p class="text-gray-700"><strong>Missing Story:</strong> The local story is absent. Why DWS in Chintal? Who are the local teachers? What are the specific achievements of this campus? This is the primary storytelling gap.</p>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-semibold text-blue-800 mt-8 mb-4 text-center">Emotional Consumer Personas</h2>
+                <p class="text-gray-700 mb-6 text-center max-w-2xl mx-auto">To build perception, we must understand the two primary parent personas in the Chintal region. Use the buttons to toggle between them.</p>
+
+                <div class="flex justify-center gap-4 mb-6">
+                    <button class="persona-btn active py-2 px-6 rounded-full font-medium transition-all bg-gray-200 text-gray-700 hover:bg-gray-300" data-persona="priya">Persona 1: The Anxious Achiever</button>
+                    <button class="persona-btn py-2 px-6 rounded-full font-medium transition-all bg-gray-200 text-gray-700 hover:bg-gray-300" data-persona="rohan">Persona 2: The Holistic Believer</button>
+                </div>
+
+                <div class="max-w-3xl mx-auto">
+                    <div id="persona-priya" class="persona-content active bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-600">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-3">"Priya", 35, IT Professional</h3>
+                        <p class="text-gray-600 font-medium mb-4">"Is this school good enough to get my child into a top university?"</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><strong>Motivation:</strong> Academic rigor, exam results, and competitive advantage.</li>
+                            <li><strong>Research:</strong> Researches heavily online. Compares exam toppers, faculty qualifications, and tech facilities (robotics, labs).</li>
+                            <li><strong>Needs to See:</strong> Hard proof of academic excellence, modern infrastructure, and clear communication channels.</li>
+                            <li><strong>Current Gap:</strong> The site claims these things but doesn't prove them with specific data or visual evidence.</li>
+                        </ul>
+                    </div>
+                    
+                    <div id="persona-rohan" class="persona-content bg-white p-6 rounded-lg shadow-md border-l-4 border-yellow-500">
+                        <h3 class="text-xl font-semibold text-yellow-700 mb-3">"Rohan", 40, Small Business Owner</h3>
+                        <p class="text-gray-600 font-medium mb-4">"Will my child be happy, safe, and grow as a good person here?"</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><strong>Motivation:</strong> Holistic development, character building, safety, and a nurturing environment.</li>
+                            <li><strong>Research:</strong> Looks for photos of school life, sports, arts, and reads parent reviews. Wants a "community feel".</li>
+                            <li><strong>Needs to See:</strong> Authentic photos of happy students, accessible faculty, and a focus on values and extra-curriculars.</li>
+                            <li><strong>Current Gap:</strong> The site feels corporate and lacks the warmth and authenticity Rohan is looking for.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div id="market-content" class="tab-content">
+                <p class="text-gray-700 mb-6">This section benchmarks DWS Chintal against its key competitors in the highly crowded regional market. It identifies the primary needs of the market and the "gap" where DWS can create a unique position.</p>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4">Regional Market Insight</h3>
+                        <p class="text-gray-700">The Chintal / Kompally / Suchitra region is a hyper-competitive education market. Parents are brand-conscious and have many choices, from established national chains to affordable local schools.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4">Identified Market Need</h3>
+                        <p class="text-gray-700">Parents are seeking a "balanced" school: one that has the brand and academic rigor of a national chain but also offers the safety, individual attention, and values of a community school.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4">Identified Market Gap</h3>
+                        <p class="text-gray-700">The gap lies in tangible proof. Many schools claim "holistic education," but few demonstrate it effectively online. The winner will be the school that best proves its claims visually and with data.</p>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-semibold text-blue-800 mt-8 mb-4 text-center">Competitive Benchmarking (Perception Score / 10)</h2>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="text-center text-gray-600 text-sm mb-4">How DWS Chintal's online perception stacks up against key competitor types.</p>
+                    <div class="chart-container" style="max-width: 800px; height: 400px;">
+                        <canvas id="benchmarkChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div id="digital-content" class="tab-content">
+                <p class="text-gray-700 mb-6">This section details the audit of the school's digital assets, starting with the website and visual identity. It assesses technical performance, usability, and visual consistency, which are foundational to building a strong digital presence.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4">Web & Technical Audit</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-gray-700">
+                                <thead class="bg-gray-100">
+                                    <tr>
+                                        <th class="p-3 font-medium">Metric</th>
+                                        <th class="p-3 font-medium">Finding</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b">
+                                        <td class="p-3">Platform</td>
+                                        <td class="p-3">WordPress (Standard Template)</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-3">Mobile Friendliness</td>
+                                        <td class="p-3">Good (Responsive), but some tables overflow.</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-3">Performance (Lighthouse)</td>
+                                        <td class="p-3">Average. Images are large and unoptimized.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3">On-Page SEO</td>
+                                        <td class="p-3">Basic. Lacks local keywords and content marketing (e.g., blog, news).</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4">Visual Identity & Consistency</h3>
+                        <p class="text-gray-700 mb-4">The site adheres strictly to the DWS corporate brand guidelines (blue, yellow, white). This is good for brand recognition but bad for local differentiation.</p>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-gray-700">
+                                <thead class="bg-gray-100">
+                                    <tr>
+                                        <th class="p-3 font-medium">Metric</th>
+                                        <th class="p-3 font-medium">Score / Finding</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b">
+                                        <td class="p-3">Visual Consistency</td>
+                                        <td class="p-3">High (Follows template)</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-3">Local Differentiation</td>
+                                        <td class="p-3">Very Low (Looks like any other DWS)</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-3">Emotional Connection</td>
+                                        <td class="p-3">Low (Relies on generic/stock photos)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md md:col-span-2">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4">Digital Infrastructure & Social</h3>
+                        <p class="text-gray-700 mb-2"><strong>Current:</strong> The digital infrastructure is basic: a public-facing website. Social media presence (Facebook) appears to be franchise-level or inactive locally.</p>
+                        <p class="text-gray-700"><strong>Recommendation:</strong> A robust digital infrastructure is required. This includes a secure <strong>Parent Portal</strong> (for communication, results, fees) and an active, <strong>localized social media strategy</strong> (Facebook, Instagram) to engage the parent community in the Chintal region.</p>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div id="strategy-content" class="tab-content">
+                <p class="text-gray-700 mb-6">Based on the complete audit, this section outlines a clear, four-part strategic plan. The goal is to move from a generic franchise presence to a distinct, trusted local brand that resonates with both "Achiever" and "Holistic" parent personas.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-600">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-3">1. Localize the Story</h3>
+                        <p class="text-gray-700">Stop relying on the national brand. Develop a unique "Why Chintal?" narrative. Introduce the Principal and key faculty. Showcase the specific campus environment. Make the website feel like it belongs to the local community.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-yellow-500">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-3">2. Demonstrate, Don't Claim</h3>
+                        <p class="text-gray-700">Move beyond text claims like "Best Labs." Create a "See it in Action" section. Show a 1-minute video from the robotics lab. Post a gallery of the art-class projects. Show the sports teams practicing. This builds trust and tangible proof.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-600">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-3">3. Build Emotional Connection</h3>
+                        <p class="text-gray-700">Invest in a professional photo and video shoot focused on authentic interactions not staged, stock-like photos. Capture genuine moments in the classroom, playground, and labs. This directly targets the "Holistic Believer" persona.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-yellow-500">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-3">4. Optimize Digital Infrastructure</h3>
+                        <p class="text-gray-700">Implement a modern Parent Portal (LMS/ERP) for existing parents. This improves retention and word-of-mouth. Launch active, localized social media (Facebook/Instagram) targeting parents in the Chintal-Kompally belt with success stories and event news.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.dataset.tab;
+
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === `${targetTab}-content`) {
+                            content.classList.add('active');
+                        }
+                    });
+                });
+            });
+
+            
+            const personaButtons = document.querySelectorAll('.persona-btn');
+            const personaContents = document.querySelectorAll('.persona-content');
+
+            personaButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetPersona = button.dataset.persona;
+
+                    personaButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    personaContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === `persona-${targetPersona}`) {
+                            content.classList.add('active');
+                        }
+                    });
+                });
+            });
+
+
+            
+            const commonChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                family: 'Inter',
+                            }
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        bodyFont: {
+                            family: 'Inter',
+                        },
+                        titleFont: {
+                            family: 'Inter',
+                        }
+                    }
+                }
+            };
+
+            
+            const radarChartOptions = {
+                ...commonChartOptions,
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        },
+                        pointLabels: {
+                            font: {
+                                family: 'Inter',
+                                size: 13
+                            },
+                            color: '#1f2937'
+                        },
+                        ticks: {
+                            backdropColor: 'transparent',
+                            beginAtZero: true,
+                            max: 10,
+                            stepSize: 2,
+                            font: {
+                                size: 10
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    ...commonChartOptions.plugins,
+                    legend: {
+                        position: 'top',
+                    }
+                }
+            };
+
+            
+            if (document.getElementById('brandHealthRadar')) {
+                const brandHealthCtx = document.getElementById('brandHealthRadar').getContext('2d');
+                new Chart(brandHealthCtx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Awareness', 'Perception', 'Consistency', 'Differentiation', 'Loyalty (Online)'],
+                        datasets: [{
+                            label: 'Brand Health',
+                            data: [7, 6, 8, 4, 5],
+                            backgroundColor: 'rgba(29, 78, 216, 0.2)',
+                            borderColor: 'rgba(29, 78, 216, 1)',
+                            pointBackgroundColor: 'rgba(29, 78, 216, 1)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgba(29, 78, 216, 1)',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: radarChartOptions
+                });
+            }
+
+            
+            if (document.getElementById('webAuditRadar')) {
+                const webAuditCtx = document.getElementById('webAuditRadar').getContext('2d');
+                new Chart(webAuditCtx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Performance', 'On-Page SEO', 'UX/UI', 'Content Quality', 'CTA Effectiveness'],
+                        datasets: [{
+                            label: 'Website Audit',
+                            data: [6, 5, 6, 4, 5],
+                            backgroundColor: 'rgba(202, 138, 4, 0.2)',
+                            borderColor: 'rgba(202, 138, 4, 1)',
+                            pointBackgroundColor: 'rgba(202, 138, 4, 1)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgba(202, 138, 4, 1)',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: radarChartOptions
+                });
+            }
+
+            
+            if (document.getElementById('competitiveSnapshotChart')) {
+                const competitiveCtx = document.getElementById('competitiveSnapshotChart').getContext('2d');
+                new Chart(competitiveCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Academic Perception', 'Infra Perception', 'Digital Presence'],
+                        datasets: [
+                            {
+                                label: 'DWS Chintal',
+                                data: [8, 8, 6],
+                                backgroundColor: 'rgba(29, 78, 216, 0.8)',
+                                borderColor: '#1D4ED8',
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'Competitor A',
+                                data: [9, 9, 8],
+                                backgroundColor: 'rgba(107, 114, 128, 0.8)',
+                                borderColor: '#6B7280',
+                                borderWidth: 1
+                            }
+                        ]
+                    },
+                    options: {
+                        ...commonChartOptions,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 10,
+                                ticks: { font: { family: 'Inter' } }
+                            },
+                            x: {
+                                ticks: { font: { family: 'Inter' } }
+                            }
+                        }
+                    }
+                });
+            }
+
+            
+            if (document.getElementById('benchmarkChart')) {
+                const benchmarkCtx = document.getElementById('benchmarkChart').getContext('2d');
+                new Chart(benchmarkCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Academics (Perception)', 'Infrastructure (Perception)', 'Brand Equity', 'Affordability'],
+                        datasets: [
+                            {
+                                label: 'DWS Chintal',
+                                data: [8, 8, 7, 6],
+                                backgroundColor: 'rgba(29, 78, 216, 0.8)', 
+                                borderColor: '#1D4ED8',
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'Competitor A (Premium Brand)',
+                                data: [9, 9, 9, 5],
+                                backgroundColor: 'rgba(107, 114, 128, 0.8)',
+                                borderColor: '#6B7280',
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'Competitor B (Local Leader)',
+                                data: [7, 6, 5, 8],
+                                backgroundColor: 'rgba(202, 138, 4, 0.8)',
+                                borderColor: '#CA8A04',
+                                borderWidth: 1
+                            }
+                        ]
+                    },
+                    options: {
+                        ...commonChartOptions,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 10,
+                                ticks: {
+                                    font: {
+                                        family: 'Inter'
+                                    }
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    font: {
+                                        family: 'Inter'
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            ...commonChartOptions.plugins,
+                            title: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

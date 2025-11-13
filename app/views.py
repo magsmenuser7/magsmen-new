@@ -384,6 +384,9 @@ def brandaudit(request):
 def brandaudit_sreenidhiglobalschoolaudit(request):
     return render(request, 'uifiles/brandaudit-sreenidhiglobalschool.html')
 
+def delhiworldschool_brandanddigitalaudit(request):
+    return render(request, 'uifiles/delhiworldschool-brandanddigitalaudit.html')
+
 
 
 
