@@ -1,0 +1,377 @@
+
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Health Infographic: DWS Chintal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#004AAD',
+                        'brand-mid': '#0077B6',
+                        'brand-light': '#00B4D8',
+                        'brand-lighter': '#90E0EF',
+                        'brand-lightest': '#CAF0F8',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 250px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+        .gauge-container {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            height: 180px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .gauge-text {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3.5rem;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 font-sans">
+
+    <header class="bg-brand-dark text-white p-8 text-center rounded-b-lg shadow-xl">
+        <h1 class="text-4xl md:text-5xl font-extrabold">Brand Health Infographic</h1>
+        <p class="text-xl md:text-2xl text-brand-lighter font-light">Delhi World School, Chintal</p>
+    </header>
+
+    <main class="container mx-auto max-w-5xl p-4 md:p-8 space-y-12">
+
+        <section class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+            <h2 class="text-3xl font-bold text-brand-dark mb-2 text-center">1. The Diagnosis: Brand Health Index</h2>
+            <p class="text-center text-slate-600 mb-8 max-w-3xl mx-auto">
+                This illustrative score synthesizes all audit phases. A score below 6.0 indicates significant strategic risks and a disconnect between the brand's price point and its perceived value.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <div class="gauge-container">
+                        <canvas id="bhiChart"></canvas>
+                        <div id="bhiScoreText" class="gauge-text text-red-600">5.8</div>
+                    </div>
+                    <p class="text-center text-slate-800 font-semibold text-2xl -mt-4">Overall BHI (Illustrative)</p>
+                </div>
+                <div>
+                    <div class="chart-container" style="height: 250px;">
+                        <canvas id="bhiSubScoresChart"></canvas>
+                    </div>
+                    <p class="text-center text-slate-800 font-semibold text-lg mt-2">BHI Sub-Scores (out of 10)</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+            <h2 class="text-3xl font-bold text-brand-dark mb-2 text-center">2. The Core Gap: Promise vs. Experience</h2>
+            <p class="text-center text-slate-600 mb-8 max-w-3xl mx-auto">
+                The low BHI score is driven by a central strategic disconnect. The brand leverages its strong national name but fails at the local level, creating a gap between its premium promise and the actual parent experience.
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-around space-y-4 md:space-y-0">
+                <div class="text-center p-6 bg-brand-lightest border-l-8 border-brand-mid rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold text-brand-mid">NATIONAL BRAND PROMISE</h3>
+                    <p class="text-slate-700 text-lg">Premium, Holistic, Nurturing</p>
+                </div>
+                <div class="text-6xl font-bold text-red-500 transform md:rotate-0 rotate-90 animate-pulse">➔</div>
+                <div class="text-center p-6 bg-red-50 border-l-8 border-red-500 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold text-red-600">LOCAL BRAND EXPERIENCE</h3>
+                    <p class="text-slate-700 text-lg">Inconsistent, Poor Digital, Unclear Value</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+            <h2 class="text-3xl font-bold text-brand-dark mb-2 text-center">3. The Persona: "The Aspirational & Anxious Parent"</h2>
+            <p class="text-center text-slate-600 mb-8 max-w-3xl mx-auto">
+                This gap directly impacts the target parent, who is caught between two conflicting emotions. They buy on aspiration but judge on their daily experience.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="border-l-8 border-green-500 bg-green-50 p-6 rounded-r-lg shadow">
+                    <h3 class="text-2xl font-bold text-green-700 mb-3">ASPIRATION (The Buy-In)</h3>
+                    <ul class="list-disc list-outside ml-5 text-slate-700 space-y-2 text-base">
+                        <li>"I want my child to have the 'brand name' advantage."</li>
+                        <li>"They must be confident and future-ready."</li>
+                        <li>Driven by: CBSE affiliation, modern campus, safety.</li>
+                    </ul>
+                </div>
+                <div class="border-l-8 border-red-500 bg-red-50 p-6 rounded-r-lg shadow">
+                    <h3 class="text-2xl font-bold text-red-700 mb-3">FEAR (The Risk)</h3>
+                    <ul class="list-disc list-outside ml-5 text-slate-700 space-y-2 text-base">
+                        <li>"My child must not fall behind."</li>
+                        <li>"I fear making the wrong choice in a competitive area."</li>
+                        <li>"I fear a lack of transparency from the school."</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+            <h2 class="text-3xl font-bold text-brand-dark mb-2 text-center">4. Key Issues: The Evidence</h2>
+            <p class="text-center text-slate-600 mb-8 max-w-3xl mx-auto">
+                Two key failures in the "Local Experience" provide clear evidence of the gap. These issues erode trust and make the brand feel less professional than its price point suggests.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div>
+                    <h3 class="text-2xl font-semibold text-brand-dark text-center mb-4">Visual Consistency Index (VCI)</h3>
+                    <div class="chart-container" style="height: 120px; max-width: 400px;">
+                        <canvas id="vciChart"></canvas>
+                    </div>
+                    <p class="text-center text-red-600 font-bold text-6xl my-4">55<span class="text-4xl font-semibold">/100</span></p>
+                    <p class="text-slate-600 text-center max-w-xs mx-auto">This low score is due to clashing fonts, colors, and logos across the website, social media, and ads, signaling a lack of internal governance.</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-brand-dark text-center mb-4">Digital Infrastructure Gap</h3>
+                    <div class="space-y-6">
+                        <div class="p-6 bg-red-50 border-2 border-red-200 rounded-lg shadow-inner">
+                            <h4 class="text-xl font-bold text-red-700">CURRENT STACK (The Problem)</h4>
+                            <p class="text-lg text-slate-700 font-semibold">Basic Website (CMS)</p>
+                            <p class="text-slate-600 text-sm mt-2">Only broadcasts info. Fails to manage leads or enable parent communication, causing frustration.</p>
+                        </div>
+                        <div class="text-center text-4xl font-bold text-brand-mid">▼</div>
+                        <div class="p-6 bg-green-50 border-2 border-green-200 rounded-lg shadow-inner">
+                            <h4 class="text-xl font-bold text-green-700">STANDARD (The Solution)</h4>
+                            <p class="text-lg text-slate-700 font-semibold">Marketing CRM + Parent App</p>
+                            <p class="text-slate-600 text-sm mt-2">Solves the #1 parent pain point (communication) and proves the brand's professionalism.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-brand-dark text-white rounded-xl shadow-lg p-6 md:p-8">
+            <h2 class="text-3xl font-bold text-white mb-2 text-center">5. The Strategic Blueprint: The Cure</h2>
+            <p class="text-center text-brand-lighter mb-8 max-w-3xl mx-auto">
+                A 3-pillar strategy to close the gap and shift perception from "just another franchise" to "the best-executed DWS in Hyderabad."
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white text-slate-800 p-6 rounded-lg shadow-lg transform transition hover:scale-105 hover:shadow-2xl">
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Pillar 1: The DWS Standard, Delivered Locally</h3>
+                    <p class="text-base"><strong>Action:</strong> Invest in and heavily market a unified Parent App. This proves the commitment to transparency and fixes the #1 parent pain point.</p>
+                </div>
+                <div class="bg-white text-slate-800 p-6 rounded-lg shadow-lg transform transition hover:scale-105 hover:shadow-2xl">
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Pillar 2: From Teachers to Mentors</h3>
+                    <p class="text-base"><strong>Action:</strong> Refocus all content. Shift from "event photos" to "thought leadership." Showcase faculty as "Sages" and student success stories as the "Hero's Journey."</p>
+                </div>
+                <div class="bg-white text-slate-800 p-6 rounded-lg shadow-lg transform transition hover:scale-105 hover:shadow-2xl">
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Pillar 3: Build the Local Tribe</h3>
+                    <p class="text-base"><strong>Action:</strong> Launch a hyper-local SEO & Content Strategy that answers the specific, anxious questions of the Chintal parent persona.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+            <h2 class="text-3xl font-bold text-brand-dark mb-2 text-center">6. The Measured Outcome: The Goal</h2>
+            <p class="text-center text-slate-600 mb-8 max-w-3xl mx-auto">
+                Success will be measured against clear business, brand, and performance KPIs.
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 text-center">
+                <div class="bg-brand-lightest p-4 rounded-lg shadow">
+                    <div class="text-4xl font-bold text-brand-dark">+25%</div>
+                    <p class="text-slate-700 font-medium">New Inquiries</p>
+                </div>
+                <div class="bg-brand-lightest p-4 rounded-lg shadow">
+                    <div class="text-4xl font-bold text-brand-dark">+15%</div>
+                    <p class="text-slate-700 font-medium">Conversion Rate</p>
+                </div>
+                <div class="bg-brand-lightest p-4 rounded-lg shadow">
+                    <div class="text-4xl font-bold text-brand-dark">Top 3</div>
+                    <p class="text-slate-700 font-medium">Local SEO Rank</p>
+                </div>
+                <div class="bg-brand-lightest p-4 rounded-lg shadow">
+                    <div class="text-4xl font-bold text-brand-dark">4.5/5</div>
+                    <p class="text-slate-700 font-medium">Parent Comms Score</p>
+                </div>
+                <div class="bg-brand-lightest p-4 rounded-lg shadow col-span-2 md:col-span-1 lg:col-span-1">
+                    <div class="text-4xl font-bold text-brand-dark">7.5<span class="text-2xl">/10</span></div>
+                    <p class="text-slate-700 font-medium">Target BHI</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center p-6 text-slate-500 text-sm">
+        Infographic SPA based on the Comprehensive Brand Audit by Magsmen Brand Consultants.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            };
+            
+            const brandHealthData = {
+                score: 5.8,
+                subScores: {
+                    labels: ['Awareness', 'Perception', 'Consistency', 'Performance'],
+                    data: [8, 6, 4, 5]
+                }
+            };
+            
+            const vciData = {
+                score: 55
+            };
+
+            const bhiScore = brandHealthData.score * 10;
+            const bhiScoreColor = bhiScore >= 80 ? '#16a34a' : bhiScore >= 60 ? '#f97316' : '#dc2626';
+            document.getElementById('bhiScoreText').style.color = bhiScoreColor;
+            
+            const bhiCtx = document.getElementById('bhiChart').getContext('2d');
+            new Chart(bhiCtx, {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: [bhiScore, 100 - bhiScore],
+                        backgroundColor: [bhiScoreColor, '#e5e7eb'],
+                        borderWidth: 0,
+                        circumference: 180,
+                        rotation: 270,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '75%',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { 
+                            enabled: false,
+                            callbacks: { title: tooltipTitleCallback }
+                        }
+                    }
+                }
+            });
+
+            const bhiSubScoresCtx = document.getElementById('bhiSubScoresChart').getContext('2d');
+            new Chart(bhiSubScoresCtx, {
+                type: 'bar',
+                data: {
+                    labels: brandHealthData.subScores.labels,
+                    datasets: [{
+                        label: 'Score (out of 10)',
+                        data: brandHealthData.subScores.data,
+                        backgroundColor: (context) => {
+                            const value = context.raw;
+                            return value >= 8 ? '#0077B6' : value >= 6 ? '#00B4D8' : '#dc2626';
+                        },
+                        borderRadius: 4,
+                        barPercentage: 0.6
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                title: tooltipTitleCallback,
+                                label: (context) => `${context.label}: ${context.raw}/10`
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 10,
+                            grid: { display: false },
+                            ticks: { stepSize: 2 }
+                        },
+                        y: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+            
+            const vciScore = vciData.score;
+            const vciScoreColor = vciScore >= 80 ? '#16a34a' : vciScore >= 60 ? '#f97316' : '#dc2626';
+            
+            const vciCtx = document.getElementById('vciChart').getContext('2d');
+            new Chart(vciCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['VCI Score'],
+                    datasets: [{
+                        label: 'VCI Score',
+                        data: [vciScore],
+                        backgroundColor: [vciScoreColor],
+                        borderWidth: 0,
+                        borderRadius: 4,
+                        barPercentage: 0.4
+                    },
+                    {
+                        label: 'Goal',
+                        data: [100 - vciScore],
+                        backgroundColor: ['#e5e7eb'],
+                        borderWidth: 0,
+                        borderRadius: 4,
+                        barPercentage: 0.4
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { 
+                            enabled: false,
+                            callbacks: { title: tooltipTitleCallback }
+                        },
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100,
+                            stacked: true,
+                            display: false,
+                        },
+                        y: {
+                            stacked: true,
+                            display: false,
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

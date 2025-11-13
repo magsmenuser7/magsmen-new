@@ -373,7 +373,16 @@ def submit_strategy(request):
 def tdhproteindashboard(request):
     return render(request, 'uifiles/tdhproteindashboard.html')
 
+def delhiworldschoolbrandhealthinfographic(request):
+    return render(request, 'uifiles/delhiworldschool.html')
 
+
+def brandaudit(request):
+    return render(request, 'uifiles/brandaudit.html')
+
+
+def brandaudit_sreenidhiglobalschoolaudit(request):
+    return render(request, 'uifiles/brandaudit-sreenidhiglobalschool.html')
 
 
 

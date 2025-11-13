@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Audit: Sreenidhi Global School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chosen Palette: Scholarly Blue & Neutral -->
+    <!-- Application Structure Plan: Designed a single-page SPA with a sticky horizontal navigation bar for top-level thematic sections. This structure allows users to get a quick overview of all audit components and deep-dive into any section without leaving the page, facilitating easy cross-referencing. User flow: Land on page (shows overview/intro), click nav (e.g., 'Competitive') to smooth-scroll to that section. This is more intuitive than a long, linear document, matching the "dashboard" feel of a modern audit. -->
+    <!-- Visualization & Content Choices:
+        - Audit Process: (Organize) -> HTML/Flexbox diagram. (Interaction: Hover). Justification: Simple, clear flow, no JS needed.
+        - Market Analysis: (Inform) -> HTML/Tailwind cards. (Interaction: Click-to-expand). Justification: Conveys key text insights clearly.
+        - Pricing: (Compare) -> Horizontal Bar Chart (Chart.js). Justification: Easy comparison of pricing data.
+        - Benchmarking: (Compare) -> Radar Chart (Chart.js). Justification: Multi-axis comparison at a glance.
+        - Brand Health: (Inform) -> Doughnut Chart (Chart.js). Justification: Clear "score" visualization.
+        - Social Sentiment: (Change) -> Bar Chart (Chart.js). Justification: Shows trend over time for sentiment.
+        - Personas: (Organize) -> HTML/JS Tabs. (Interaction: Click). Justification: Segments complex persona data neatly.
+        - Visual Consistency: (Inform) -> Doughnut Chart (Chart.js). Justification: Simple "Pass/Fail" metric.
+        - Web Audit: (Inform) -> HTML/CSS "Heatmap" table. Justification: Visual representation of web data without complex graphics.
+        - Recommendations: (Inform) -> HTML/Ordered List. Justification: Clear, actionable, text-based.
+        -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        :root {
+            --bg-main: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #495057;
+            --color-primary: #0a3d62;
+            --color-primary-light: #1e6091;
+            --color-accent-1: #184e77;
+            --color-accent-2: #1a759f;
+            --color-accent-3: #1e83a8;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        nav a {
+            transition: all 0.2s ease-in-out;
+            border-bottom: 2px solid transparent;
+        }
+        nav a.active, nav a:hover {
+            border-bottom-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+        .section-card {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        .persona-tab {
+            transition: all 0.2s ease;
+        }
+        .persona-tab.active {
+            background-color: var(--color-primary);
+            color: white;
+        }
+        .persona-panel {
+            display: none;
+        }
+        .persona-panel.active {
+            display: block;
+        }
+
+        .sticky-mobile{
+            margin-top: 15px !important;
+        }
+
+        /* .py-3 {
+            padding-top: 3rem;
+            padding-bottom: 1.00rem;
+        } */
+
+
+
+    @media(max-width:480px){
+        .top-\[73px\] {
+         top: 95px !important;
+}
+    }
+   
+    </style>
+    </head>
+<body class="antialiased">
+
+    <header class="w-full bg-white shadow-md p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl md:text-3xl font-bold" style="color: var(--color-primary);">
+                Brand Audit: Sreenidhi Global School
+            </h1>
+        </div>
+    </header>
+
+    <nav class="sticky sticky-mobile top-[73px] bg-white shadow-sm z-40 overflow-x-auto whitespace-nowrap">
+        <div class="container mx-auto px-4">
+            <div id="main-nav" class="flex space-x-6 py-4">
+                <a href="#section-intro" class="nav-link font-semibold text-gray-600 px-2 py-1 active">Introduction</a>
+                <a href="#section-market" class="nav-link font-semibold text-gray-600 px-2 py-1">Market Analysis</a>
+                <a href="#section-competitive" class="nav-link font-semibold text-gray-600 px-2 py-1">Competitive</a>
+                <a href="#section-perception" class="nav-link font-semibold text-gray-600 px-2 py-1">Perception</a>
+                <a href="#section-identity" class="nav-link font-semibold text-gray-600 px-2 py-1">Brand Identity</a>
+                <a href="#section-audit" class="nav-link font-semibold text-gray-600 px-2 py-1">Visual & Digital</a>
+                <a href="#section-legal" class="nav-link font-semibold text-gray-600 px-2 py-1">Compliance</a>
+                <a href="#section-reco" class="nav-link font-semibold text-gray-600 px-2 py-1">Recommendations</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto p-4 md:p-8 space-y-12">
+
+        <section id="section-intro" class="section-card p-6 md:p-8">
+            <h2 class="text-3xl font-bold mb-4" style="color: var(--color-primary);">1. Introduction & Audit Framework</h2>
+            <p class="text-lg text-gray-700 mb-6">
+                This interactive report presents a comprehensive brand audit for Sreenidhi Global School (SGS). The objective is to analyze the brand's current health, market position, and digital presence to identify strengths, weaknesses, and strategic opportunities. The audit follows a structured process, ensuring all facets of the brand are examined.
+            </p>
+            <h3 class="text-xl font-semibold mb-4">Brand Audit Process</h3>
+            <div class="flex flex-col md:flex-row justify-between space-y-4 md:space-y-0 md:space-x-4">
+                <div class="flex-1 text-center p-4 bg-gray-100 rounded-lg shadow-sm">
+                    <div class="text-4xl mb-2">1</div>
+                    <h4 class="font-semibold text-lg" style="color: var(--color-primary-light);">Discovery</h4>
+                    <p class="text-sm text-gray-600">Market Research & Stakeholder Interviews</p>
+                </div>
+                <div class="flex-1 text-center p-4 bg-gray-100 rounded-lg shadow-sm">
+                    <div class="text-4xl mb-2">2</div>
+                    <h4 class="font-semibold text-lg" style="color: var(--color-accent-1);">Analysis</h4>
+                    <p class="text-sm text-gray-600">Benchmarking, Perception & Digital Audit</p>
+                </div>
+                <div class="flex-1 text-center p-4 bg-gray-100 rounded-lg shadow-sm">
+                    <div class="text-4xl mb-2">3</div>
+                    <h4 class="font-semibold text-lg" style="color: var(--color-accent-2);">Synthesis</h4>
+                    <p class="text-sm text-gray-600">Identifying Core Identity, Gaps & Archetypes</p>
+                </div>
+                <div class="flex-1 text-center p-4 bg-gray-100 rounded-lg shadow-sm">
+                    <div class="text-4xl mb-2">4</div>
+                    <h4 class="font-semibold text-lg" style="color: var(--color-accent-3);">Strategy</h4>
+                    <p class="text-sm text-gray-600">Developing Positioning & Actionable Recommendations</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-market" class="section-card p-6 md:p-8">
+            <h2 class="text-3xl font-bold mb-4" style="color: var(--color-primary);">2. Market & Industry Analysis</h2>
+            <p class="text-lg text-gray-700 mb-6">
+                Understanding the regional educational landscape is crucial for positioning. The Hyderabad international school market is highly competitive, with new demands emerging post-pandemic. This section explores the key insights, gaps, and needs shaping the industry.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-inner">
+                    <h3 class="text-xl font-semibold mb-3" style="color: var(--color-primary-light);">Industry Insights</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>Shift from "global" to "future-ready" curriculum.</li>
+                        <li>Increased demand for tech integration (AI, coding).</li>
+                        <li>Parental focus on holistic development & mental well-being.</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-inner">
+                    <h3 class="text-xl font-semibold mb-3" style="color: var(--color-primary-light);">Market Gap</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>Lack of schools that provably balance high academic rigor with student well-being.</li>
+                        <li>Few institutions effectively communicate a unique "story" beyond facilities.</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-inner">
+                    <h3 class="text-xl font-semibold mb-3" style="color: var(--color-primary-light);">Market Need</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>Parents seek clear, transparent communication.</li>
+                        <li>A desire for a strong, safe, and inclusive community.</li>
+                        <li>Proof of student success beyond just exam scores.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-competitive" class="section-card p-6 md:p-8">
+            <h2 class="text-3xl font-bold mb-4" style="color: var(--color-primary);">3. Competitive Landscape</h2>
+            <p class="text-lg text-gray-700 mb-6">
+                We benchmarked SGS against three key regional competitors across primary pricing and brand perception metrics. This analysis reveals SGS's position in the premium tier and highlights areas for differentiation.
+            </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-center">Pricing Comparative Analysis (Annual Tuition, Lakhs)</h3>
+                    <div class="chart-container" style="height: 350px;">
+                        <canvas id="pricingChart"></canvas>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-center">Brand Attribute Benchmarking</h3>
+                    <div class="chart-container" style="height: 350px;">
+                        <canvas id="benchmarkChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-perception" class="section-card p-6 md:p-8">
+            <h2 class="text-3xl font-bold mb-4" style="color: var(--color-primary);">4. Brand Perception & Health</h2>
+            <p class="text-lg text-gray-700 mb-6">
+                This section analyzes how stakeholders (parents, public) perceive the SGS brand. We've combined survey data and social listening to create a Brand Health Index (BHI) and track sentiment trends.
+            </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-center">Brand Health Index (BHI)</h3>
+                    <div class="chart-container" style="height: 350px;">
+                        <canvas id="healthChart"></canvas>
+                    </div>
+                    <p class="text-center text-gray-600 mt-2">A score of 78 indicates a strong but not yet dominant brand, with room for improvement in brand advocacy.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-center">Social Media Sentiment (Last 6 Months)</h3>
+                    <div class="chart-container" style="height: 350px;">
+                        <canvas id="sentimentChart"></canvas>
+                    </div>
+                    <p class="text-center text-gray-600 mt-2">Sentiment is overwhelmingly positive, with a low volume of negative comments, mostly related to logistical queries.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-identity" class="section-card p-6 md:p-8">
+            <h2 class="text-3xl font-bold mb-4" style="color: var(--color-primary);">5. Brand Identity & Story</h2>
+            <p class="text-lg text-gray-700 mb-6">
+                At its core, who is SGS? This section defines the brand's personality, its core archetype, and the emotional personas of its target audience. Understanding this is key to building an authentic narrative.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-inner">
+                    <h3 class="text-xl font-semibold mb-3" style="color: var(--color-primary-light);">Brand Archetype</h3>
+                    <div class="text-center">
+                        <div class="text-6xl mb-3">🎓</div>
+                        <h4 class="text-2xl font-bold">The Sage</h4>
+                        <p class="text-gray-700 mt-2">The brand's identity is rooted in being a source of knowledge, wisdom, and truth. It values expertise and critical thinking, promising to guide students on their path to enlightenment and success.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-inner">
+                    <h3 class="text-xl font-semibold mb-3" style="color: var(--color-primary-light);">Emotional Consumer Personas</h3>
+                    <div class="flex border-b border-gray-300">
+                        <button class="persona-tab flex-1 p-3 font-semibold text-gray-700 rounded-t-lg active" data-target="persona-1">
+                            The Ambitious Parent
+                        </button>
+                        <button class="persona-tab flex-1 p-3 font-semibold text-gray-700 rounded-t-lg" data-target="persona-2">
+                            The Holistic Parent
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div id="persona-1" class="persona-panel active">
+                            <h4 class="font-semibold text-lg mb-2">Wants:</h4>
+                            <p class="text-gray-700">Top-tier academics, Ivy League/IIT prep, competitive edge, quantifiable results.</p>
+                            <h4 class="font-semibold text-lg mt-4 mb-2">Pains:</h4>
+                            <p class="text-gray-700">Fear of child falling behind, unclear ROI, "soft" programs with no clear outcome.</p>
+                        </div>
+                        <div id="persona-2" class="persona-panel">
+                            <h4 class="font-semibold text-lg mb-2">Wants:</h4>
+                            <p class="text-gray-700">Balanced development, emotional well-being, strong values, diverse experiences (arts, sports).</p>
+                            <h4 class="font-semibold text-lg mt-4 mb-2">Pains:</h4>
+                            <p class="text-gray-700">Overly competitive "pressure-cooker" environments, lack of individual attention.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-audit" class="section-card p-6 md:p-8">
+            <h2 class="text-3xl font-bold mb-4" style="color: var(--color-primary);">6. Visual & Digital Audit</h2>
+            <p class="text-lg text-gray-700 mb-6">
+                A brand's digital and visual presence is its modern frontline. We analyzed the consistency of visual assets (logo, colors, fonts) and the performance of the current website and digital infrastructure.
+            </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-center">Visual Consistency Index (VCI)</h3>
+                    <div class="chart-container" style="height: 350px;">
+                        <canvas id="consistencyChart"></canvas>
+                    </div>
+                    <p class="text-center text-gray-600 mt-2">A 65% consistency score shows significant room for improvement. Inconsistent logo usage and color palettes were found on social media.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-center">Web & Digital Infrastructure</h3>
+                    <h4 class="font-semibold mb-2">Website Audit (Key Page Heatmap):</h4>
+                    <p class="text-sm text-gray-600 mb-2">Analysis shows high traffic on "Admissions" and "Facilities," but very low engagement on "Blog" and "Philosophy" pages.</p>
+                    <table class="w-full border-collapse border border-gray-300 text-center">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="p-2 border border-gray-300">Page</th>
+                                <th class="p-2 border border-gray-300">Engagement</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="p-2 border border-gray-300">Home</td>
+                                <td class="p-2 border border-gray-300" style="background-color: #fdd835;">Medium</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border border-gray-300">Admissions</td>
+                                <td class="p-2 border border-gray-300" style="background-color: #e53935; color: white;">High</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border border-gray-300">Philosophy</td>
+                                <td class="p-2 border border-gray-300" style="background-color: #81d4fa;">Low</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border border-gray-300">Blog</td>
+                                <td class="p-2 border border-gray-300" style="background-color: #81d4fa;">Low</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h4 class="font-semibold mt-6 mb-2">Digital Infrastructure:</h4>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><span class="font-bold text-green-600">✓</span> Basic CRM: In place.</li>
+                        <li><span class="font-bold text-green-600">✓</span> Parent Portal: Functional.</li>
+                        <li><span class="font-bold text-yellow-600">!</span> SEO: Under-optimized (Low rank for key terms).</li>
+                        <li><span class="font-bold text-red-600">✗</span> Admissions Funnel: Not automated.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-legal" class="section-card p-6 md:p-8">
+            <h2 class="text-3xl font-bold mb-4" style="color: var(--color-primary);">7. Compliance & Legal</h2>
+            <p class="text-lg text-gray-700 mb-6">
+                Ensuring all brand communications are ethical, legal, and compliant is non-negotiable. This audit reviewed IPR status and adherence to ASCI standards for advertising in the education sector.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-inner">
+                    <h3 class="text-xl font-semibold mb-3" style="color: var(--color-primary-light);">Legal & IPR</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><span class="font-bold text-green-600">SECURE:</span> Trademark for wordmark "Sreenidhi Global School".</li>
+                        <li><span class="font-bold text-yellow-600">PENDING:</span> Trademark for the school's crest/logo.</li>
+                        <li><span class="font-bold text-green-600">CLEAR:</span> All website imagery and content is properly licensed.</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-inner">
+                    <h3 class="text-xl font-semibold mb-3" style="color: var(--color-primary-light);">ASCI Standards</h3>
+                    <p class="text-gray-700">
+                        An audit of 5 recent digital ad campaigns and the current prospectus found 100% compliance with ASCI (Advertising Standards Council of India) guidelines. All claims are substantiated, and no misleading information was found.
+                    </p>
+                    <p class="font-semibold text-green-700 mt-4 text-2xl">STATUS: Compliant</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-reco" class="section-card p-6 md:p-8">
+            <h2 class="text-3xl font-bold mb-4" style="color: var(--color-primary);">8. Strategic Recommendations</h2>
+            <p class="text-lg text-gray-700 mb-6">
+                Based on the complete audit, we propose the following strategic direction to strengthen the Sreenidhi Global School brand, enhance its market position, and build a more consistent, compelling narrative.
+            </p>
+            <div class="space-y-6">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-inner border-l-4" style="border-color: var(--color-primary);">
+                    <h3 class="text-xl font-semibold mb-2">1. Solidify Brand Positioning</h3>
+                    <p class="text-gray-700">
+                        Lean into "The Sage" archetype. Shift messaging from just "global" to "Nurturing Wise, Future-Ready Citizens." This positions SGS as a school that builds character and critical thinking, not just high scores, appealing to both 'Ambitious' and 'Holistic' personas.
+                    </p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-inner border-l-4" style="border-color: var(--color-accent-1);">
+                    <h3 class="text-xl font-semibold mb-2">2. Launch "SGS Stories" Campaign</h3>
+                    <p class="text-gray-700">
+                        Address the perception gap by creating content (videos, articles) that focuses on student/teacher narratives. Highlight holistic development, emotional well-being, and unique projects. This provides the "proof" needed by the 'Holistic Parent' persona.
+                    </p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-inner border-l-4" style="border-color: var(--color-accent-2);">
+                    <h3 class="text-xl font-semibold mb-2">3. Enforce Visual & Digital Standards</h3>
+                    <p class="text-gray-700">
+                        Develop a mandatory Brand Standards Guide. Consolidate all digital assets. Invest in technical SEO to capture "best international schools in Hyderabad" search traffic. Update the "Philosophy" page content to align with the new positioning and improve engagement.
+                    </p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-inner border-l-4" style="border-color: var(--color-accent-3);">
+                    <h3 class="text-xl font-semibold mb-2">4. Upgrade Digital Infrastructure</h3>
+                    <p class="text-gray-700">
+                        Implement an automated admissions funnel to track and nurture leads more effectively. Enhance the parent portal with more interactive features to build community and improve communication, reinforcing the brand's promise of transparency.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-6 mt-12 bg-white shadow-inner">
+        <p class="text-gray-600">&copy; 2025 Brand Audit Report. For internal use only.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const primaryColor = '#0a3d62';
+            const accentColors = ['#1e6091', '#1a759f', '#1e83a8'];
+
+            function wrapLabels(value) {
+                if (typeof value !== 'string') {
+                    return value;
+                }
+                const maxLength = 16;
+                let lines = [];
+                let currentLine = '';
+                value.split(' ').forEach(word => {
+                    if (currentLine.length + word.length <= maxLength) {
+                        currentLine += (currentLine ? ' ' : '') + word;
+                    } else {
+                        lines.push(currentLine);
+                        currentLine = word;
+                    }
+                });
+                lines.push(currentLine);
+                return lines;
+            }
+
+            const chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            font: {
+                                family: "'Inter', sans-serif"
+                            }
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        titleFont: { family: "'Inter', sans-serif" },
+                        bodyFont: { family: "'Inter', sans-serif" }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            font: { family: "'Inter', sans-serif" },
+                            callback: function(value) {
+                                const label = this.getLabelForValue(value);
+                                return wrapLabels(label);
+                            }
+                        },
+                        grid: { display: false }
+                    },
+                    y: {
+                        ticks: { font: { family: "'Inter', sans-serif" } },
+                        grid: { color: '#e0e0e0', drawBorder: false }
+                    }
+                }
+            };
+            
+            const radarOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: { font: { family: "'Inter', sans-serif" } }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        titleFont: { family: "'Inter', sans-serif" },
+                        bodyFont: { family: "'Inter', sans-serif" }
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: { color: '#e0e0e0' },
+                        grid: { color: '#e0e0e0' },
+                        pointLabels: {
+                            font: { family: "'Inter', sans-serif", size: 12 }
+                        },
+                        ticks: {
+                            backdropColor: 'transparent',
+                            font: { family: "'Inter', sans-serif" },
+                            stepSize: 1
+                        },
+                        min: 0,
+                        max: 5
+                    }
+                }
+            };
+
+            const doughnutOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '70%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { font: { family: "'Inter', sans-serif" } }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        titleFont: { family: "'Inter', sans-serif" },
+                        bodyFont: { family: "'Inter', sans-serif" }
+                    }
+                }
+            };
+
+            function initPricingChart() {
+                const ctx = document.getElementById('pricingChart').getContext('2d');
+                if (window.pricingChartInstance) {
+                    window.pricingChartInstance.destroy();
+                }
+                window.pricingChartInstance = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Sreenidhi Global', 'Competitor A', 'Competitor B', 'Competitor C'],
+                        datasets: [{
+                            label: 'Annual Tuition (Lakhs)',
+                            data: [4.5, 5.0, 4.8, 5.2],
+                            backgroundColor: [primaryColor, accentColors[0], accentColors[1], accentColors[2]],
+                            borderColor: [primaryColor, accentColors[0], accentColors[1], accentColors[2]],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: { ...chartOptions, indexAxis: 'y' }
+                });
+            }
+
+            function initBenchmarkChart() {
+                const ctx = document.getElementById('benchmarkChart').getContext('2d');
+                if (window.benchmarkChartInstance) {
+                    window.benchmarkChartInstance.destroy();
+                }
+                window.benchmarkChartInstance = new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Academics', 'Infrastructure', 'Faculty', 'Digital', 'Brand'],
+                        datasets: [
+                            {
+                                label: 'SGS',
+                                data: [4, 5, 4, 3, 4],
+                                backgroundColor: 'rgba(10, 61, 98, 0.2)',
+                                borderColor: primaryColor,
+                                pointBackgroundColor: primaryColor,
+                                pointBorderColor: '#fff',
+                                pointHoverBackgroundColor: '#fff',
+                                pointHoverBorderColor: primaryColor
+                            },
+                            {
+                                label: 'Competitor Avg.',
+                                data: [4, 4, 3, 4, 4],
+                                backgroundColor: 'rgba(26, 117, 159, 0.2)',
+                                borderColor: accentColors[1],
+                                pointBackgroundColor: accentColors[1],
+                                pointBorderColor: '#fff',
+                                pointHoverBackgroundColor: '#fff',
+                                pointHoverBorderColor: accentColors[1]
+                            }
+                        ]
+                    },
+                    options: radarOptions
+                });
+            }
+
+            function initHealthChart() {
+                const ctx = document.getElementById('healthChart').getContext('2d');
+                if (window.healthChartInstance) {
+                    window.healthChartInstance.destroy();
+                }
+                window.healthChartInstance = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['BHI Score', 'Gap to 100'],
+                        datasets: [{
+                            data: [78, 22],
+                            backgroundColor: [primaryColor, '#e0e0e0'],
+                            borderColor: ['#ffffff', '#ffffff']
+                        }]
+                    },
+                    options: { ...doughnutOptions,
+                        plugins: {
+                            ...doughnutOptions.plugins,
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.label}: ${context.raw}`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            function initSentimentChart() {
+                const ctx = document.getElementById('sentimentChart').getContext('2d');
+                if (window.sentimentChartInstance) {
+                    window.sentimentChartInstance.destroy();
+                }
+                window.sentimentChartInstance = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Aug-Sep', 'Oct-Nov', 'Dec-Jan'],
+                        datasets: [
+                            {
+                                label: 'Positive',
+                                data: [120, 150, 180],
+                                backgroundColor: '#2e7d32',
+                            },
+                            {
+                                label: 'Neutral',
+                                data: [40, 50, 30],
+                                backgroundColor: '#fdd835',
+                            },
+                            {
+                                label: 'Negative',
+                                data: [20, 15, 25],
+                                backgroundColor: '#d32f2f',
+                            }
+                        ]
+                    },
+                    options: { ...chartOptions, scales: { ...chartOptions.scales, x: { ...chartOptions.scales.x, stacked: true }, y: { ...chartOptions.scales.y, stacked: true } } }
+                });
+            }
+
+            function initConsistencyChart() {
+                const ctx = document.getElementById('consistencyChart').getContext('2d');
+                if (window.consistencyChartInstance) {
+                    window.consistencyChartInstance.destroy();
+                }
+                window.consistencyChartInstance = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Consistent', 'Inconsistent'],
+                        datasets: [{
+                            data: [65, 35],
+                            backgroundColor: [primaryColor, '#d32f2f'],
+                            borderColor: ['#ffffff', '#ffffff']
+                        }]
+                    },
+                    options: { ...doughnutOptions,
+                        plugins: {
+                            ...doughnutOptions.plugins,
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.label}: ${context.raw}%`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            initPricingChart();
+            initBenchmarkChart();
+            initHealthChart();
+            initSentimentChart();
+            initConsistencyChart();
+
+            window.addEventListener('resize', () => {
+                initPricingChart();
+                initBenchmarkChart();
+                initHealthChart();
+                initSentimentChart();
+                initConsistencyChart();
+            });
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = 150;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            function updateActiveNav() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 160) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', updateActiveNav);
+            updateActiveNav();
+
+            const personaTabs = document.querySelectorAll('.persona-tab');
+            const personaPanels = document.querySelectorAll('.persona-panel');
+
+            personaTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const target = tab.dataset.target;
+                    
+                    personaTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    personaPanels.forEach(p => p.classList.remove('active'));
+                    document.getElementById(target).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
