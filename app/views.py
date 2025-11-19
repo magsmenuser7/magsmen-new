@@ -373,6 +373,15 @@ def submit_strategy(request):
 def tdhproteindashboard(request):
     return render(request, 'uifiles/tdhproteindashboard.html')
 
+def tdh_product_communication_Analysis(request):
+    return render(request, 'uifiles/tdhproduct-communicationanalysis.html')
+
+def tdh_group_strategic_dashboard(request):
+    return render(request, 'uifiles/tdhgroup-strategicdashboard.html')
+
+
+
+
 def delhiworldschoolbrandhealthinfographic(request):
     return render(request, 'uifiles/delhiworldschool.html')
 

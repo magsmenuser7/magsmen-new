@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDH Group Strategic Dashboard</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Chart.js for visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f9;
+        }
+        /* Custom scrollbar for better look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #9ca3af;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+        }
+        .tab-button.active {
+            color: #ffffff;
+            background-color: #d97706; /* Amber-700 */
+        }
+        .accordion-header {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .accordion-header:hover {
+            background-color: #f3f4f6;
+        }
+        .chart-container {
+            position: relative;
+            height: 300px; /* Reduced for better fit with multiple charts */
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        .chart-container-lg {
+            height: 400px;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+        <!-- Header -->
+        <header class="mb-8 p-4 bg-white shadow-lg rounded-xl">
+            <h1 class="text-3xl font-extrabold text-gray-800">TDH Group Strategic Analysis Dashboard</h1>
+            <p class="text-gray-500 mt-1">Detailed overview of brand architecture, market opportunities, and channel execution.</p>
+        </header>
+
+        <!-- Main Navigation Tabs -->
+        <nav class="flex space-x-1 p-1 bg-white rounded-xl shadow-md mb-8 overflow-x-auto">
+            <button class="tab-button active flex-shrink-0 px-4 py-2 text-sm font-medium rounded-lg transition duration-200" data-tab="brand-overview">
+                Brand Overview & Perception
+            </button>
+            <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100 transition duration-200" data-tab="market-protein">
+                Market Analysis: Protein & New SKU
+            </button>
+            <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100 transition duration-200" data-tab="kiosk-strategy">
+                Kiosk Channel Strategy
+            </button>
+            <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100 transition duration-200" data-tab="product-communication">
+                Product Communication Analysis
+            </button>
+            <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100 transition duration-200" data-tab="celebrity-usage">
+                Celebrity Usage Guidelines
+            </button>
+        </nav>
+
+        <!-- Content Area -->
+        <div id="dashboard-content">
+
+            <!-- 1. Brand Overview & Perception Tab -->
+            <div id="brand-overview" class="tab-content grid md:grid-cols-3 gap-6">
+                <!-- Content remains the same as previous version for brevity/focus -->
+                
+                <!-- Brand Overview & Limitations Card (Col 1/3) -->
+                <div class="md:col-span-2 bg-white p-6 rounded-xl shadow-md">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">TDH Group Core Analysis</h2>
+
+                    <!-- Overview Accordion -->
+                    <div class="border rounded-lg mb-4">
+                        <div class="accordion-header p-4 bg-gray-50 text-gray-800 font-semibold" onclick="toggleAccordion(this)">
+                            Overview & Core Challenges
+                            <span class="float-right transform transition-transform duration-200">+</span>
+                        </div>
+                        <div class="accordion-content hidden p-4 text-gray-600 space-y-3 border-t">
+                            <p>Tenali Double Horse (TDH) is strongly associated with **Urad Dal** due to focused, long-term promotion, granting high trust but limiting broader multi-category perception.</p>
+                            <ul class="list-disc ml-5 space-y-1">
+                                <li><strong>Brand Ambiguity:</strong> Inconsistency in naming (TDH Foods Rishika / TDH Rishika) fragments consumer understanding.</li>
+                                <li><strong>Millets Vertical:</strong> TDH Millets (post-Millet Marvels acquisition) requires a clear strategy: standalone identity vs. consolidation under the master brand.</li>
+                                <li><strong>Digital Dilution:</strong> Overlap and repetition of content across separate brand accounts leads to brand dilution.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Aspects & Limitations Accordion -->
+                    <div class="border rounded-lg mb-4">
+                        <div class="accordion-header p-4 bg-gray-50 text-gray-800 font-semibold" onclick="toggleAccordion(this)">
+                            Strengthening Perception: Key Aspects & Limitations
+                            <span class="float-right transform transition-transform duration-200">+</span>
+                        </div>
+                        <div class="accordion-content hidden p-4 text-gray-600 border-t">
+                            <h4 class="font-bold text-md text-orange-600 mb-2">Aspects to Consider</h4>
+                            <ul class="list-disc ml-5 mb-4 space-y-1">
+                                <li><strong>Advertising Metrics:</strong> Evaluate channel performance and message connectivity; need a dedicated campaign differentiating TDH Foods and TDH Rishika.</li>
+                                <li><strong>Consumer Access:</strong> Assess availability across General Trade, E-commerce, and Quick-commerce for key SKU distribution.</li>
+                                <li><strong>Brand Consistency:</strong> Must resolve the naming overlap (TDH Foods vs. TDH Rishika) and define the position of TDH Millets.</li>
+                            </ul>
+                            <h4 class="font-bold text-md text-red-600 mb-2">Limitations to Address</h4>
+                            <ul class="list-disc ml-5 space-y-1">
+                                <li><strong>Limited Availability:</strong> Key SKUs are not widely available across general trade and quick commerce.</li>
+                                <li><strong>Over-Association:</strong> Strong Urad Dal recall restricts growth towards a multi-category brand identity.</li>
+                                <li><strong>Inconsistent Representation:</strong> Naming overlaps and repetitive digital communication dilute impact.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vertical Perception Table (Col 3) -->
+                <div class="md:col-span-1 bg-white p-6 rounded-xl shadow-md">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">Vertical Perception & Opportunities</h2>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Vertical</th>
+                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Insight</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200 text-sm">
+                                <tr class="hover:bg-yellow-50/50">
+                                    <td class="px-3 py-2 font-semibold">TDH Group (Corporate)</td>
+                                    <td class="px-3 py-2">Trusted Telugu-rooted brand. Opportunity to connect with younger, aspirational families.</td>
+                                </tr>
+                                <tr class="hover:bg-yellow-50/50">
+                                    <td class="px-3 py-2 font-semibold">TDH Pulses</td>
+                                    <td class="px-3 py-2">Strongly linked with Urad Dal. Refresh communication beyond Urad Dal for modern audiences.</td>
+                                </tr>
+                                <tr class="hover:bg-yellow-50/50">
+                                    <td class="px-3 py-2 font-semibold">TDH Foods (Rishika)</td>
+                                    <td class="px-3 py-2">Confusion in naming. Fix name, position as innovative/modern side of TDH, focusing on convenience.</td>
+                                </tr>
+                                <tr class="hover:bg-yellow-50/50">
+                                    <td class="px-3 py-2 font-semibold">TDH Millets</td>
+                                    <td class="px-3 py-2">New category, low awareness. Use TDH trust to promote health benefits and decide on branding (standalone vs. co-branded).</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                 <!-- Consumer Profiles (Full Width) -->
+                 <div class="md:col-span-3 bg-white p-6 rounded-xl shadow-md mt-4">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">Consumer Profiles (By Brand)</h2>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="p-4 border rounded-lg bg-indigo-50/50">
+                            <h3 class="font-bold text-lg text-indigo-700 mb-2">🏛️ TDH Group (Corporate)</h3>
+                            <p class="text-sm"><strong>Persona:</strong> Socially conscious consumers who respect legacy, quality, and community-driven innovation.</p>
+                            <ul class="text-xs mt-2 space-y-1">
+                                <li><strong>Age:</strong> 25–65.</li>
+                                <li><strong>Goals:</strong> Engage with reliable, heritage-rich brands.</li>
+                                <li><strong>Pain Points:</strong> Skepticism toward companies lacking community focus.</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 border rounded-lg bg-green-50/50">
+                            <h3 class="font-bold text-lg text-green-700 mb-2">🍲 Tenali Double Horse (Pulses)</h3>
+                            <p class="text-sm"><strong>Persona:</strong> Health-conscious homemakers prioritizing family well-being, nutrition, and tradition.</p>
+                            <ul class="text-xs mt-2 space-y-1">
+                                <li><strong>Age:</strong> 28–45 (Primary Female).</li>
+                                <li><strong>Goals:</strong> Provide healthy, authentic meals.</li>
+                                <li><strong>Pain Points:</strong> Uncertainty about quality and sourcing.</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 border rounded-lg bg-orange-50/50">
+                            <h3 class="font-bold text-lg text-orange-700 mb-2">🍛 TDH Rishika (Foods)</h3>
+                            <p class="text-sm"><strong>Persona:</strong> Busy professionals and young adults seeking convenient, authentic, and time-saving meal solutions.</p>
+                            <ul class="text-xs mt-2 space-y-1">
+                                <li><strong>Age:</strong> 24–40.</li>
+                                <li><strong>Goals:</strong> Cook delicious meals quickly with traditional flavor.</li>
+                                <li><strong>Pain Points:</strong> Lack of time; difficulty finding authentic-tasting instant products.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Market Analysis: Protein & New SKU Tab -->
+            <div id="market-protein" class="tab-content hidden">
+                <div class="bg-white p-6 rounded-xl shadow-md mb-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">Protein Market Landscape in India: Opportunity & Competition</h2>
+
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <!-- Drivers of Preference Chart -->
+                        <div class="border rounded-lg p-4 shadow-sm chart-container-lg">
+                            <h3 class="text-lg font-semibold mb-2 text-gray-700">Protein Preference Drivers & Segment Distribution</h3>
+                            <canvas id="proteinDriversChart" class="h-3/4"></canvas>
+                        </div>
+
+                        <!-- New SKU Proposition -->
+                        <div class="border rounded-lg p-4 shadow-sm space-y-4 chart-container-lg">
+                            <h3 class="text-lg font-semibold text-orange-700 mb-2">New SKU Proposition: TDH Protein Laddu (15g)</h3>
+                            <p class="text-gray-600 text-sm">TDH currently offers **Sunnundalu (3.9g protein)**. The market has a clear gap for a high-protein traditional sweet. Most competitors offer 4-8g. The **15g Protein Laddu** allows TDH to blend authentic taste with functional nutrition.</p>
+
+                            <div class="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                                <strong class="text-lg text-yellow-800 block mb-1">Target Proposition:</strong>
+                                <ul class="list-disc ml-5 text-sm">
+                                    <li><strong>Name:</strong> TDH Protein Laddu</li>
+                                    <li><strong>Protein Content:</strong> **15g per laddu** (clear market differentiator)</li>
+                                    <li><strong>Base Ingredients:</strong> Urad dal, Whey/Pea protein isolate, jaggery, ghee.</li>
+                                    <li><strong>Ideal Pricing:</strong> ₹400–₹600 per 200g pack.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Segment Charts -->
+                    <h3 class="text-xl font-bold text-gray-800 mt-8 mb-4 border-b pb-2">Competitive Market Segmentation Visuals</h3>
+
+                    <div class="grid lg:grid-cols-3 gap-6">
+                        <!-- Sweet Protein Segment -->
+                        <div class="border rounded-lg p-4 shadow-sm chart-container">
+                            <h4 class="font-semibold text-sm mb-2 text-gray-700">Sweet Protein: Avg. Price per 100g (INR)</h4>
+                            <canvas id="sweetProteinPriceChart"></canvas>
+                        </div>
+
+                        <!-- Savoury Protein Segment -->
+                        <div class="border rounded-lg p-4 shadow-sm chart-container">
+                            <h4 class="font-semibold text-sm mb-2 text-gray-700">Savoury Protein: Avg. Price per Unit (INR)</h4>
+                            <canvas id="savouryProteinPriceChart"></canvas>
+                        </div>
+
+                        <!-- Laddu Protein Segment -->
+                        <div class="border rounded-lg p-4 shadow-sm chart-container">
+                            <h4 class="font-semibold text-sm mb-2 text-gray-700">Protein Laddu: Protein per Unit (g)</h4>
+                            <canvas id="ladduProteinChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Kiosk Channel Strategy Tab -->
+            <div id="kiosk-strategy" class="tab-content hidden">
+                 <div class="bg-white p-6 rounded-xl shadow-md mb-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">TDH Smart Kiosk Channel Strategy (Gated Communities)</h2>
+
+                    <div class="grid lg:grid-cols-3 gap-6 mb-6">
+                        <div class="lg:col-span-1">
+                            <h3 class="text-lg font-semibold mb-4 text-gray-700">Channel Differentiation vs. Quick-commerce</h3>
+                            <table class="w-full text-sm border border-gray-200 rounded-lg">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="p-2 text-left">Feature</th>
+                                        <th class="p-2 text-left">Kiosks</th>
+                                        <th class="p-2 text-left">Quick-commerce</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td class="p-2 font-medium">Experience</td><td class="p-2 text-green-600">Tactile Demo & AI Counsel</td><td class="p-2 text-red-600">Purely Transactional</td></tr>
+                                    <tr><td class="p-2 font-medium">Fulfillment</td><td class="p-2 text-green-600">Hyperlocal (Distributor)</td><td class="p-2 text-red-600">Centralized Warehouse</td></tr>
+                                    <tr><td class="p-2 font-medium">Purpose</td><td class="p-2 text-green-600">Loyalty, High-Touch Recruit</td><td class="p-2 text-red-600">Volume, Broad Reach</td></tr>
+                                </tbody>
+                            </table>
+                            <div class="p-4 mt-4 border border-orange-200 rounded-lg bg-orange-50/50">
+                                <strong class="text-sm block text-orange-700">Key Value Prop:</strong> Personalized AI guidance, instant local delivery, and permanent brand presence.
+                            </div>
+                        </div>
+                        <div class="lg:col-span-2">
+                            <h3 class="text-lg font-semibold mb-4 text-gray-700">Phase-wise Execution Plan</h3>
+
+                            <!-- Phase Accordions -->
+                            <div class="space-y-3">
+                                <div class="border rounded-lg">
+                                    <div class="accordion-header p-3 bg-blue-50 text-blue-800 font-semibold" onclick="toggleAccordion(this)">
+                                        Phase 1: Pilot & Proof of Concept (20 Kiosks)
+                                        <span class="float-right transform transition-transform duration-200">+</span>
+                                    </div>
+                                    <div class="accordion-content hidden p-4 text-gray-600 border-t text-sm space-y-2">
+                                        <p><strong>Deployment:</strong> Launch 20 kiosks across 5-10 diverse communities (1-2 kiosks/site).</p>
+                                        <p><strong>Features:</strong> Multi-category display, touch-screen browsing, **AI-based nutrition engine**, simple QR/UPI payment.</p>
+                                        <p><strong>Fulfillment:</strong> Hyperlocal delivery via nearest TDH distributor (orders sent via SMS/app). Same-day delivery focus.</p>
+                                        <p><strong>Success Metrics:</strong> Track unique users, orders placed, conversion rate, **repeat users**, and fulfillment efficiency.</p>
+                                    </div>
+                                </div>
+                                <div class="border rounded-lg">
+                                    <div class="accordion-header p-3 bg-blue-50 text-blue-800 font-semibold" onclick="toggleAccordion(this)">
+                                        Phase 2: Feature & Network Scale-Up
+                                        <span class="float-right transform transition-transform duration-200">+</span>
+                                    </div>
+                                    <div class="accordion-content hidden p-4 text-gray-600 border-t text-sm space-y-2">
+                                        <p><strong>Functionality:</strong> Introduce **loyalty features** (QR-code login, points), recipe content, multi-language support. Integrate click-and-collect option.</p>
+                                        <p><strong>Network:</strong> Onboard and train more distributors. Optimize stock levels and delivery routes based on Phase 1 KPIs.</p>
+                                        <p><strong>Improvement:</strong> Refine model based on metrics (e.g., if AI advice is used but few orders, investigate UI/product issues).</p>
+                                    </div>
+                                </div>
+                                <div class="border rounded-lg">
+                                    <div class="accordion-header p-3 bg-blue-50/70 text-blue-800 font-semibold" onclick="toggleAccordion(this)">
+                                        Phase 3: Brand Integration & Strategic Expansion
+                                        <span class="float-right transform transition-transform duration-200">+</span>
+                                    </div>
+                                    <div class="accordion-content hidden p-4 text-gray-600 border-t text-sm space-y-2">
+                                        <p><strong>Rollout:</strong> Full-scale expansion to all targeted gated communities over 1-2 years.</p>
+                                        <p><strong>Integration:</strong> Develop a **unified loyalty program** spanning Kiosks, Quick Commerce, and distributor sales.</p>
+                                        <p><strong>Maturity:</strong> Build a data platform for consolidated interactions. Use analytics to personalize offers and optimize assortment per location.</p>
+                                        <p><strong>Benchmarks:</strong> Track LCV (Lifetime Customer Value) and target break-even within 12-18 months per kiosk.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Product Communication Analysis Tab (Renamed) -->
+            <div id="product-communication" class="tab-content hidden">
+                <div class="bg-white p-6 rounded-xl shadow-md mb-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">Product Communication & Packaging Insights</h2>
+
+                    <div class="grid lg:grid-cols-3 gap-6">
+                        <div class="lg:col-span-1">
+                            <h3 class="font-semibold text-lg text-gray-700 mb-2">Pulses & Dals</h3>
+                            <div class="p-3 border rounded-lg bg-green-50/50 text-sm">
+                                <p><strong>Current:</strong> Simple, generic packs with "premium" word.</p>
+                                <p><strong>Insight:</strong> Communicates trust/quality, but **premium aesthetics are not visible**. Logo inconsistency needs to be fixed.</p>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-1">
+                            <h3 class="font-semibold text-lg text-gray-700 mb-2">TDH Foods/Rishika (Ladoos, Mixes, Pickles)</h3>
+                            <div class="p-3 border rounded-lg bg-orange-50/50 text-sm">
+                                <p><strong>Current:</strong> Homemade, emotional connection (Amma outline). "RISHIKA" font differs across SKUs.</p>
+                                <p><strong>Insight:</strong> Strong nostalgia and authenticity. **RISHIKA font consistency is crucial**. Pickles could emphasize preservative/artificial-free claims.</p>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-1">
+                            <h3 class="font-semibold text-lg text-gray-700 mb-2">TDH Millets (Grains, Noodles, Pasta)</h3>
+                            <div class="p-3 border rounded-lg bg-blue-50/50 text-sm">
+                                <p><strong>Current:</strong> Focus on health, "superfood" tag, unpolished nature.</p>
+                                <p><strong>Insight:</strong> Appeals to health-conscious. **Redirection to milletmarvels socials causes confusion**. Logo placement is inconsistent across SKUs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Celebrity Usage Guidelines Tab (New) -->
+            <div id="celebrity-usage" class="tab-content hidden">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">TDH | Usage of Celebrity Guidelines</h2>
+                    <div class="space-y-6">
+
+                        <div class="p-4 bg-yellow-100 border border-yellow-300 rounded-lg">
+                            <h3 class="text-lg font-semibold text-yellow-800 mb-2">1. Brand-Level Association: Suma Kanakala</h3>
+                            <p class="text-sm">Suma Kanakala is the official Brand Ambassador for **Tenali Double Horse (TDH) master brand**. She showcases trust, appeals to Telugu households, and ensures quality assurance. Her endorsement extends to all product lines under TDH unless a specific sub-brand introduces a separate, focused celebrity association.</p>
+                        </div>
+
+                        <!-- Sub-Brand Celebrity Section -->
+                        <div class="border rounded-lg p-4 bg-gray-50">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">2. Sub-Brand & Category-Level Celebrity Usage</h3>
+                            <p class="text-sm text-gray-600 mb-3">While TDH stands for trust and heritage, each sub-brand carries its own personality and audience segment. Celebrity usage at this level must be highly targeted:</p>
+                            <ul class="list-disc ml-5 text-sm space-y-1">
+                                <li><strong>Persona Alignment:</strong> The celebrity must align naturally with the sub-brand’s persona (e.g., cultural appeal, health consciousness, or aspirational lifestyle).</li>
+                                <li><strong>Impact:</strong> Partnership should strengthen the emotional and functional connection, not merely bring visibility.</li>
+                                <li><strong>Example:</strong> TDH Millet Marvels should consider a celebrity known for **health, wellness, and a modern lifestyle**.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Consideration and Frequency -->
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="border rounded-lg p-4 shadow-sm">
+                                <h4 class="font-semibold text-md text-gray-700 mb-2">3. Consideration of Celebrity</h4>
+                                <ul class="list-disc ml-5 text-sm space-y-1 text-gray-600">
+                                    <li>Chosen celebrity must mirror TDH’s core brand traits and maintain credibility.</li>
+                                    <li>**Avoid Conflicting Opinions:** Prevent regional/cultural mismatch (e.g., the Tamannaah Bhatia/Mysore Sandal Soap case).</li>
+                                </ul>
+                            </div>
+                            <div class="border rounded-lg p-4 shadow-sm">
+                                <h4 class="font-semibold text-md text-gray-700 mb-2">4. Frequency & Visibility</h4>
+                                <ul class="list-disc ml-5 text-sm space-y-1 text-gray-600">
+                                    <li>Ambassadors should appear in **planned cycles** tied to key launches and promotions.</li>
+                                    <li>Goal is to ensure each ambassador remains fresh and relevant, lessening consumer fatigue.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Endorsement Examples Table -->
+                        <h4 class="font-semibold text-gray-700 mt-4">Successful Endorsement Benchmarks</h4>
+                        <table class="w-full divide-y divide-gray-200 text-sm">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="p-2 text-left">Brand</th>
+                                    <th class="p-2 text-left">Ambassador</th>
+                                    <th class="p-2 text-left">Key Insight</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr class="hover:bg-gray-50"><td class="p-2">Aashirvaad Masalas</td><td class="p-2">Nani (Tollywood)</td><td class="p-2">Strong regional connect; category relevance (home-cooking).</td></tr>
+                                <tr class="hover:bg-gray-50"><td class="p-2">Godrej Jersey Badam Milk</td><td class="p-2">Rana Daggubati</td><td class="p-2">Strong regional & lifestyle fit (taste, health, refreshment).</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // --- DATA OBJECTS (For Charts and Structured Content) ---
+        const CHART_DATA = {
+            // Updated to combine drivers and segment distribution for a clearer visual story
+            proteinDrivers: {
+                labels: ['Gym/Fitness Awareness', 'Vegetarian Protein Seekers', 'Fortified/Convenient Foods', 'Social Media Influence'],
+                data: [35, 30, 20, 15], // Mock distribution of driving factors
+                backgroundColor: ['#f59e0b', '#10b981', '#3b82f6', '#ef4444'],
+            },
+            // New detailed competitive pricing data (Mocked)
+            sweetProteinPrice: {
+                labels: ['RiteBite Max Protein', 'Yogabar', 'The Whole Truth', 'AndMe Shake', 'Hershey\'s Shake'],
+                data: [80, 75, 90, 70, 60], // Avg Price per 100g/Equivalent Unit
+                backgroundColor: '#6366f1',
+            },
+            savouryProteinPrice: {
+                labels: ['Max Protein Chips', 'Green Snack Co. Chips', 'YogaBar Muesli', 'MuscleBlaze Pasta'],
+                data: [45, 60, 350, 150], // Avg Price per Pack/Serving (INR)
+                backgroundColor: '#14b8a6',
+            },
+            ladduProtein: {
+                labels: ['TDH Sunnundalu (Current)', 'Artinci Ladoo', 'Nuskha Kitchen (Est.)', 'EAT Anytime Balls (Est.)', 'TDH Protein Laddu (Proposed)'],
+                data: [3.9, 5.5, 4.0, 5.0, 15.0], // Protein in grams (actual & proposed)
+                backgroundColor: ['#4ade80', '#fbbf24', '#f87171', '#f87171', '#3b82f6'],
+            }
+        };
+
+        // --- UI & CHART INITIALIZATION LOGIC ---
+
+        function switchTab(tabId) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+
+            // Deactivate all buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active', 'bg-amber-600', 'text-white');
+                button.classList.add('text-gray-700', 'hover:bg-gray-100');
+            });
+
+            // Show the selected tab content
+            const activeTab = document.getElementById(tabId);
+            if (activeTab) {
+                activeTab.classList.remove('hidden');
+            }
+
+            // Activate the clicked button
+            const activeButton = document.querySelector(`[data-tab="${tabId}"]`);
+            if (activeButton) {
+                activeButton.classList.add('active', 'bg-amber-600', 'text-white');
+                activeButton.classList.remove('text-gray-700', 'hover:bg-gray-100');
+            }
+
+            // Redraw charts when switching to the Market tab to avoid rendering issues
+            if (tabId === 'market-protein') {
+                renderCharts();
+            }
+        }
+
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('span');
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(45deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Initialize Charts (variables to hold Chart instances)
+        let proteinDriversChart, sweetProteinPriceChart, savouryProteinPriceChart, ladduProteinChart;
+
+        function renderCharts() {
+            // Destroy existing charts to prevent memory leaks/redraw issues
+            if (proteinDriversChart) proteinDriversChart.destroy();
+            if (sweetProteinPriceChart) sweetProteinPriceChart.destroy();
+            if (savouryProteinPriceChart) savouryProteinPriceChart.destroy();
+            if (ladduProteinChart) ladduProteinChart.destroy();
+
+            // Chart 1: Protein Market Drivers (Doughnut)
+            proteinDriversChart = new Chart(document.getElementById('proteinDriversChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: CHART_DATA.proteinDrivers.labels,
+                    datasets: [{
+                        label: 'Market Share (%)',
+                        data: CHART_DATA.proteinDrivers.data,
+                        backgroundColor: CHART_DATA.proteinDrivers.backgroundColor,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        title: { display: false }
+                    }
+                }
+            });
+
+            // Chart 2: Sweet Protein Segment Price (Bar)
+            sweetProteinPriceChart = new Chart(document.getElementById('sweetProteinPriceChart'), {
+                type: 'bar',
+                data: {
+                    labels: CHART_DATA.sweetProteinPrice.labels,
+                    datasets: [{
+                        label: 'Avg Price (INR/100g)',
+                        data: CHART_DATA.sweetProteinPrice.data,
+                        backgroundColor: CHART_DATA.sweetProteinPrice.backgroundColor,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { callbacks: { label: (context) => `INR ${context.parsed.y} / 100g` } }
+                    },
+                    scales: {
+                        y: { beginAtZero: true, title: { display: true, text: 'Price (INR/100g)' } }
+                    }
+                }
+            });
+
+            // Chart 3: Savoury Protein Segment Price (Bar)
+            savouryProteinPriceChart = new Chart(document.getElementById('savouryProteinPriceChart'), {
+                type: 'bar',
+                data: {
+                    labels: CHART_DATA.savouryProteinPrice.labels,
+                    datasets: [{
+                        label: 'Avg Price (INR/Unit)',
+                        data: CHART_DATA.savouryProteinPrice.data,
+                        backgroundColor: CHART_DATA.savouryProteinPrice.backgroundColor,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { callbacks: { label: (context) => `INR ${context.parsed.y} / Unit` } }
+                    },
+                    scales: {
+                        y: { beginAtZero: true, title: { display: true, text: 'Price (INR/Unit)' } }
+                    }
+                }
+            });
+
+            // Chart 4: Protein Laddu Competitor Analysis (Bar - Focus on Protein Content)
+            ladduProteinChart = new Chart(document.getElementById('ladduProteinChart'), {
+                type: 'bar',
+                data: {
+                    labels: CHART_DATA.ladduProtein.labels,
+                    datasets: [{
+                        label: 'Protein Content (g)',
+                        data: CHART_DATA.ladduProtein.data,
+                        backgroundColor: CHART_DATA.ladduProtein.backgroundColor,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { callbacks: { label: (context) => `${context.parsed.x}g Protein` } }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Protein (grams per unit)' }
+                        },
+                        y: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Event Listeners for Tab Switching
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    switchTab(button.getAttribute('data-tab'));
+                });
+            });
+
+            // Initial load of the default tab (Brand Overview)
+            switchTab('brand-overview');
+        });
+    </script>
+</body>
+</html>
