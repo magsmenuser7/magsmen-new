@@ -5,7 +5,7 @@ works,telugufoods,suryacolors,tdhrishika,tenali_double_horse,triplex,vsb,zavaine
 Monochromatic_colors_in_branding,band_corner_the_new_age_of_buying_brand_activism,magsmen_brand_portfolio,brand_naming_unlock_the_soul_of_your_brand,the_power_of_consistency_why_brand_tone_matters,\
 a_cutting_edge_approach_in_branding_compressed,quiet_branding_silence_that_speaks_volumes,the_raise_ofreferral_marketing_growth_strategy_or_grey_zone,brandauditsystem,otc_purple,glocalization_where_global_meets_local,\
 festive_commerce_why_navratri_is_the_new_brand_battleground,the_bottled_water_is_not_just_hydrating_it_is_transforming,submit_strategy,tdhproteindashboard,delhiworldschoolbrandhealthinfographic,brandaudit,\
-brandaudit_sreenidhiglobalschoolaudit,delhiworldschool_brandanddigitalaudit,tdh_product_communication_Analysis,tdh_group_strategic_dashboard,tdh_x_pure_o_natural
+brandaudit_sreenidhiglobalschoolaudit,delhiworldschool_brandanddigitalaudit,tdh_product_communication_Analysis,tdh_group_strategic_dashboard,tdh_x_pure_o_natural,brand_detox
 
 from .views import *
 
@@ -78,6 +78,7 @@ urlpatterns = [
     path('glocalization-where-global-meets-local/', glocalization_where_global_meets_local, name='glocalization-where-global-meets-local'),
     path('festive-commerce-why-navratri-is-the-new-brand-battleground/', festive_commerce_why_navratri_is_the_new_brand_battleground, name='festive-commerce-why-navratri-is-the-new-brand-battleground'),
     path('the-bottled-water-is-not-just-hydrating-it-is-transforming/', the_bottled_water_is_not_just_hydrating_it_is_transforming, name='the-bottled-water-is-not-just-hydrating-it-is-transforming'),
+    path('brand-corner-brand-detox/',brand_detox, name='brand-corner-brand-detox'),
     path('brandauditsystem/', brandauditsystem, name='brandauditsystem'),
     path('one-time-consulting/', otc_purple, name='one-time-consulting'),
     path('tdh-protein-market-opportunity/', tdhproteindashboard, name='tdh-protein-market-opportunity'),

@@ -586,6 +586,15 @@ def the_bottled_water_is_not_just_hydrating_it_is_transforming(request):
     response['Content-Disposition'] = f'inline; filename="{pdf_filename_fifteen}"'
     return response
 
+def brand_detox(request):
+    pdf_filename_sixteen = 'brand-detox.pdf'
+    pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename_sixteen)
+    
+    response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
+    response['Content-Disposition'] = f'inline; filename="{pdf_filename_sixteen}"'
+    return response
+
+
 
 
 
