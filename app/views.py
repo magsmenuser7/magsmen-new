@@ -380,6 +380,10 @@ def tdh_group_strategic_dashboard(request):
     return render(request, 'uifiles/tdhgroup-strategicdashboard.html')
 
 
+def tdh_x_pure_o_natural(request):
+    return render(request, 'uifiles/tdh-x-pure-o-natural.html')
+
+
 
 
 def delhiworldschoolbrandhealthinfographic(request):
