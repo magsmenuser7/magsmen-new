@@ -400,6 +400,9 @@ def brandaudit_sreenidhiglobalschoolaudit(request):
 def delhiworldschool_brandanddigitalaudit(request):
     return render(request, 'uifiles/delhiworldschool-brandanddigitalaudit.html')
 
+def sowmya_feeds(request):
+    return render(request, 'uifiles/sowmyafeeds.html')
+
 
 
 

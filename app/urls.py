@@ -5,7 +5,7 @@ works,telugufoods,suryacolors,tdhrishika,tenali_double_horse,triplex,vsb,zavaine
 Monochromatic_colors_in_branding,band_corner_the_new_age_of_buying_brand_activism,magsmen_brand_portfolio,brand_naming_unlock_the_soul_of_your_brand,the_power_of_consistency_why_brand_tone_matters,\
 a_cutting_edge_approach_in_branding_compressed,quiet_branding_silence_that_speaks_volumes,the_raise_ofreferral_marketing_growth_strategy_or_grey_zone,brandauditsystem,otc_purple,glocalization_where_global_meets_local,\
 festive_commerce_why_navratri_is_the_new_brand_battleground,the_bottled_water_is_not_just_hydrating_it_is_transforming,submit_strategy,tdhproteindashboard,delhiworldschoolbrandhealthinfographic,brandaudit,\
-brandaudit_sreenidhiglobalschoolaudit,delhiworldschool_brandanddigitalaudit,tdh_product_communication_Analysis,tdh_group_strategic_dashboard,tdh_x_pure_o_natural,brand_detox
+brandaudit_sreenidhiglobalschoolaudit,delhiworldschool_brandanddigitalaudit,tdh_product_communication_Analysis,tdh_group_strategic_dashboard,tdh_x_pure_o_natural,brand_detox,sowmya_feeds
 
 from .views import *
 
@@ -89,6 +89,7 @@ urlpatterns = [
     path('brand-audit-sreenidhi-global-school-audit/', brandaudit_sreenidhiglobalschoolaudit, name='brand-audit-sreenidhi-global-school-audit'),
     path('delhi-world-school-brand-and-digital-audit/', delhiworldschool_brandanddigitalaudit, name='delhi-world-school-brand-and-digital-audit'),
     path('tdh-x-pure-o-natural/', tdh_x_pure_o_natural, name='tdh-x-pure-o-natural'),
+    path('sowmya-feeds/', sowmya_feeds, name='sowmya-feeds'),
 
 
 

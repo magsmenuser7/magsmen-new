@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sowmya Feeds - Brand Audit & Strategy</title>
+    <!-- Tailwind & Chart.js -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Extra font for Strategy Mapping block -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* GLOBAL BODY STYLES (for Brand Audit) */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #1f2937;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+
+        @media (min-width: 640px) {
+            .chart-container {
+                height: 350px;
+                max-height: 400px;
+            }
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-link.active {
+            border-bottom-color: #d97706;
+            color: #d97706;
+            font-weight: 600;
+        }
+
+        .content-section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .content-section.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            box-shadow:
+                0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            overflow: hidden;
+        }
+
+        .stat-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            margin-top: 1rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .stat-card p {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #d97706;
+        }
+
+        .info-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #d97706;
+            margin-bottom: 0.75rem;
+        }
+
+        .info-card p,
+        .info-card li {
+            color: #4b5563;
+        }
+
+        .arrow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem 0;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .arrow-diagram .box {
+            border: 1px solid #d1d5db;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background-color: #f9fafb;
+            text-align: center;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .arrow-diagram .arrow {
+            font-size: 2rem;
+            color: #d97706;
+            transform: rotate(90deg);
+        }
+
+        
+
+        @media (min-width: 768px) {
+            .arrow-diagram {
+                flex-direction: row;
+                gap: 0;
+            }
+
+            .arrow-diagram .arrow {
+                transform: rotate(0deg);
+                margin: 0 1.5rem;
+            }
+        }
+
+        /* ==========================================================
+           STRATEGY MAPPING BLOCK STYLES
+           Converted from second HTML; scoped to .strategy-map-root
+           to avoid affecting the whole page.
+           ========================================================== */
+
+        :root {
+            --primary-purple: #7F3DFF;
+            --bg-color: #F9F9FA; /* Light textured white/grey */
+            --text-dark: #333333;
+            --white: #FFFFFF;
+            --transition-speed: 0.5s;
+        }
+
+        /* MAIN WRAPPER FOR STRATEGY MAPPING PAGE */
+        .strategy-map-root {
+            margin: 0;
+            padding: 0;
+            font-family: 'Proxima Nova', 'Montserrat', 'Segoe UI', Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(#e5e5e5 1px, transparent 1px);
+            background-size: 20px 20px; /* Subtle texture pattern */
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh; /* Full viewport height (below sticky header) */
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        /* BRANDING LOGOS */
+        .brand-logo {
+            position: absolute;
+            top: 40px;
+            z-index: 100;
+            user-select: none;
+        }
+
+        .logo-left {
+            left: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .otc-text {
+            font-weight: 800;
+            font-size: 2rem;
+            letter-spacing: -1px;
+            color: #000;
+            line-height: 1;
+        }
+
+        .otc-sub {
+            font-size: 0.6rem;
+            color: #666;
+            margin-left: 5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            line-height: 1.2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-right {
+            right: 50px;
+            text-align: right;
+            border-left: 3px solid #000;
+            padding-left: 15px;
+        }
+
+        .magsmen-title {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: #000;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .magsmen-sub {
+            font-size: 0.65rem;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 3px;
+        }
+
+        /* SLIDE CONTAINER */
+        .slide-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.9);
+            transition: all var(--transition-speed) ease-in-out;
+            background: var(--bg-color); /* Ensure opacity hides other layers */
+        }
+
+        .slide.active {
+            opacity: 1;
+            pointer-events: all;
+            transform: scale(1);
+            z-index: 10;
+        }
+
+        /* MAP ELEMENTS (Slide 1) */
+        .map-wrapper {
+            position: relative;
+            width: 1200px;
+            height: 800px;
+            /* border: 1px dashed #ccc;  // debug */
+        }
+
+        /* SVG Lines Layer */
+        .connector-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .connector-line {
+            stroke: var(--primary-purple);
+            stroke-width: 2px;
+            fill: none;
+        }
+
+        .connector-dot {
+            fill: var(--primary-purple);
+        }
+
+        /* Nodes */
+        .node {
+            position: absolute;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-weight: 700; /* Bolder font */
+            box-shadow: 0 4px 10px rgba(127, 61, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        .node:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(127, 61, 255, 0.4);
+        }
+
+        /* Central Node */
+        .node-center {
+            width: 220px;
+            height: 220px;
+            background: var(--white);
+            border: 4px solid var(--primary-purple);
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            left: 50%;
+            top: 50%;
+            margin-left: -110px; /* Half width */
+            margin-top: -110px;  /* Half height */
+            z-index: 5;
+            cursor: default;
+            text-transform: uppercase;
+        }
+
+        .node-center:hover {
+            transform: scale(1);
+            box-shadow: 0 4px 10px rgba(127, 61, 255, 0.2);
+        }
+
+        /* Outer Nodes */
+        .node-outer {
+            width: 140px;
+            height: 140px;
+            background: var(--primary-purple);
+            color: var(--white);
+            font-size: 1.1rem;
+        }
+
+        /* Positioning Outer Nodes */
+        .pos-top {
+            left: 50%;
+            top: 15%;
+            margin-left: -70px;
+        }
+
+        .pos-right {
+            left: 85%;
+            top: 50%;
+            margin-left: -70px;
+            margin-top: -70px;
+        }
+
+        .pos-bottom {
+            left: 50%;
+            bottom: 15%;
+            margin-left: -70px;
+        }
+
+        .pos-left {
+            left: 15%;
+            top: 50%;
+            margin-left: -70px;
+            margin-top: -70px;
+        }
+
+        /* Labels (Branches) */
+        .label-text {
+            position: absolute;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            background: var(--white);
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid #eee;
+            max-width: 160px;
+            z-index: 1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            font-weight: 500;
+        }
+
+        /* DETAIL SLIDES (2-5) */
+        .detail-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            max-width: 900px;
+        }
+
+        .detail-header-node {
+            width: 160px;
+            height: 160px;
+            background: var(--primary-purple);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 25px rgba(127, 61, 255, 0.3);
+            text-transform: uppercase;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            width: 100%;
+        }
+
+        .detail-item {
+            position: relative;
+            background: var(--white);
+            padding: 25px 25px 25px 35px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-purple);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+
+        .detail-item:hover {
+            transform: translateX(5px);
+        }
+
+        .detail-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-purple);
+            border-radius: 50%;
+            transform: translateY(-50%);
+            border: 2px solid white;
+        }
+
+        .detail-title {
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin-bottom: 8px;
+            display: block;
+            font-size: 1.2rem;
+        }
+
+        .detail-desc {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: absolute;
+            top: 120px; /* Avoid header overlap */
+            left: 50px;
+            background: transparent;
+            border: 2px solid var(--primary-purple);
+            color: var(--primary-purple);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 101;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-purple);
+            color: var(--white);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Mobile handling */
+        @media (max-width: 768px) {
+            .map-wrapper {
+                transform: scale(0.5);
+                transform-origin: center;
+            }
+
+            .pos-right {
+                left: 90%;
+            }
+
+            .pos-left {
+                left: 10%;
+            }
+
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .slide {
+                overflow-y: auto;
+                display: block;
+                padding: 20px;
+            }
+
+            .detail-content {
+                margin: 120px auto 0;
+            }
+
+            .brand-logo {
+                transform: scale(0.8);
+            }
+
+            .logo-left {
+                left: 20px;
+                top: 20px;
+            }
+
+            .logo-right {
+                right: 20px;
+                top: 20px;
+            }
+
+            .back-btn {
+                top: 80px;
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- STICKY HEADER / NAVBAR -->
+<header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <h1 class="text-2xl font-bold text-amber-600">Sowmya Feeds: Brand Audit</h1>
+            </div>
+
+            <!-- DESKTOP NAV -->
+            <nav class="hidden md:block">
+                <div class="ml-10 flex items-baseline space-x-4">
+                    <a href="#dashboard" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-amber-600">Dashboard</a>
+                    <a href="#market" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-amber-600">Market Landscape</a>
+                    <a href="#brand" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-amber-600">Brand Deep Dive</a>
+                    <a href="#consumer" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-amber-600">Consumer & Sentiment</a>
+                    <a href="#strategy" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-amber-600">Strategic Path</a>
+                    <a href="#strategy-mapping" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-amber-600">Sowmya Feeds Strategy Mapping</a>
+                </div>
+            </nav>
+
+            <!-- MOBILE HAMBURGER BUTTON -->
+            <button id="mobile-menu-toggle" class="md:hidden flex items-center px-3 py-2 border rounded text-gray-700 border-gray-400 hover:text-amber-600 hover:border-amber-600">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+        </div>
+
+        <!-- MOBILE DROPDOWN MENU -->
+        <div id="mobile-menu" class="md:hidden hidden mt-2 pb-3 space-y-1 border-t border-gray-200">
+
+            <a href="#dashboard"
+                class="block px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-amber-600 nav-link">
+                Dashboard
+            </a>
+
+            <a href="#market"
+                class="block px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-amber-600 nav-link">
+                Market Landscape
+            </a>
+
+            <a href="#brand"
+                class="block px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-amber-600 nav-link">
+                Brand Deep Dive
+            </a>
+
+            <a href="#consumer"
+                class="block px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-amber-600 nav-link">
+                Consumer & Sentiment
+            </a>
+
+            <a href="#strategy"
+                class="block px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-amber-600 nav-link">
+                Strategic Path
+            </a>
+
+            <a href="#strategy-mapping"
+                class="block px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-amber-600 nav-link">
+                Sowmya Feeds Strategy Mapping
+            </a>
+        </div>
+    </div>
+</header>
+
+    <!-- MAIN BRAND AUDIT CONTENT -->
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="content-section">
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">Audit Dashboard</h2>
+                <p class="text-lg text-gray-600">An executive summary of the Sowmya Feeds brand audit. This section provides the key metrics and qualitative assessments at a glance.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card stat-card">
+                    <h3 class="text-gray-700">Brand Health Index</h3>
+                    <div class="chart-container" style="height: 200px; max-height: 200px;">
+                        <canvas id="brandHealthChart"></canvas>
+                    </div>
+                    <p class="text-amber-600">65/100</p>
+                    <span class="text-sm text-gray-500">Solid, but lacks strong advocacy.</span>
+                </div>
+                <div class="card stat-card">
+                    <h3 class="text-gray-700">Visual Consistency Index</h3>
+                    <div class="chart-container" style="height: 200px; max-height: 200px;">
+                        <canvas id="visualConsistencyChart"></canvas>
+                    </div>
+                    <p class="text-blue-600">60%</p>
+                    <span class="text-sm text-gray-500">Inconsistent across digital assets.</span>
+                </div>
+                <div class="card info-card">
+                    <h3>Primary Consumer Persona</h3>
+                    <p class="font-semibold text-lg text-gray-800 mb-2">The 'Anxious Achiever' Farmer</p>
+                    <ul class="list-disc list-inside space-y-1 text-sm">
+                        <li>Values reliability and proven ROI.</li>
+                        <li>Worries about yield, cost, & animal health.</li>
+                        <li>Seeks a trusted partner, not just a supplier.</li>
+                        <li>Emotionally driven by pride and financial pressure.</li>
+                    </ul>
+                </div>
+                <div class="card info-card">
+                    <h3>Brand Archetype Analysis</h3>
+                    <p class="font-semibold text-lg text-gray-800 mb-2">Current: The Caregiver</p>
+                    <p class="text-sm mb-3">Nurturing, supportive, reliable. Focused on protecting the farmer's livelihood. This is a strong foundation.</p>
+                    <h3 class="text-green-600">Opportunity: The Sage</h3>
+                    <p class="text-sm">Evolve by adding expertise. Become the source of truth for animal nutrition, using data and innovation to guide farmers to success.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MARKET LANDSCAPE -->
+        <section id="market" class="content-section">
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">Market Landscape</h2>
+                <p class="text-lg text-gray-600">Analysis of the external environment, including market trends, competitor benchmarking, and identified opportunities.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Competitor Benchmarking</h3>
+                    <div class="chart-container">
+                        <canvas id="competitorChart"></canvas>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-4">Sowmya leads in 'Perceived Quality' among its direct competitors but trails in 'Innovation' and 'Price Competitiveness'. This highlights the mid-market 'quality' position.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Regional Market Analysis</h3>
+                    <div class="chart-container">
+                        <canvas id="marketGrowthChart"></canvas>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-4">The animal feed market shows steady growth (CAGR 4.5%), driven by demand for protein. The 'Specialty Feeds' (aqua, high-performance) segment is growing fastest.</p>
+                </div>
+                <div class="card lg:col-span-2">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Market Gap & Need Analysis</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="text-lg font-semibold text-amber-600">Identified Market Gap</h4>
+                            <p class="text-gray-600">A significant gap exists for data-driven, holistic nutrition solutions for small-to-medium farms. Competitors focus on large-scale operations or basic feeds, leaving a "missing middle."</p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-blue-600">Identified Market Need</h4>
+                            <p class="text-gray-600">Farmers need more than bags of feed. They need a partner that provides provable ROI calculators, localized feed strategies, and support that demonstrates a clear path from feed cost to profit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BRAND DEEP DIVE -->
+        <section id="brand" class="content-section">
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">Brand Deep Dive</h2>
+                <p class="text-lg text-gray-600">An internal audit of Sowmya's brand assets, including visual identity, digital presence, and brand story.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Web & Digital Audit</h3>
+                    <div class="chart-container">
+                        <canvas id="webAuditChart"></canvas>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-4">The current website (<code>sowmyafeeds.com</code>) acts as a static "brochure." It scores well on basic 'Content' (product info) but poorly on 'UI/UX' (mobile experience) and 'Interactivity' (tools, resources).</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Visual Identity & Standards</h3>
+                    <p class="text-gray-600 mb-4">Visuals are inconsistent. The logo is used well, but color palettes, typography, and imagery (stock photos) vary across the website, social media, and packaging.</p>
+                    <div class="p-4 border border-gray-200 rounded-lg">
+                        <h4 class="font-semibold mb-2">Analysis: Visual Consistency Index (60%)</h4>
+                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                            <li><span class="font-semibold text-red-600">Low Point:</span> Social media graphics feel disconnected from website.</li>
+                            <li><span class="font-semibold text-red-600">Low Point:</span> Photography is generic, lacking emotional connection.</li>
+                            <li><span class="font-semibold text-green-600">High Point:</span> Packaging design is consistent and recognizable.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card lg:col-span-2">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Story & Personality Analysis</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-700">Current Story (Implicit)</h4>
+                            <p class="text-gray-600 text-sm">"We are Sowmya Feeds. We make quality cattle feed that is reliable and good for your animals. We have been doing this for a long time."</p>
+                            <p class="text-sm mt-2 italic text-gray-500">Analysis: Fact-based, safe, and trustworthy, but lacks emotion and a clear "why."</p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-amber-600">Future Story (Opportunity)</h4>
+                            <p class="text-gray-600 text-sm">"We understand the pressure you face. Sowmya Feeds is your partner, combining decades of care with nutritional science to deliver proven results you can see in your herd and on your bottom line."</p>
+                            <p class="text-sm mt-2 italic text-gray-500">Analysis: Empathetic, outcome-focused, and positions the brand as a partner (Caregiver + Sage).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONSUMER & SENTIMENT -->
+        <section id="consumer" class="content-section">
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">Consumer & Sentiment Analysis</h2>
+                <p class="text-lg text-gray-600">Understanding the target farmer persona, their emotional drivers, and their sentiment towards Sowmya and its competitors.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="card lg:col-span-2">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Consumer Sentiment Analysis (Social Monitoring)</h3>
+                    <div class="chart-container" style="height: 400px; max-height: 450px;">
+                        <canvas id="sentimentChart"></canvas>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-4">Sowmya enjoys a high level of 'Neutral' to 'Positive' sentiment, centered on 'Reliability'. Competitor 'A' (low price) has higher 'Negative' (quality complaints). Competitor 'B' (innovator) has more 'Positive' (excitement) but also 'Negative' (high price).</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Persona: Emotional Drivers</h3>
+                    <p class="text-gray-600 mb-4">The 'Anxious Achiever' farmer's decisions are not purely rational. Brand building must address these core feelings.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-red-100 text-red-600 text-xl font-bold mr-3">-</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">FEAR</h4>
+                                <p class="text-sm text-gray-600">Fear of animal sickness, price drops, and uncontrollable events (weather, regulation).</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-blue-100 text-blue-600 text-xl font-bold mr-3">?</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">UNCERTAINTY</h4>
+                                <p class="text-sm text-gray-600">"Is this feed worth the cost? Am I making the right choice?" Lack of clear data creates doubt.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-green-100 text-green-600 text-xl font-bold mr-3">+</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">PRIDE</h4>
+                                <p class="text-sm text-gray-600">Immense pride in their herd's health, milk quality, and the legacy of their farm.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-amber-100 text-amber-600 text-xl font-bold mr-3">✓</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">TRUST</h4>
+                                <p class="text-sm text-gray-600">The most valued "currency." They will be loyal to brands that prove they are a reliable partner.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- STRATEGIC PATH -->
+        <section id="strategy" class="content-section">
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">Strategic Path Forward</h2>
+                <p class="text-lg text-gray-600">Actionable recommendations based on the audit, focusing on brand building, perception, and digital infrastructure.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Recommended Perception Building</h3>
+                    <p class="text-gray-600 mb-4">Shift the brand perception from a 'Reliable Supplier' to an 'Expert Partner' by closing the innovation gap.</p>
+                    <div class="arrow-diagram">
+                        <div class="box">
+                            <h4 class="font-semibold">FROM: The Caregiver</h4>
+                            <p class="text-sm">"We provide quality feed to protect your animals."</p>
+                        </div>
+                        <div class="arrow">+</div>
+                        <div class="box">
+                            <h4 class="font-semibold">TO: Caregiver + Sage</h4>
+                            <p class="text-sm">"We partner with you, using science to prove our quality and grow your profit."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Legal & ASCI Standards</h3>
+                    <p class="text-gray-600 mb-4">The brand is fully compliant. No IPR or legal issues found. This is a strong positive.</p>
+                    <p class="text-gray-600">Future Strategy: Leverage ASCI compliance in marketing. As we move to data-driven claims ("Increase milk yield by X%"), all claims must be rigorously tested and documented to maintain this high standard.</p>
+                </div>
+                <div class="card md:col-span-2">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Recommended Digital Infrastructure</h3>
+                    <p class="text-gray-600 mb-4">To bridge the gap and support the 'Sage' archetype, the digital infrastructure must evolve from a static website to an interactive ecosystem.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <span class="text-3xl">🖥️</span>
+                            <h4 class="font-semibold mt-2">1. Revamped Website</h4>
+                            <p class="text-sm text-gray-600">Focus on case studies, clear data, and farmer testimonials. (Addresses 'Uncertainty').</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <span class="text-3xl">📱</span>
+                            <h4 class="font-semibold mt-2">2. Farmer App</h4>
+                            <p class="text-sm text-gray-600">Simple tools: Feed ROI Calculator, Localized Feed Guides, Support Chat. (Builds 'Trust').</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <span class="text-3xl">📊</span>
+                            <h4 class="font-semibold mt-2">3. Content Engine</h4>
+                            <p class="text-sm text-gray-600">Create expert content (blogs, videos) on animal health, new tech, and market news. (Demonstrates 'Expertise').</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card md:col-span-2">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Outcome of This Strategy</h3>
+                    <p class="text-gray-600">By evolving the brand archetype and investing in a supportive digital ecosystem, Sowmya Feeds can achieve three primary outcomes:</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 mt-4">
+                        <li><span class="font-semibold text-gray-800">Increased Customer Loyalty:</span> Move from a transactional relationship to a partnership, making price a less critical factor.</li>
+                        <li><span class="font-semibold text-gray-800">Stronger Brand Advocacy:</span> Empower farmers with data-driven success stories they are proud to share.</li>
+                        <li><span class="font-semibold text-gray-800">Sustainable Market Differentiation:</span> Create a durable competitive advantage based on expertise and trust that low-price competitors cannot easily replicate.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================================
+         NEW SECTION: SOWMYA FEEDS STRATEGY MAPPING (FULLSCREEN)
+         ========================================================== -->
+    <section id="strategy-mapping" class="content-section">
+        <!-- This wrapper mimics the second HTML body exactly -->
+        <div class="strategy-map-root">
+
+            <!-- BRANDING OVERLAY -->
+            <div class="brand-logo logo-left">
+                <div class="otc-text">OTC</div>
+                <div class="otc-sub">
+                    <span>One Time</span>
+                    <span>Consulting</span>
+                </div>
+            </div>
+
+            <div class="brand-logo logo-right">
+                <div class="magsmen-title">MAGSMEN</div>
+                <div class="magsmen-sub">Brand Consultants</div>
+            </div>
+
+            <div class="slide-container">
+
+                <!-- ================ SLIDE 1: MAIN MAP ================= -->
+                <div id="slide-main" class="slide active">
+                    <div class="map-wrapper">
+
+                        <!-- SVG Connections Overlay -->
+                        <svg class="connector-layer">
+                            <!-- Center to Top -->
+                            <path d="M 600 290 Q 600 220 600 150" class="connector-line" />
+                            <!-- Center to Right -->
+                            <path d="M 710 400 Q 780 400 1020 400" class="connector-line" />
+                            <!-- Center to Bottom -->
+                            <path d="M 600 510 Q 600 580 600 680" class="connector-line" />
+                            <!-- Center to Left -->
+                            <path d="M 490 400 Q 420 400 180 400" class="connector-line" />
+
+                            <!-- TOP BRANCHES (Team) -->
+                            <path d="M 530 150 L 450 150" class="connector-line" />
+                            <circle cx="450" cy="150" r="5" class="connector-dot" />
+                            <path d="M 670 150 L 750 150" class="connector-line" />
+                            <circle cx="750" cy="150" r="5" class="connector-dot" />
+
+                            <!-- RIGHT BRANCHES (Management) -->
+                            <path d="M 1090 400 L 1150 300" class="connector-line" />
+                            <circle cx="1150" cy="300" r="5" class="connector-dot" />
+                            <path d="M 1090 400 L 1150 366" class="connector-line" />
+                            <circle cx="1150" cy="366" r="5" class="connector-dot" />
+                            <path d="M 1090 400 L 1150 433" class="connector-line" />
+                            <circle cx="1150" cy="433" r="5" class="connector-dot" />
+                            <path d="M 1090 400 L 1150 500" class="connector-line" />
+                            <circle cx="1150" cy="500" r="5" class="connector-dot" />
+
+                            <!-- LEFT BRANCHES (Ops) -->
+                            <path d="M 110 400 L 50 350" class="connector-line" />
+                            <circle cx="50" cy="350" r="5" class="connector-dot" />
+                            <path d="M 110 400 L 50 450" class="connector-line" />
+                            <circle cx="50" cy="450" r="5" class="connector-dot" />
+
+                            <!-- BOTTOM BRANCHES (Sales) -->
+                            <path d="M 530 680 L 450 680" class="connector-line" />
+                            <circle cx="450" cy="680" r="5" class="connector-dot" />
+                            <path d="M 450 680 L 450 620" class="connector-line" />
+                            <circle cx="450" cy="620" r="5" class="connector-dot" />
+                            <path d="M 450 680 L 450 740" class="connector-line" />
+                            <circle cx="450" cy="740" r="5" class="connector-dot" />
+
+                            <path d="M 670 680 L 750 680" class="connector-line" />
+                            <circle cx="750" cy="680" r="5" class="connector-dot" />
+                        </svg>
+
+                        <!-- NODES -->
+
+                        <!-- Center -->
+                        <div class="node node-center">
+                            SOWMYA<br>FEEDS
+                        </div>
+
+                        <!-- Top: Team -->
+                        <div class="node node-outer pos-top" onclick="showSlide('slide-team')">
+                            Team
+                        </div>
+                        <!-- Labels Team -->
+                        <div class="label-text" style="top: 130px; left: 350px; text-align: right;">No Team<br>Required</div>
+                        <div class="label-text" style="top: 130px; left: 760px;">Adding a<br>Layer</div>
+
+                        <!-- Right: Management -->
+                        <div class="node node-outer pos-right" onclick="showSlide('slide-mgmt')">
+                            Management
+                        </div>
+                        <!-- Labels Mgmt -->
+                        <div class="label-text" style="top: 280px; left: 1160px;">Decision<br>Making</div>
+                        <div class="label-text" style="top: 350px; left: 1160px;">Individual<br>Process</div>
+                        <div class="label-text" style="top: 420px; left: 1160px;">Key<br>Performance</div>
+                        <div class="label-text" style="top: 490px; left: 1160px;">Process<br>Streamline</div>
+
+                        <!-- Left: Ops -->
+                        <div class="node node-outer pos-left" onclick="showSlide('slide-ops')">
+                            Operations<br>& Tech
+                        </div>
+                        <!-- Labels Ops -->
+                        <div class="label-text" style="top: 330px; left: 20px; text-align: right;">Semi-<br>Automation</div>
+                        <div class="label-text" style="top: 440px; left: 20px; text-align: right;">Phase-Wise<br>Reporting</div>
+
+                        <!-- Bottom: Sales -->
+                        <div class="node node-outer pos-bottom" onclick="showSlide('slide-sales')">
+                            Sales
+                        </div>
+                        <!-- Labels Sales -->
+                        <div class="label-text" style="top: 660px; left: 380px; text-align: right;">Awareness</div>
+                        <div class="label-text" style="top: 600px; left: 380px; text-align: right;">Brand</div>
+                        <div class="label-text" style="top: 720px; left: 380px; text-align: right;">Acquisition</div>
+
+                        <div class="label-text" style="top: 670px; left: 760px;">Relationship</div>
+
+                    </div>
+<!-- 
+                    <div style="position: absolute; bottom: 20px; right: 20px; font-size: 0.8rem; color: #888; font-weight: 600;">
+                        Click on purple circles to view details
+                    </div> -->
+                </div>
+
+                <!-- ================ SLIDE 2: TEAM ================= -->
+                <div id="slide-team" class="slide">
+                    <button class="back-btn" onclick="showSlide('slide-main')">← Back to Map</button>
+                    <div class="detail-content">
+                        <div class="detail-header-node">Team</div>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <span class="detail-title">No Additional Team</span>
+                                <span class="detail-desc">At this stage, no new hiring. Sandeep will be directly involved to understand root problems independently, including auto-upgrading and competitor assessment.</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-title">Adding a Layer</span>
+                                <span class="detail-desc">Introducing hierarchy to build organizational standards with proper reporting, performance tracking, and enabling employees to operate independently.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================ SLIDE 3: MANAGEMENT ================= -->
+                <div id="slide-mgmt" class="slide">
+                    <button class="back-btn" onclick="showSlide('slide-main')">← Back to Map</button>
+                    <div class="detail-content">
+                        <div class="detail-header-node" style="font-size: 1.2rem;">Management</div>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <span class="detail-title">Decision Making</span>
+                                <span class="detail-desc">A structured hierarchy will eliminate individual dependence and establish a clear tracking mechanism for performance.</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-title">Individual Process</span>
+                                <span class="detail-desc">Rigorous training required so every individual can make decisions confidently and operate independently during execution.</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-title">Key Performance</span>
+                                <span class="detail-desc">Understanding data structuring, consumer demand, and market size to help bridge gaps in the market.</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-title">Process Streamline</span>
+                                <span class="detail-desc">Evaluating semi-automation and its impact on current management processes for better integration.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================ SLIDE 4: OPS & TECH ================= -->
+                <div id="slide-ops" class="slide">
+                    <button class="back-btn" onclick="showSlide('slide-main')">← Back to Map</button>
+                    <div class="detail-content">
+                        <div class="detail-header-node" style="font-size: 1.2rem;">Ops & Tech</div>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <span class="detail-title">Semi-Automation</span>
+                                <span class="detail-desc">Provides real-time data projection and highlights areas where roles can be optimized or replaced if needed.</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-title">Phase-Wise Reporting</span>
+                                <span class="detail-desc">Gaining visibility into efficiency metrics via automation. Allows the team to review individual and overall performance through data.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================ SLIDE 5: SALES ================= -->
+                <div id="slide-sales" class="slide">
+                    <button class="back-btn" onclick="showSlide('slide-main')">← Back to Map</button>
+                    <div class="detail-content">
+                        <div class="detail-header-node">Sales</div>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <span class="detail-title">Brand</span>
+                                <span class="detail-desc">Establish strong recognition for the product. The brand name should be consistently associated with quality.</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-title">Awareness</span>
+                                <span class="detail-desc">Market awareness needs to be strengthened by communicating effectively with distributors and farmers.</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-title">Acquisition</span>
+                                <span class="detail-desc">Consumer acquisition must be prioritized to build a robust market presence.</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-title">Relationship</span>
+                                <span class="detail-desc">Building healthy and strong relationships with farmers and distributors will enhance familiarity, trust, and authenticity.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- /slide-container -->
+
+        </div> <!-- /strategy-map-root -->
+    </section>
+
+    <!-- ==========================================================
+         SCRIPTS
+         ========================================================== -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.content-section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            // Track chart initialization
+            let dashboardChartsInitialized = false;
+            let marketChartsInitialized = false;
+            let brandChartsInitialized = false;
+            let consumerChartsInitialized = false;
+
+            function showSection(id) {
+                sections.forEach(section => {
+                    if (section.id === id) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+
+                if (mobileNav && mobileNav.value !== id) {
+                    mobileNav.value = id;
+                }
+
+                // Lazy-load charts for respective sections
+                if (id === 'dashboard' && !dashboardChartsInitialized) {
+                    initDashboardCharts();
+                    dashboardChartsInitialized = true;
+                } else if (id === 'market' && !marketChartsInitialized) {
+                    initMarketCharts();
+                    marketChartsInitialized = true;
+                } else if (id === 'brand' && !brandChartsInitialized) {
+                    initBrandCharts();
+                    brandChartsInitialized = true;
+                } else if (id === 'consumer' && !consumerChartsInitialized) {
+                    initConsumerCharts();
+                    consumerChartsInitialized = true;
+                }
+            }
+
+            function handleNavClick(event) {
+                event.preventDefault();
+                const id = event.currentTarget.getAttribute('href').split('#')[1];
+                showSection(id);
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', handleNavClick);
+            });
+
+            if (mobileNav) {
+                mobileNav.addEventListener('change', (event) => {
+                    showSection(event.target.value);
+                });
+            }
+
+            function wrapLabel(str) {
+                const maxLength = 16;
+                const lines = [];
+                const words = str.split(' ');
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + word).length < maxLength) {
+                        currentLine += word + ' ';
+                    } else {
+                        lines.push(currentLine.trim());
+                        currentLine = word + ' ';
+                    }
+                });
+                lines.push(currentLine.trim());
+                return lines;
+            }
+
+            Chart.defaults.font.family = "'Inter', sans-serif";
+            Chart.defaults.plugins.tooltip.backgroundColor = '#FFFFFF';
+            Chart.defaults.plugins.tooltip.titleColor = '#1f2937';
+            Chart.defaults.plugins.tooltip.bodyColor = '#4b5563';
+            Chart.defaults.plugins.tooltip.borderColor = '#d1d5db';
+            Chart.defaults.plugins.tooltip.borderWidth = 1;
+
+            function initDashboardCharts() {
+                const brandHealthCtx = document.getElementById('brandHealthChart');
+                if (brandHealthCtx) {
+                    new Chart(brandHealthCtx, {
+                        type: 'doughnut',
+                        data: {
+                            datasets: [{
+                                data: [65, 35],
+                                backgroundColor: ['#d97706', '#e5e7eb'],
+                                borderWidth: 0,
+                                cutout: '70%'
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                tooltip: { enabled: false },
+                                legend: { display: false }
+                            }
+                        }
+                    });
+                }
+
+                const visualConsistencyCtx = document.getElementById('visualConsistencyChart');
+                if (visualConsistencyCtx) {
+                    new Chart(visualConsistencyCtx, {
+                        type: 'doughnut',
+                        data: {
+                            datasets: [{
+                                data: [60, 40],
+                                backgroundColor: ['#2563eb', '#e5e7eb'],
+                                borderWidth: 0,
+                                cutout: '70%'
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                tooltip: { enabled: false },
+                                legend: { display: false }
+                            }
+                        }
+                    });
+                }
+            }
+
+            function initMarketCharts() {
+                const competitorCtx = document.getElementById('competitorChart');
+                if (competitorCtx) {
+                    new Chart(competitorCtx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Perceived Quality', 'Price', 'Innovation', 'Farmer Support'],
+                            datasets: [
+                                {
+                                    label: 'Sowmya Feeds',
+                                    data: [8, 6, 5, 7],
+                                    backgroundColor: '#d97706',
+                                    borderRadius: 4
+                                },
+                                {
+                                    label: 'Competitor A (Price)',
+                                    data: [5, 9, 4, 5],
+                                    backgroundColor: '#dc2626',
+                                    borderRadius: 4
+                                },
+                                {
+                                    label: 'Competitor B (Innovator)',
+                                    data: [7, 4, 9, 8],
+                                    backgroundColor: '#2563eb',
+                                    borderRadius: 4
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    max: 10,
+                                    title: {
+                                        display: true,
+                                        text: 'Score (1-10)'
+                                    }
+                                },
+                                x: {
+                                    ticks: {
+                                        callback: function (value) {
+                                            return wrapLabel(this.getLabelForValue(value));
+                                        }
+                                    }
+                                }
+                            },
+                            plugins: {
+                                legend: { position: 'bottom' },
+                                tooltip: { mode: 'index', intersect: false }
+                            }
+                        }
+                    });
+                }
+
+                const marketGrowthCtx = document.getElementById('marketGrowthChart');
+                if (marketGrowthCtx) {
+                    new Chart(marketGrowthCtx, {
+                        type: 'line',
+                        data: {
+                            labels: ['2021', '2022', '2023', '2024', '2025 (Est.)', '2026 (Est.)'],
+                            datasets: [
+                                {
+                                    label: 'Total Market (INR Cr)',
+                                    data: [100, 104, 109, 114, 119, 124],
+                                    borderColor: '#2563eb',
+                                    backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                                    fill: true,
+                                    tension: 0.3
+                                },
+                                {
+                                    label: 'Specialty Feeds (INR Cr)',
+                                    data: [15, 17, 20, 24, 28, 33],
+                                    borderColor: '#16a34a',
+                                    backgroundColor: 'rgba(22, 163, 74, 0.1)',
+                                    fill: true,
+                                    tension: 0.3
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    title: {
+                                        display: true,
+                                        text: 'Market Size (INR Cr)'
+                                    }
+                                }
+                            },
+                            plugins: {
+                                legend: { position: 'bottom' },
+                                tooltip: { mode: 'index', intersect: false }
+                            }
+                        }
+                    });
+                }
+            }
+
+            function initBrandCharts() {
+                const webAuditCtx = document.getElementById('webAuditChart');
+                if (webAuditCtx) {
+                    new Chart(webAuditCtx, {
+                        type: 'radar',
+                        data: {
+                            labels: ['UI/UX', 'Content Quality', 'SEO', 'Performance', 'Interactivity'],
+                            datasets: [{
+                                label: 'sowmyafeeds.com Audit',
+                                data: [4, 8, 6, 7, 2],
+                                backgroundColor: 'rgba(217, 119, 6, 0.2)',
+                                borderColor: '#d97706',
+                                pointBackgroundColor: '#d97706',
+                                pointBorderColor: '#fff',
+                                pointHoverBackgroundColor: '#fff',
+                                pointHoverBorderColor: '#d97706'
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                r: {
+                                    beginAtZero: true,
+                                    max: 10,
+                                    pointLabels: { font: { size: 13 } }
+                                }
+                            },
+                            plugins: {
+                                legend: { display: false }
+                            }
+                        }
+                    });
+                }
+            }
+
+            function initConsumerCharts() {
+                const sentimentCtx = document.getElementById('sentimentChart');
+                if (sentimentCtx) {
+                    new Chart(sentimentCtx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Sowmya Feeds', 'Competitor A', 'Competitor B'],
+                            datasets: [
+                                {
+                                    label: 'Positive',
+                                    data: [40, 20, 50],
+                                    backgroundColor: '#16a34a'
+                                },
+                                {
+                                    label: 'Neutral',
+                                    data: [50, 30, 20],
+                                    backgroundColor: '#d1d5db'
+                                },
+                                {
+                                    label: 'Negative',
+                                    data: [10, 50, 30],
+                                    backgroundColor: '#dc2626'
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            indexAxis: 'y',
+                            scales: {
+                                x: {
+                                    stacked: true,
+                                    title: {
+                                        display: true,
+                                        text: 'Sentiment (%)'
+                                    },
+                                    ticks: {
+                                        callback: (value) => value + '%'
+                                    }
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            },
+                            plugins: {
+                                legend: { position: 'bottom' },
+                                tooltip: {
+                                    callbacks: {
+                                        label: (context) => `${context.dataset.label}: ${context.raw}%`
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+
+            function initApp() {
+                const hash = window.location.hash.substring(1);
+                const validSections = [
+                    'dashboard',
+                    'market',
+                    'brand',
+                    'consumer',
+                    'strategy',
+                    'strategy-mapping'
+                ];
+                if (hash && validSections.includes(hash)) {
+                    showSection(hash);
+                } else {
+                    showSection('dashboard');
+                }
+            }
+
+            initApp();
+        });
+
+        // Strategy Mapping slide switcher (from second HTML)
+        function showSlide(slideId) {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            const target = document.getElementById(slideId);
+            if (target) {
+                target.classList.add('active');
+            }
+        }
+    </script>
+
+
+
+<!-- MOBILE MENU TOGGLE SCRIPT -->
+<script>
+    const toggleBtn = document.getElementById("mobile-menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    toggleBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+    });
+</script>
+
+
+
+</body>
+</html>
