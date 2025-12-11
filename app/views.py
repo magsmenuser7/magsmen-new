@@ -411,12 +411,13 @@ def sowmya_feeds(request):
 
 
 def magsmen_brand_portfolio(request):
-    pdf_filename = 'magsmen-brand-consultants-presentation.pdf'
+    pdf_filename = 'Final-Brand-presentation-for-printing-1.pdf'
     pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename)
     
     response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
     response['Content-Disposition'] = f'inline; filename="{pdf_filename}"'
     return response
+
 
 
 def Newsletter(request):
