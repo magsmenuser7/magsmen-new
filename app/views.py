@@ -418,6 +418,15 @@ def magsmen_brand_portfolio(request):
     response['Content-Disposition'] = f'inline; filename="{pdf_filename}"'
     return response
 
+def client_version_garthapuri(request):
+    pdf_filename = 'client-version-Garthapuri.pdf'
+    pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename)
+    
+    response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
+    response['Content-Disposition'] = f'inline; filename="{pdf_filename}"'
+    return response
+
+
 
 
 def Newsletter(request):
