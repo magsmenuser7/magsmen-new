@@ -403,6 +403,9 @@ def delhiworldschool_brandanddigitalaudit(request):
 def sowmya_feeds(request):
     return render(request, 'uifiles/sowmyafeeds.html')
 
+def infinite_andhra_strategic_tourismb_lueprint(request):
+    return render(request, 'uifiles/infiniteandhrastrategictourismblueprint.html')
+
 
 
 
