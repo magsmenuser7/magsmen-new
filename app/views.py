@@ -406,6 +406,9 @@ def sowmya_feeds(request):
 def infinite_andhra_strategic_tourismb_lueprint(request):
     return render(request, 'uifiles/infiniteandhrastrategictourismblueprint.html')
 
+def andhra_pradesh_aviation_network(request):
+    return render(request, 'uifiles/andhrapradeshaviationnetwork.html')
+
 
 
 

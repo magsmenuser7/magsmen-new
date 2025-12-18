@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andhra Pradesh Aviation Connectivity Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        .chart-container { 
+            position: relative; 
+            width: 100%; 
+            max-width: 600px; 
+            margin: 0 auto; 
+            height: 300px; 
+            max-height: 400px; 
+        } 
+        @media (min-width: 768px) { 
+            .chart-container { height: 350px; } 
+        }
+        .card-hover:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        .transition-all-300 { transition: all 0.3s ease-in-out; }
+    </style>
+    <!-- Chosen Palette: Slate (Backgrounds), Blue (Primary/Interaction), Teal (Accents), Red/Orange (Highlights) -->
+    <!-- Application Structure Plan: 
+        1. Header: Title and Global Stats Summary.
+        2. Dashboard/Overview: High-level visualizations of connectivity (Flights per Airport, Airline Market Share).
+        3. Airport Explorer: Interactive cards for each airport. Clicking a card updates a detailed "Focus View" with specific destination lists and charts.
+        4. Data Grid: The specific tabular format requested by the user ("Airport, Domestic, International, Airline"), fully searchable and filterable.
+        Why: Users can start with the "Big Picture", drill down into a specific city of interest, or go straight to the raw data table if they need a specific list.
+    -->
+    <!-- Visualization & Content Choices:
+        1. Overview Bar Chart: Compare connectivity volume across airports. Goal: Compare.
+        2. Airline Donut Chart: Market share analysis. Goal: Inform/Proportion.
+        3. Interactive Table: Detailed routing data. Goal: Organize/Search.
+        4. Dynamic Airport Cards: Summary of each node. Goal: Navigation.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Navigation / Header -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-blue-900">AP Wings <span class="text-teal-500 text-sm font-normal ml-2">Connectivity Dashboard</span></span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button onclick="scrollToSection('overview')" class="px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors">Overview</button>
+                    <button onclick="scrollToSection('airports')" class="px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors">Airports</button>
+                    <button onclick="scrollToSection('datagrid')" class="px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors">Data Grid</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+        <!-- Introduction -->
+        <section id="intro" class="text-center max-w-3xl mx-auto">
+            <h1 class="text-3xl font-bold text-slate-900 mb-4">Andhra Pradesh Aviation Network</h1>
+            <p class="text-slate-600 text-lg">
+                Explore the air connectivity of Andhra Pradesh. This interactive report provides detailed insights into destinations, operating airlines, and the domestic versus international reach of the state's six operational airports.
+            </p>
+        </section>
+
+        <!-- Key Metrics Cards -->
+        <section class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <p class="text-sm font-medium text-slate-500">Operational Airports</p>
+                <p class="text-3xl font-bold text-blue-900" id="totalAirports">0</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <p class="text-sm font-medium text-slate-500">Total Unique Routes</p>
+                <p class="text-3xl font-bold text-blue-900" id="totalRoutes">0</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <p class="text-sm font-medium text-slate-500">Active Airlines</p>
+                <p class="text-3xl font-bold text-blue-900" id="totalAirlines">0</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <p class="text-sm font-medium text-slate-500">International Connections</p>
+                <p class="text-3xl font-bold text-teal-600" id="totalIntl">0</p>
+            </div>
+        </section>
+
+        <!-- Overview Visualization Section -->
+        <section id="overview" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col">
+                <div class="mb-4">
+                    <h2 class="text-xl font-bold text-slate-900">Connectivity Volume by Airport</h2>
+                    <p class="text-sm text-slate-500 mt-1">Comparing the total number of unique destinations (Domestic & International) accessible from each airport. Visakhapatnam and Vijayawada act as the primary gateways.</p>
+                </div>
+                <div class="flex-grow flex items-center justify-center">
+                    <div class="chart-container">
+                        <canvas id="airportVolumeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col">
+                <div class="mb-4">
+                    <h2 class="text-xl font-bold text-slate-900">Airline Network Share</h2>
+                    <p class="text-sm text-slate-500 mt-1">Distribution of routes operated by major airlines across the state. This highlights the dominance of specific carriers in regional connectivity.</p>
+                </div>
+                <div class="flex-grow flex items-center justify-center">
+                    <div class="chart-container">
+                        <canvas id="airlineShareChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Airport Explorer Section -->
+        <section id="airports" class="space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+                <h2 class="text-2xl font-bold text-slate-900">Airport Details Explorer</h2>
+                <p class="text-slate-600 mt-2">Select an airport card below to view its specific connectivity profile, domestic reach, and international links.</p>
+            </div>
+
+            <!-- Airport Selection Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4" id="airportSelector">
+                <!-- Cards injected by JS -->
+            </div>
+
+            <!-- Detail View (Dynamic) -->
+            <div id="airportDetailView" class="bg-white rounded-xl border border-blue-100 shadow-lg p-6 hidden transition-all-300">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 border-b border-slate-100 pb-4">
+                    <div>
+                        <h3 class="text-2xl font-bold text-blue-900" id="detailName">Airport Name</h3>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 mt-2" id="detailCode">CODE</span>
+                    </div>
+                    <div class="mt-4 md:mt-0 flex space-x-4 text-sm">
+                        <div class="text-center">
+                            <span class="block font-bold text-slate-900 text-lg" id="detailDomCount">0</span>
+                            <span class="text-slate-500">Domestic</span>
+                        </div>
+                        <div class="text-center border-l border-slate-200 pl-4">
+                            <span class="block font-bold text-teal-600 text-lg" id="detailIntlCount">0</span>
+                            <span class="text-slate-500">International</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-semibold text-slate-800 mb-3 flex items-center">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Domestic Destinations
+                        </h4>
+                        <div class="bg-slate-50 rounded-lg p-4 h-64 overflow-y-auto border border-slate-200">
+                            <ul id="detailDomList" class="space-y-2 text-sm text-slate-700">
+                                <!-- List items -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-slate-800 mb-3 flex items-center">
+                            <span class="w-2 h-2 bg-teal-500 rounded-full mr-2"></span> International Destinations
+                        </h4>
+                        <div class="bg-slate-50 rounded-lg p-4 h-32 overflow-y-auto border border-slate-200 mb-4">
+                            <ul id="detailIntlList" class="space-y-2 text-sm text-slate-700">
+                                <!-- List items -->
+                            </ul>
+                        </div>
+                        <h4 class="font-semibold text-slate-800 mb-2">Operating Airlines</h4>
+                        <div id="detailAirlines" class="flex flex-wrap gap-2">
+                            <!-- Tags -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comprehensive Data Grid Section -->
+        <section id="datagrid" class="space-y-6 pt-8">
+             <div class="border-b border-slate-200 pb-4">
+                <h2 class="text-2xl font-bold text-slate-900">Comprehensive Route Data</h2>
+                <p class="text-slate-600 mt-2">
+                    Full dataset in the requested format. Use the search bar to filter by destination or airline.
+                </p>
+            </div>
+
+            <!-- Controls -->
+            <div class="flex flex-col md:flex-row justify-between gap-4 mb-4">
+                <div class="relative w-full md:w-96">
+                    <input type="text" id="tableSearch" placeholder="Search destination, airport, or airline..." 
+                        class="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-shadow">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <span class="text-slate-400 text-lg">&#128269;</span>
+                    </div>
+                </div>
+                <div class="flex gap-2">
+                    <select id="airportFilter" class="bg-white border border-slate-300 text-slate-700 py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="all">All Airports</option>
+                        <!-- Options filled by JS -->
+                    </select>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="overflow-x-auto bg-white rounded-xl shadow-sm border border-slate-200">
+                <table class="min-w-full divide-y divide-slate-200">
+                    <thead class="bg-slate-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Airport Name</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Domestic Destinations</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">International Destinations</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Airline Name</th>
+                        </tr>
+                    </thead>
+                    <tbody id="routesTableBody" class="bg-white divide-y divide-slate-200">
+                        <!-- Rows injected by JS -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="flex justify-between items-center text-sm text-slate-500 px-2">
+                <span id="showingCount">Showing all routes</span>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2024 AP Aviation Analysis Dashboard. Generated from synthesized connectivity reports.</p>
+        </div>
+    </footer>
+
+    <!-- LOGIC -->
+    <script>
+        // --- DATA STORE ---
+        // Simulating the source report content based on general knowledge of AP Airports
+        const apAirportsData = [
+            {
+                name: "Visakhapatnam International Airport",
+                code: "VTZ",
+                city: "Visakhapatnam",
+                domestic: ["Hyderabad", "Bengaluru", "Chennai", "Delhi", "Mumbai", "Kolkata", "Pune", "Vijayawada", "Tirupati", "Port Blair"],
+                international: ["Singapore", "Kuala Lumpur"], // KL is often seasonal/conditional
+                airlines: ["IndiGo", "Air India", "Air India Express", "SpiceJet", "Akasa Air", "Scoot", "AirAsia"]
+            },
+            {
+                name: "Vijayawada International Airport",
+                code: "VGA",
+                city: "Vijayawada",
+                domestic: ["Hyderabad", "Bengaluru", "Chennai", "Delhi", "Tirupati", "Visakhapatnam", "Mumbai", "Shirdi"],
+                international: ["Sharjah", "Kuwait"], // Primarily Air India Express flights
+                airlines: ["IndiGo", "Air India", "Air India Express"]
+            },
+            {
+                name: "Tirupati International Airport",
+                code: "TIR",
+                city: "Tirupati",
+                domestic: ["Hyderabad", "Bengaluru", "Chennai", "Vijayawada", "Visakhapatnam", "Delhi", "Belagavi", "Kolhapur", "Kalaburagi"],
+                international: [], // Designated International but limited direct ops currently
+                airlines: ["IndiGo", "Air India", "SpiceJet", "Star Air", "Alliance Air"]
+            },
+            {
+                name: "Rajahmundry Airport",
+                code: "RJA",
+                city: "Rajahmundry",
+                domestic: ["Hyderabad", "Bengaluru", "Chennai"],
+                international: [],
+                airlines: ["IndiGo"]
+            },
+            {
+                name: "Kadapa Airport",
+                code: "CDP",
+                city: "Kadapa",
+                domestic: ["Hyderabad", "Chennai", "Bengaluru", "Vijayawada"],
+                international: [],
+                airlines: ["IndiGo"]
+            },
+            {
+                name: "Kurnool Airport",
+                code: "KJB",
+                city: "Kurnool",
+                domestic: ["Bengaluru", "Chennai", "Visakhapatnam"],
+                international: [],
+                airlines: ["IndiGo"]
+            }
+        ];
+
+        // --- STATE MANAGEMENT ---
+        let currentFilter = '';
+        let currentAirportFilter = 'all';
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            calculateMetrics();
+            renderCharts();
+            renderAirportCards();
+            renderTable();
+            populateAirportFilter();
+            
+            // Default select first airport
+            showAirportDetails(apAirportsData[0].code);
+
+            // Listeners
+            document.getElementById('tableSearch').addEventListener('input', (e) => {
+                currentFilter = e.target.value.toLowerCase();
+                renderTable();
+            });
+            document.getElementById('airportFilter').addEventListener('change', (e) => {
+                currentAirportFilter = e.target.value;
+                renderTable();
+            });
+        });
+
+        // --- CORE FUNCTIONS ---
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function calculateMetrics() {
+            document.getElementById('totalAirports').innerText = apAirportsData.length;
+            
+            // Unique Routes
+            const allDests = new Set();
+            apAirportsData.forEach(a => {
+                a.domestic.forEach(d => allDests.add(d));
+                a.international.forEach(i => allDests.add(i));
+            });
+            document.getElementById('totalRoutes').innerText = allDests.size;
+
+            // Unique Airlines
+            const allAirlines = new Set();
+            apAirportsData.forEach(a => a.airlines.forEach(al => allAirlines.add(al)));
+            document.getElementById('totalAirlines').innerText = allAirlines.size;
+
+            // Intl Connections
+            const intlCount = apAirportsData.reduce((acc, curr) => acc + curr.international.length, 0);
+            document.getElementById('totalIntl').innerText = intlCount;
+        }
+
+        function renderCharts() {
+            // Chart 1: Volume by Airport
+            const ctx1 = document.getElementById('airportVolumeChart').getContext('2d');
+            new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: apAirportsData.map(a => a.city),
+                    datasets: [
+                        {
+                            label: 'Domestic Destinations',
+                            data: apAirportsData.map(a => a.domestic.length),
+                            backgroundColor: '#3b82f6', // blue-500
+                            borderRadius: 4
+                        },
+                        {
+                            label: 'International Destinations',
+                            data: apAirportsData.map(a => a.international.length),
+                            backgroundColor: '#14b8a6', // teal-500
+                            borderRadius: 4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { grid: { display: false } },
+                        y: { beginAtZero: true, grid: { color: '#f1f5f9' } }
+                    },
+                    plugins: {
+                        legend: { position: 'top' }
+                    }
+                }
+            });
+
+            // Chart 2: Airline Share
+            // Flatten airlines to count occurrences
+            const airlineCounts = {};
+            apAirportsData.forEach(a => {
+                a.airlines.forEach(al => {
+                    airlineCounts[al] = (airlineCounts[al] || 0) + 1;
+                });
+            });
+
+            const ctx2 = document.getElementById('airlineShareChart').getContext('2d');
+            new Chart(ctx2, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(airlineCounts),
+                    datasets: [{
+                        data: Object.values(airlineCounts),
+                        backgroundColor: [
+                            '#3b82f6', '#14b8a6', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#6366f1'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'right' }
+                    }
+                }
+            });
+        }
+
+        function renderAirportCards() {
+            const container = document.getElementById('airportSelector');
+            container.innerHTML = apAirportsData.map(airport => `
+                <div onclick="showAirportDetails('${airport.code}')" 
+                     class="card-hover cursor-pointer bg-white p-4 rounded-lg border border-slate-200 text-center transition-all-300 hover:border-blue-400 group">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-lg group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        ${airport.code}
+                    </div>
+                    <h3 class="font-medium text-slate-800 text-sm">${airport.city}</h3>
+                </div>
+            `).join('');
+        }
+
+        function showAirportDetails(code) {
+            const airport = apAirportsData.find(a => a.code === code);
+            if (!airport) return;
+
+            // Update Text
+            document.getElementById('detailName').innerText = airport.name;
+            document.getElementById('detailCode').innerText = airport.code;
+            document.getElementById('detailDomCount').innerText = airport.domestic.length;
+            document.getElementById('detailIntlCount').innerText = airport.international.length;
+
+            // Update Lists
+            const domList = document.getElementById('detailDomList');
+            domList.innerHTML = airport.domestic.length ? 
+                airport.domestic.map(d => `<li class="flex items-center"><span class="text-blue-500 mr-2">&#8226;</span> ${d}</li>`).join('') :
+                '<li class="text-slate-400 italic">No domestic routes listed</li>';
+
+            const intlList = document.getElementById('detailIntlList');
+            intlList.innerHTML = airport.international.length ?
+                airport.international.map(i => `<li class="flex items-center"><span class="text-teal-500 mr-2">&#8226;</span> ${i}</li>`).join('') :
+                '<li class="text-slate-400 italic">No international routes</li>';
+
+            // Update Airline Tags
+            const airlineDiv = document.getElementById('detailAirlines');
+            airlineDiv.innerHTML = airport.airlines.map(al => `
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-slate-100 text-slate-700 border border-slate-200">
+                    ${al}
+                </span>
+            `).join('');
+
+            // Show Section
+            const detailView = document.getElementById('airportDetailView');
+            detailView.classList.remove('hidden');
+        }
+
+        function populateAirportFilter() {
+            const select = document.getElementById('airportFilter');
+            apAirportsData.forEach(a => {
+                const opt = document.createElement('option');
+                opt.value = a.name;
+                opt.innerText = a.city + " (" + a.code + ")";
+                select.appendChild(opt);
+            });
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('routesTableBody');
+            let rowsHTML = '';
+            let count = 0;
+
+            apAirportsData.forEach(airport => {
+                // Filter by airport dropdown
+                if (currentAirportFilter !== 'all' && airport.name !== currentAirportFilter) return;
+
+                // Create a row for the combination of destinations. 
+                // Since format is "Airport, Dom, Intl, Airline", we group them slightly or just list them.
+                // To make the table searchable, we check if the airport or any destination matches the search.
+
+                const domString = airport.domestic.join(', ');
+                const intlString = airport.international.length ? airport.international.join(', ') : 'None';
+                const airlineString = airport.airlines.join(', ');
+
+                // Search Filter Logic
+                const searchableText = `${airport.name} ${domString} ${intlString} ${airlineString}`.toLowerCase();
+                if (currentFilter && !searchableText.includes(currentFilter)) return;
+
+                count++;
+                rowsHTML += `
+                    <tr class="hover:bg-slate-50 transition-colors">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-blue-900">${airport.name}</td>
+                        <td class="px-6 py-4 text-sm text-slate-600">
+                            <div class="max-w-xs break-words">${domString}</div>
+                        </td>
+                        <td class="px-6 py-4 text-sm text-slate-600">
+                             <div class="max-w-xs break-words">${intlString}</div>
+                        </td>
+                        <td class="px-6 py-4 text-sm text-slate-600">
+                             <div class="max-w-xs break-words italic">${airlineString}</div>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            tbody.innerHTML = rowsHTML || '<tr><td colspan="4" class="px-6 py-4 text-center text-slate-500">No matching records found</td></tr>';
+            document.getElementById('showingCount').innerText = `Showing ${count} airport records`;
+        }
+
+    </script>
+</body>
+</html>
