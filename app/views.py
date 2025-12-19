@@ -616,6 +616,14 @@ def brand_detox(request):
     response['Content-Disposition'] = f'inline; filename="{pdf_filename_sixteen}"'
     return response
 
+def mibbs_brand_corner(request):
+    pdf_filename_seventeen = 'mibbs-brand-corner.pdf'
+    pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename_seventeen)
+    
+    response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
+    response['Content-Disposition'] = f'inline; filename="{pdf_filename_seventeen}"'
+    return response
+
 
 
 

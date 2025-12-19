@@ -80,6 +80,7 @@ urlpatterns = [
     path('festive-commerce-why-navratri-is-the-new-brand-battleground/', festive_commerce_why_navratri_is_the_new_brand_battleground, name='festive-commerce-why-navratri-is-the-new-brand-battleground'),
     path('the-bottled-water-is-not-just-hydrating-it-is-transforming/', the_bottled_water_is_not_just_hydrating_it_is_transforming, name='the-bottled-water-is-not-just-hydrating-it-is-transforming'),
     path('brand-corner-brand-detox/',brand_detox, name='brand-corner-brand-detox'),
+    path('mibbs-brand-corner/',mibbs_brand_corner, name='mibbs-brand-corner'),
     path('brandauditsystem/', brandauditsystem, name='brandauditsystem'),
     path('one-time-consulting/', otc_purple, name='one-time-consulting'),
     path('tdh-protein-market-opportunity/', tdhproteindashboard, name='tdh-protein-market-opportunity'),
