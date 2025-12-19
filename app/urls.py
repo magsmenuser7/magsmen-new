@@ -6,7 +6,7 @@ Monochromatic_colors_in_branding,band_corner_the_new_age_of_buying_brand_activis
 a_cutting_edge_approach_in_branding_compressed,quiet_branding_silence_that_speaks_volumes,the_raise_ofreferral_marketing_growth_strategy_or_grey_zone,brandauditsystem,otc_purple,glocalization_where_global_meets_local,\
 festive_commerce_why_navratri_is_the_new_brand_battleground,the_bottled_water_is_not_just_hydrating_it_is_transforming,submit_strategy,tdhproteindashboard,delhiworldschoolbrandhealthinfographic,brandaudit,\
 brandaudit_sreenidhiglobalschoolaudit,delhiworldschool_brandanddigitalaudit,tdh_product_communication_Analysis,tdh_group_strategic_dashboard,tdh_x_pure_o_natural,brand_detox,sowmya_feeds,client_version_garthapuri,\
-infinite_andhra_strategic_tourismb_lueprint,andhra_pradesh_aviation_network
+infinite_andhra_strategic_tourismb_lueprint,andhra_pradesh_aviation_network,wealth_management_landscape
 
 from .views import *
 
@@ -93,7 +93,9 @@ urlpatterns = [
     path('sowmya-feeds/', sowmya_feeds, name='sowmya-feeds'),
     path('garthapuri/', client_version_garthapuri, name='garthapuri'),
     path('infinite-andhra-strategic-tourism-blueprint/', infinite_andhra_strategic_tourismb_lueprint, name='infinite-andhra-strategic-tourism-blueprint'),
-    path('andhra-pradesh-aviation-network/', andhra_pradesh_aviation_network, name='andhra-pradesh-aviation-network'),
+    path('andhra-pradesh-aviation-network/',andhra_pradesh_aviation_network, name='andhra-pradesh-aviation-network'),
+    path('wealth-management-landscape/',wealth_management_landscape, name='wealth-management-landscape'),
+
 
 
 

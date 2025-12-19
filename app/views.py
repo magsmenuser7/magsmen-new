@@ -409,6 +409,9 @@ def infinite_andhra_strategic_tourismb_lueprint(request):
 def andhra_pradesh_aviation_network(request):
     return render(request, 'uifiles/andhrapradeshaviationnetwork.html')
 
+def wealth_management_landscape(request):
+    return render(request, 'uifiles/wealthmanagementlandscape.html')
+
 
 
 
