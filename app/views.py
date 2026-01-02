@@ -412,7 +412,11 @@ def andhra_pradesh_aviation_network(request):
 def wealth_management_landscape(request):
     return render(request, 'uifiles/wealthmanagementlandscape.html')
 
+def brandauditsystem(request):
+    return render(request, 'uifiles/brandauditsystem.html')
 
+def tdh_content_calendar_jan_2026(request):
+    return render(request, 'uifiles/tdhcontentcalendarjan2026.html')
 
 
 
@@ -434,8 +438,6 @@ def client_version_garthapuri(request):
     response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
     response['Content-Disposition'] = f'inline; filename="{pdf_filename}"'
     return response
-
-
 
 
 def Newsletter(request):
@@ -624,10 +626,6 @@ def mibbs_brand_corner(request):
     response['Content-Disposition'] = f'inline; filename="{pdf_filename_seventeen}"'
     return response
 
-
-
-
-
 def otc_purple(request):
     pdf_filename_thirteen = 'otc-purple.pdf'
     pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename_thirteen)
@@ -636,6 +634,3 @@ def otc_purple(request):
     response['Content-Disposition'] = f'inline; filename="{pdf_filename_thirteen}"'
     return response
 
-
-def brandauditsystem(request):
-    return render(request, 'uifiles/brandauditsystem.html')
