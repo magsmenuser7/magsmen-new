@@ -610,6 +610,15 @@ def the_bottled_water_is_not_just_hydrating_it_is_transforming(request):
     response['Content-Disposition'] = f'inline; filename="{pdf_filename_fifteen}"'
     return response
 
+
+def india_is_gold_obsession_is_splitting_into_two(request):
+    pdf_filename_eighteen = 'india-is-gold-obsession-is-splitting-into-two.pdf'
+    pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename_eighteen)
+    
+    response = FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
+    response['Content-Disposition'] = f'inline; filename="{pdf_filename_eighteen}"'
+    return response
+
 def brand_detox(request):
     pdf_filename_sixteen = 'brand-detox.pdf'
     pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename_sixteen)
